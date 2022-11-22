@@ -1,5 +1,5 @@
 # Jenkin installation on AWS instance Ubuntu
-
+[http://35.77.106.242:8080/](http://35.77.106.242:8080/)
 >steps:
 >>* Create Ubuntu instance.  
 >>* Remember to put Security groups. ***ssh, http, https, custom->8080***  
@@ -28,3 +28,22 @@ $ sudo apt-get install jenkins
 ```
 
 [If not working try to enable tcp port](https://www.digitalocean.com/community/tutorials/how-to-install-jenkins-on-ubuntu-20-04)
+
+### uncover Topics  
+- 1. AWS Global Infrastructure
+- 2. Identity and Access Management
+- 3. AWS Compute
+- 4. AWS Storage
+- 5. AWS Networking
+- 6. AWS Databases
+- 7. Elastic Load Balancing and Amazon EC2
+- 8. Auto Scaling
+- 9. Content Delivery and DNS Services
+- 10. Monitoring and Logging Services
+- 11. Notification Services
+- 12. AWS Billing and Pricing
+- 13. AWS Security
+- 14. AWS Shared Responsibility Model
+- 15. Architecting for the Cloud
+- 16. Additional AWS Services & Tools
+- 17. AWS Analytics
