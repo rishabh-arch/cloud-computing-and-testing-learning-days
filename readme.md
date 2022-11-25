@@ -29,6 +29,11 @@ $ sudo apt-get install jenkins
 
 [If not working try to enable tcp port](https://www.digitalocean.com/community/tutorials/how-to-install-jenkins-on-ubuntu-20-04)
 
+
+# VPC-endpoint-for-S3
+ If the aws s3 ls & aws s3 mb command is not working than specify your region in the command from which you are making the request i.e aws s3 ls --region US-East-2(Specify your region in which you have created the private subnet instance, In my case it was US-East-2), aws s3 mb s3://(bucket name) --region (Region name) than press enter and your bucket will get created
+
+
 ### uncover Topics  
 - 1. AWS Global Infrastructure
 - 2. Identity and Access Management
