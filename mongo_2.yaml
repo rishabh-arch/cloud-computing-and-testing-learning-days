@@ -1,0 +1,7 @@
+version: '3'
+services:
+  my-app:
+    image: 598125633544.dkr.ecr.ap-northeast-1.amazonaws.com/my-app:latest
+    ports:
+      - 3000:3000
+      # - ME_CONFIG_MONGODB_URL=mongodb://admin:password@mongodb:27017/

@@ -47,7 +47,7 @@ docker network create mongo-network
 
 ## Error I got while create creating docker-compose file
 
-```dockerfile
+```yaml
 version: '3'
 services:
 mongodb:
@@ -68,3 +68,9 @@ mongo-express:
     # - ME_CONFIG_MONGODB_URL=mongodb://admin:password@mongodb:27017/
     - ME_CONFIG_MONGODB_SERVER=mongodb
 ```
+## Now I am gonna create My own IMAGE
+
+We need AWS ECR to store our image
+create a repository in ECR 
+follow the steps to push the image to ECR - https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html
+
