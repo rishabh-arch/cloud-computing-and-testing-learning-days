@@ -28,3 +28,14 @@ $ sudo apt-get install jenkins
 ```
 
 [If not working try to enable tcp port](https://www.digitalocean.com/community/tutorials/how-to-install-jenkins-on-ubuntu-20-04)
+
+### when you done to install jenkins
+-  configuration for build steps
+```bash
+echo "Building a container"
+sudo apt update
+sudo apt install docker.io -y
+sudo docker build -t myimage .
+sudo docker rm -f mycontainer
+sudo docker run -it -d --name mycontainer -p 80:80 myimage
+```
