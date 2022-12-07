@@ -146,4 +146,9 @@ git clone --single-branch --branch First-docker-container https://github.com/ris
 ```bash
 docker-compose up
 ```
+
+- open the browser and go to
+
+[localhost:3000](http://localhost:3000/)
+
 # HAVE FUN
