@@ -1,0 +1,62 @@
+{
+  "name": "frontend",
+  "version": "1.1.0",
+  "private": true,
+  "homepage": "./",
+  "proxy":"http://host.docker.internal:5000/",
+  "dependencies": {
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "@popperjs/core": "^2.9.2",
+    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/react": "^11.2.6",
+    "@testing-library/user-event": "^12.8.3",
+    "axios": "^0.21.1",
+    "bootstrap": "^4.6.0",
+    "datatables.net-dt": "^1.10.24",
+    "jquery": "^3.6.0",
+    "popper.js": "^1.16.1",
+    "postscribe": "^2.0.8",
+    "react": "^17.0.2",
+    "react-bootstrap": "^1.5.2",
+    "react-confirm-alert": "^2.7.0",
+    "react-data-components": "^1.2.0",
+    "react-dom": "^17.0.2",
+    "react-fontawesome": "^1.7.1",
+    "react-ga": "^3.3.0",
+    "react-helmet": "^6.1.0",
+    "react-image-zoom": "^1.3.1",
+    "react-medium-image-zoom": "^3.1.3",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "react-toastify": "^7.0.4",
+    "web-vitals": "^1.1.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/bootstrap": "^5.0.12",
+    "react-script-tag": "^1.1.2"
+  }
+}

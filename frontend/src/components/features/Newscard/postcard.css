@@ -1,0 +1,68 @@
+
+.share-input:focus {
+    outline: 0 !important;
+    box-shadow: none
+}
+
+.share-input {
+    outline: 0 !important;
+    box-shadow: none
+}
+
+.publish {
+    border-radius: 0px !important;
+    background: rgb(219, 219, 224);
+    color: rgb(9, 3, 29);
+    cursor: pointer
+}
+.postcard{
+    /* width: 50%; */
+
+}
+#canvas{
+    width: 79px;
+    height: 43px;
+    position: absolute;
+    opacity: 0.5;
+}
+.publish:hover {
+    border-radius: 0px !important;
+    background: rgb(0 123 255);
+    color: #fff;
+    cursor: pointer
+}
+
+.share i {
+    color: rgb(159, 159, 242) !important
+}
+
+.share {
+    margin: auto;
+    cursor: pointer
+}
+
+.ads-text {
+    font-size: 10px
+}
+
+.ads-content span {
+    font-size: 12px
+}
+
+.time {
+    font-size: 12px;
+    color: blue
+}
+
+.profile-content span {
+    font-size: 12px
+}
+
+.content-image img {
+    width: 100%;
+    height: auto
+}
+
+.ads-content img {
+    width: 100%
+}

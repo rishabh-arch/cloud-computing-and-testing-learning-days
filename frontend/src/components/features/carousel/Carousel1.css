@@ -1,0 +1,30 @@
+
+
+
+.about {
+    text-align: center;
+    color: gray;
+    padding: 40px
+}
+
+.title {
+    font-size: 22px;
+    color: #2c2c2c
+}
+
+.desc {
+    color: #909090;
+    font-weight: 300;
+    font-size: 1.1em;
+    line-height: 1.45em;
+    margin-bottom: 15px;
+    margin-top: 30px;
+    width: 70%;
+    margin: 0 auto
+}
+
+@media (max-width: 630px) {
+    .title {
+        font-size: 18px
+    }
+}

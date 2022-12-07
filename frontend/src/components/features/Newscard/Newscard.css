@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
+.bg-white-news{
+    border: 2px solid #97bff5;
+    box-shadow: 1px 1px 4px 0px rgb(80 80 80);
+}
+.news-card {
+    border-radius: 2px
+}
+
+.news-feed-image {
+    border-radius: 8px;
+    width: 100%
+}
+
+.date {
+    font-size: 12px
+}
+
+.username {
+    color: blue
+}
+
+.share {
+    color: blue
+}

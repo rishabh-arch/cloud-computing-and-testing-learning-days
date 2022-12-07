@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
+
+.card-info {
+    background-color: #222222;
+    border-radius: 10px;
+    font-family: 'Manrope', sans-serif
+}
+
+p {
+    color: #858585;
+    color: #b9b8b8;
+    font-size: 15px
+}
+
+.btn {
+    border-radius: 7px;
+    font-size: 0.78rem
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: none
+}
