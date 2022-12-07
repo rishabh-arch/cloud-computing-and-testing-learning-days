@@ -26,6 +26,16 @@ const url = "mongodb://mongo:27017/docker-db"; // after
   "proxy":"http://host.docker.internal:5000/", // after 
 ```
 
+## fourth error was: connecting to Nodejs to host error
+
+- I need to change my hostname `127.0.0.1 to 0.0.0.0` in backend/routes/User.js file
+
+```js
+app.listen(PORT, '0.0.0.0',() => {
+    console.log(`heyyyyy , connected to database, app listening on port ${PORT}`);
+});  
+```
+
 ## Dockerfile and .dockerignore files
 
 ### frontend
