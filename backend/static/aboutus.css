@@ -1,0 +1,17 @@
+.aboutcon{
+    display: flex;
+    flex-wrap: wrap;
+margin-top: 120px;
+border: 2px solid black;
+/* width: 1000px; */
+margin-left: 20px;
+flex: 25%;
+clear: both;
+max-width: 70%;
+}
+
+.bi-file-person-fill{
+
+    color: rgb(5, 161, 223);
+
+}

@@ -1,0 +1,256 @@
+extends base.pug
+
+block style
+    link(rel='stylesheet' href='fonts/material-icon/css/material-design-iconic-font.min.css')
+    link(rel='stylesheet' href='../static/Employee_styleForm.css')
+    link(rel='stylesheet' href='../static/underReview.css')
+    link(rel='stylesheet' href='../static/carSlides.css')
+    link(rel='stylesheet' href='../static/slidecheck.css')
+    link(rel='stylesheet' href='../static/clipPath.css')
+    link( rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css')
+    link(rel='stylesheet', type='text/css', href='https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css')
+    |  
+    link(rel='stylesheet', type='text/css', href='https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css')
+    |  
+
+block scripts
+
+block content
+    #indicators.margin-top.carousel.slide(data-ride='carousel')
+        //- ol.breadcrumb
+        //-     li
+        //-         a(href="#") Home/
+        //-         a(href="#") Home/
+        //-         a(href="#") Home/
+        //-         a(href="#") Home
+        ol.carousel-indicators(style="z-index:1;")
+            li.active(data-target='#indicators', data-slide-to='0')
+            |             
+            li(data-target='#indicators', data-slide-to='1')
+            |             
+            li(data-target='#indicators', data-slide-to='2')
+        |         
+        .carousel-inner(role='listbox')
+            // Slide One - Set the background image for this slide in the line below
+            .carousel-item.active(style="background-image: url('http://thewowstyle.com/wp-content/uploads/2015/01/nature-images-wallpaper.jpg')")
+                .carousel-caption2.d-none.d-md-block
+                    h3.display-4 Image one
+                    |                     
+                    p.lead Some description about the first slide
+            // Slide Two - Set the background image for this slide in the line below
+            .carousel-item(style="background-image: url('https://images.unsplash.com/photo-1460602594182-8568137446ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80')")
+                .carousel-caption2.d-none.d-md-block
+                    h3.display-4 Image two
+                    |                     
+                    p.lead Some description about the second slide
+            // Slide Three - Set the background image for this slide in the line below
+            .carousel-item(style="background-image: url('https://images.unsplash.com/photo-1465146633011-14f8e0781093?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')")
+                .carousel-caption2.d-none.d-md-block
+                    h3.display-4 Image three
+                    |                     
+                    p.lead Some description about the third slide
+        |  
+        a.carousel-control-prev(href='#indicators', role='button', data-slide='prev')
+            span.carousel-control-prev-icon(aria-hidden='true')
+            |  
+            span.sr-only Previous
+        |  
+        a.carousel-control-next(href='#indicators', role='button', data-slide='next')
+            span.carousel-control-next-icon(aria-hidden='true')
+            |  
+            span.sr-only Next
+    mixin list4 
+        .cardclip-con
+            mixin cardclip
+                .xxx.d-inline
+                    .card#cardclip
+                        img.clip-path(data-src="https://www.heart.org/-/media/images/news/2019/january-2019/0115hookah_sc.jpg")
+                              
+                        .content.text-center
+                            p
+                                | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+      
+                            a(href="/user/cart") GO
+            +cardclip
+            +cardclip
+            +cardclip
+            +cardclip
+
+    mixin list3
+        .items
+            mixin car(price)
+                div.thumb-product.text-center
+                    img(data-src='https://res.cloudinary.com/dxfq3iotg/image/upload/v1565190720/gallery/preview/02_o_car.jpg')
+                    span.thumb-price #{price} 
+                    span.card-title.pricing-card-title PUT DETAILS HERE
+            +car("₹654645")
+            +car("₹11111") 
+            +car("₹13435") 
+            +car("₹15651")
+            +car("₹15656")
+            +car("₹11111")
+    mixin list2
+        .container-fluid.px-1.py-5.mx-auto.row.justify-content-center
+            .col-lg-9.col-sm-11
+                .card.pl-4.pl-md-5.pr-3
+                    .row
+                        .left-side.col-md-5
+                            p.pt-5.mb-0 Complete your look with
+                            |                     
+                            h3.mb-0
+                                strong New Men&apos;s Accessories
+                            |  
+                            small Hats &amp; Caps, Sunglasses, Bags &amp; much more.
+                            br
+                            |  
+                            button.btn.btn-pink.mb-5 Shop Now
+                        |                 
+                        .right-side.col-md-7.row.justify-content-center
+                            .d-flex
+                                img.boy-img.fit-image(data-src='https://i.imgur.com/iDS7ryf.png')
+
+    mixin list(title)
+        .bbb_viewed
+            .container2
+                .row
+                    .col
+                        .bbb_main_container
+                            .bbb_viewed_title_container
+                                h3.bbb_viewed_title #{title}
+                                |                         
+                                .bbb_viewed_nav_container
+                                    .bbb_viewed_nav.bbb_viewed_prev
+                                        i.fa.fa-chevron-left
+                                    |                             
+                                    .bbb_viewed_nav.bbb_viewed_next
+                                        i.fa.fa-chevron-right
+                            |                     
+                            .bbb_viewed_slider_container
+                                .owl-carousel.owl-theme.bbb_viewed_slider
+                                    .owl-item
+                                        .bbb_viewed_item.discount.d-flex.flex-column.align-items-center.justify-content-center.text-center
+                                            .bbb_viewed_image
+                                                img(data-src='../static/hookah/images-1612506345984.jpg', alt='')
+                                            |                                     
+
+                                    .owl-item
+                                        .bbb_viewed_item.d-flex.flex-column.align-items-center.justify-content-center.text-center
+                                            .bbb_viewed_image
+                                                img(data-src='../static/hookah/images-1611907281564.jpg', alt='')
+
+                                    .owl-item
+                                        .bbb_viewed_item.d-flex.flex-column.align-items-center.justify-content-center.text-center
+                                            .bbb_viewed_image
+                                                img(data-src='../static/hookah/images-1612506346069.jpg', alt='')
+
+                                    .owl-item
+                                        .bbb_viewed_item.is_new.d-flex.flex-column.align-items-center.justify-content-center.text-center
+                                            .bbb_viewed_image
+                                                img(data-src='../static/hookah/images-1612506346085.jpg', alt='')
+                                    .owl-item
+                                        .bbb_viewed_item.discount.d-flex.flex-column.align-items-center.justify-content-center.text-center
+                                            .bbb_viewed_image
+                                                img(data-src='../static/hookah/images-1612696823327.jpg', alt='')
+
+                                    .owl-item
+                                        .bbb_viewed_item.d-flex.flex-column.align-items-center.justify-content-center.text-center
+                                            .bbb_viewed_image
+                                                img(data-src='../static/hookah/images-1612506345984.jpg', alt='')
+    .mt
+        +list3
+        +list3
+        +list('Top Selling This Week')
+        +list('Products of The Week')
+        +list('Top Rated')
+        +list4
+        +list4
+        +list2
+
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.js')
+    script(type='text/javascript', src='https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js')
+    script(type="text/javascript" src="../static/lazyload.js")
+
+
+    script.
+        $(document).ready(function()
+        {
+        $('.items').slick({
+        dots: true,
+        infinite: true,
+        speed: 800,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        responsive: [
+        {
+        breakpoint: 1024,
+        settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: true
+        }
+        },
+        {
+        breakpoint: 600,
+        settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+        }
+        },
+        {
+        breakpoint: 480,
+        settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+        }
+        }
+
+        ]
+        });
+
+        if($('.bbb_viewed_slider').length)
+        {
+        var viewedSlider = $('.bbb_viewed_slider');
+
+        viewedSlider.owlCarousel(
+        {
+        loop:true,
+        margin:30,
+        autoplay:true,
+        autoplayTimeout:6000,
+        nav:false,
+        dots:false,
+        responsive:
+        {
+        0:{items:1},
+        575:{items:2},
+        768:{items:3},
+        991:{items:4},
+        1199:{items:6}
+        }
+        });
+
+        if($('.bbb_viewed_prev').length)
+        {
+        var prev = $('.bbb_viewed_prev');
+        prev.on('click', function()
+        {
+        viewedSlider.trigger('prev.owl.carousel');
+        });
+        }
+
+        if($('.bbb_viewed_next').length)
+        {
+        var next = $('.bbb_viewed_next');
+        next.on('click', function()
+        {
+        viewedSlider.trigger('next.owl.carousel');
+        });
+        }
+        }
+
+
+        });

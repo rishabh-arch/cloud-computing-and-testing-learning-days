@@ -1,0 +1,53 @@
+extends Dashboard.pug
+
+block append style
+    link(rel='stylesheet' href='fonts/material-icon/css/material-design-iconic-font.min.css')
+    //- link(rel='stylesheet' href='css/Employee_styleForm.css')
+    link(rel='stylesheet' href='../../static/Employee_styleForm.css')
+
+block append scripts
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js")
+    script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js")
+    script(src="../../static/mask.js")
+    script(type="text/javascript").
+        function preventBack() { window.history.forward(); }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+    //- script(src="../../static/request/emplyeeformquery.js")
+block Dash
+    .editProfile
+        | Dhyan se bhario bhai
+        .wrapper
+            .title
+                | Register Your Shop
+            form(action="/Dashboard/Yourshop" method="post" enctype="multipart/form-data")
+                .form
+                    if(typeof err != 'undefined')
+                        .alert
+                            button.close(type='button' data-dismiss='alert') &times;
+                            strong #{err}
+                    .inputfield
+                        label Enter Shop Name
+                        input.input(type='text' name="Shop_name")
+                    .inputfield
+                        label Shop Address
+                        textarea.textarea(name="shop_address")
+                    .inputfield
+                        label Address Proof
+                        input.input(type='file' name="images")
+                    .inputfield
+                        label City
+                        input.input(type='text' name="shop_city")
+                        label(style="margin-left: 10px;") State
+                        input.input(type='text' name="shop_state")
+                    .inputfield
+                        label PinCode
+                        input#PIN.input(type='text' name="shop_pincode")
+                    .inputfield.terms
+                        label.check
+                            input(type='checkbox' name="agree" value="agreed")
+                            span.checkmark
+                        p Agreed to terms and conditions
+                    .inputfield
+                        input.btn(type='submit' value='Register')

@@ -1,0 +1,105 @@
+.container {
+  margin-top: 120px;
+}
+
+.account-settings .user-profile {
+  margin: 0 0 1rem 0;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+.account-settings .user-profile .user-avatar {
+  margin: 0 0 1rem 0;
+}
+
+.account-settings .user-profile .user-avatar img {
+  width: 90px;
+  height: 90px;
+  /* -webkit-border-radius: 100px; */
+  /* -moz-border-radius: 100px; */
+  /* border-radius: 100px; */
+}
+
+.account-settings .user-profile h5.user-name {
+  margin: 0 0 0.5rem 0;
+  color: #bcd0f7;
+
+}
+
+.account-settings .user-profile h6.user-email {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #bcd0f7;
+
+}
+
+.account-settings .about {
+  margin: 1rem 0 0 0;
+  font-size: 0.8rem;
+  text-align: center;
+  color: #bcd0f7;
+
+}
+
+.card {
+  background: #272E48;
+  /* -webkit-border-radius: 5px; */
+  /* -moz-border-radius: 5px; */
+  /* border-radius: 5px; */
+  border: 0;
+  margin-bottom: 1rem;
+  color: #bcd0f7;
+
+}
+
+.form-control {
+  border: 1px solid #596280;
+  /* -webkit-border-radius: 2px; */
+  /* -moz-border-radius: 2px; */
+  /* border-radius: 2px; */
+  font-size: .825rem;
+  background: #1A233A;
+  color: #bcd0f7;
+}
+
+.changeimg {
+  height: 30px;
+  /* top: 0; */
+  /* z-index: ; */
+  width: -webkit-fill-available;
+  background-color: rgba(0, 0, 0, 0.719);
+  /* border: 2px solid blue; */
+  text-align: right;
+  position: absolute;
+  bottom: -100px;
+  /* left: 70px; */
+  right: 0px;
+  /* top: ; */
+  transition: all 0.1s;
+
+}
+
+.user-avatar:hover .changeimg {
+  bottom: 0px;
+
+
+}
+
+.user-avatar {
+  position: relative;
+  overflow: hidden;
+}
+
+.bi-pen-fill {
+  height: 20px;
+  width: 20px;
+  /* border: 2px solid rgb(121, 185, 0); */
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.bi-pen-fill:hover {
+  color: #c20202;
+}

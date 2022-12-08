@@ -1,0 +1,98 @@
+extends userDashboard.pug
+
+block userDashboard
+    .container.d-flex.justify-content-center.mb-50
+        .row
+            .col-md-10
+                each n in user_Orders
+                    .card.card-body.mt-3
+                        .media.align-items-center.align-items-lg-start.text-center.text-lg-left.flex-column.flex-lg-row
+                            .mr-2.mb-3.mb-lg-0
+                                img(src=`../../static/hookah/thumbnail/thumbnail-${n.P_ID}_0.jpeg`, width='150', height='150', alt='')
+                            |                     
+                            .media-body
+                                h6.media-title.font-weight-semibold
+                                    a(href=`/p/${n.P_ID}?key=${n.Product.url_key}`, data-abc='true') Order-ID ##{n.OID}
+                                |                         
+                                ul.list-inline.list-inline-dotted.mb-3.mb-lg-2
+                                    li.list-inline-item
+                                        a.text-muted(href='#', data-abc='true') #{n.date_od}
+                                |                         
+                                p.mb-3
+                                    | 128 GB ROM | 15.49 cm (6.1 inch) Display 12MP Rear Camera | 7MP Front Camera A12 Bionic Chip Processor | Gorilla Glass with high quality display
+                                |                        
+                                .progressbar-track
+                                    ul.progressbar
+                                        li#step-1.text-muted.green
+                                            span.fa.fa-gift
+                                        li#step-2.text-muted
+                                            span.fa.fa-check
+                                        li#step-3.text-muted
+                                            span.fa.fa-envelope-open
+                                        li#step-4.text-muted
+                                            span.fa.fa-truck
+                                        li#step-5.text-muted
+                                            span.fa.fa-home
+                                    #tracker
+                                ul.list-inline.list-inline-dotted.mb-0
+                                    li.list-inline-item
+                                        | All items from 
+                                        a(href='#', data-abc='true') Mobile point
+                            .mt-3.mt-lg-0.ml-lg-3.text-center
+                                h3.mb-0.font-weight-semibold ₹#{n.price_quantity}
+                                |                         
+                                div._5AF
+                                    if(n.Product.Rating>=1 && n.Product.Rating<2)
+                                        i.fa.fa-star
+                                    else if(n.Product.Rating>=2 && n.Product.Rating<3)
+                                        i.fa.fa-star
+                                        i.fa.fa-star
+                                    else if(n.Product.Rating>=3 && n.Product.Rating<4)
+                                        i.fa.fa-star
+                                        i.fa.fa-star
+                                        i.fa.fa-star
+                                    else if(n.Product.Rating>=4 && n.Product.Rating<5)
+                                        i.fa.fa-star
+                                        i.fa.fa-star
+                                        i.fa.fa-star
+                                        i.fa.fa-star
+                                    else if(n.Product.Rating>=5 && n.Product.Rating<6)
+                                        i.fa.fa-star
+                                        i.fa.fa-star
+                                        i.fa.fa-star
+                                        i.fa.fa-star
+                                |                         
+                                .text-muted 1985 reviews
+                                |  
+                                button.btn.mt-4.text-white.bg-danger(type='button')
+                                    i.icon-cart-add.mr-2
+                                    |  Cancel Order
+            .pagination_rounded.mt-50
+                ul
+                    li
+                        a.prev(href=`/reg-dashboard/userOrders?page=${back}`)
+                            i.fa.fa-angle-left(aria-hidden='true')
+                            |  Prev
+                    |         
+                    li
+                        a(href=`/reg-dashboard/userOrders?page=1`) 1
+                    |         
+                    li.hidden-xs
+                        a(href=`/reg-dashboard/userOrders?page=2`) 2
+                    |         
+                    li.hidden-xs
+                        a(href=`/reg-dashboard/userOrders?page=3`) 3
+                    |         
+                    li.hidden-xs
+                        a(href=`/reg-dashboard/userOrders?page=4`) 4
+                    |         
+                    li.hidden-xs
+                        a(href=`/reg-dashboard/userOrders?page=5`) 5
+                    |            
+                    li
+                        a(href=`/reg-dashboard/userOrders?page=6`) 6
+                    |         
+                    li
+                        a.next(href=`/reg-dashboard/userOrders?page=${next}`)
+                            | Next 
+                            i.fa.fa-angle-right(aria-hidden='true')

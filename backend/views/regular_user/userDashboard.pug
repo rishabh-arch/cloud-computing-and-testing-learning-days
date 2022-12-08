@@ -1,0 +1,49 @@
+extends ../base.pug
+
+block append style
+    style
+        include ../../static/orders.css
+        include ../../static/assets/vendor/bootstrap/css/bootstrap.min.css
+
+block content
+    .container.mt-50
+        .row.d-flex
+            .col-md-9
+                .p-4.mt-3
+                    .row.mt-4.g-1.px-4.justify-content-around
+                        a#newset.text-secondary(href='/reg-dashboard/userAccount')
+                            .card-inner.p-3.d-flex.flex-column.align-items-center.h1( style=`color:${color_account};`)
+                                //- img(src='https://i.imgur.com/Mb8kaPV.png', width='50')
+                                i.fa.fa-user
+                                |                             
+                                .text-center.mg-text
+                                    span.mg-text Account
+                        |                     
+                        a#newset.text-secondary(href='/reg-dashboard/userOrders')
+                            .card-inner.p-3.d-flex.flex-column.align-items-center.h1(style=`color:${color_orders};`)
+                                //- img(src='https://i.imgur.com/tmqv0Eq.png', width='50')
+                                i.fa.fa-shopping-cart
+                                |                             
+                                .text-center.mg-text
+                                    span.mg-text Orders
+                        a#newset.text-secondary(href='/reg-dashboard/Reviews')
+                            .card-inner.p-3.d-flex.flex-column.align-items-center.h1(style=`color:${color_rev};`)
+                                //- img(src='https://i.imgur.com/ueLEPGq.png', width='50')
+                                i.fa.fa-star
+                                |                             
+                                .text-center.mg-text
+                                    span.mg-text Your Reviews
+                        a#newset.text-secondary(href='/reg-dashboard/ChangePassword')
+                            .card-inner.p-3.d-flex.flex-column.align-items-center.h1(style=`color:${color_pass};`)
+                                //- img(src='https://i.imgur.com/ueLEPGq.png', width='50')
+                                i.fa.fa-lock               
+                                .text-center.mg-text
+                                    span.mg-text change Password
+                        #newset.text-secondary
+                            .card-inner.p-3.d-flex.flex-column.align-items-center.h1(style=`color:${color_help};`)
+                                //- img(src='https://i.imgur.com/YLsQrn3.png', width='50')
+                                i.fa.fa-info
+                                |                             
+                                .text-center.mg-text
+                                    span.mg-text Help
+            block userDashboard

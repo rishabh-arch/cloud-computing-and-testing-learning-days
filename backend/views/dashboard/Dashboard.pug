@@ -1,0 +1,290 @@
+extends ../base.pug
+
+block style
+    style
+        include ../../static/assets/libs/css/style.css
+        
+block heads
+    link(href='../../static/assets/vendor/jquery/jquery-3.3.1.min.js')
+    link(href='../../static/assets/vendor/fonts/circular-std/style.css', rel='stylesheet')
+    |     
+    link(rel='stylesheet', href='../../static/assets/vendor/fonts/fontawesome/css/fontawesome-all.css')
+    |     
+    link(rel='stylesheet', href='../../static/assets/vendor/charts/chartist-bundle/chartist.css')
+    |     
+    link(rel='stylesheet', href='../../static/assets/vendor/charts/morris-bundle/morris.css')
+    link(rel="stylesheet", href="../../static/assets/vendor/select2/css/select2.css")
+    link(rel="stylesheet", href="../../static/assets/vendor/summernote/css/summernote-bs4.css")
+    |     
+    link(rel='stylesheet', href='../../static/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css')
+    |     
+    link(rel='stylesheet', href='../../static/assets/vendor/charts/c3charts/c3.css')
+    |     
+    link(rel='stylesheet', href='../../static/assets/vendor/fonts/flag-icon-css/flag-icon.min.css')
+    //- link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css')
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
+    link(rel='stylesheet', href='../../static/assets/vendor/summernote/css/summernote-bs4.css')
+   
+    |     
+//- block append scripts
+    //- script(src='../../static/assets/vendor/bootstrap/js/bootstrap.bundle.js')
+
+
+
+block content
+    
+    // ==============================================================
+    // main wrapper
+    // ==============================================================
+    .dashboard-main-wrapper
+        // ==============================================================
+        // navbar
+        // ==============================================================
+        // end navbar
+        // ==============================================================
+        // ==============================================================
+        // left sidebar
+        // ==============================================================
+        .nav-left-sidebar.sidebar-dark
+            .menu-list
+                nav.navbar.navbar-expand-lg.navbar-light
+                    a.d-xl-none.d-lg-none(href='/Dashboard') Dashboard
+                    |                     
+                    button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNav', aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
+                        span.navbar-toggler-icon
+                    |                     
+                    #navbarNav.collapse.navbar-collapse
+                        ul.navbar-nav.flex-column
+                            li.nav-divider
+                                | Menu
+                            |                             
+                            li.nav-item
+                                a.nav-link.active(href='/dashboard')
+                                    i.fa.fa-fw.fa-user-circle
+                                    | Dashboard 
+                            li.nav-item
+                                a.nav-link(href='#', data-toggle='collapse', aria-expanded='false', data-target='#submenu-2', aria-controls='submenu-2')
+                                    i.fa.fa-fw.fa-rocket
+                                    | Product
+                                |                                 
+                                #submenu-2.collapse.submenu(style='')
+                                    ul.nav.flex-column
+                                        li.nav-item
+                                            a.nav-link(href='/Dashboard/YourShop')
+                                                | Show All 
+                                                span.badge.badge-secondary New
+                                        |                                         
+                                        li.nav-item
+                                            a.nav-link(href='/dashboard/productUpload') Post New
+                            li.nav-item
+                                a.nav-link(href='#', data-toggle='collapse', aria-expanded='false', data-target='#submenu-3', aria-controls='submenu-3')
+                                    i.fas.fa-fw.fa-chart-pie
+                                    | Orders
+                                |                                 
+                                #submenu-3.collapse.submenu(style='')
+                                    ul.nav.flex-column
+                                        li.nav-item
+                                            a.nav-link(href='/Dashboard/OrderRequest?type=') Show all
+                                        |                                         
+                                        li.nav-item
+                                            a.nav-link(href='/Dashboard/OrderRequest?type=DONE') Delieverd
+                                        |                                         
+                                        li.nav-item
+                                            a.nav-link(href='/Dashboard/OrderRequest?type=Pending') Pending
+                                        |                                         
+                                        li.nav-item
+                                            a.nav-link(href='/Dashboard/OrderRequest?type=OnWay') OnWay
+                                        |                                         
+                                        li.nav-item
+                                            a.nav-link(href='/Dashboard/OrderRequest?type=cancel') Cancel
+                            li.nav-item
+                                a.nav-link(href='#', data-toggle='collapse', aria-expanded='false', data-target='#submenu-4', aria-controls='submenu-4')
+                                    i.fab.fa-fw.fa-wpforms
+                                    | Account
+                                |                                 
+                                #submenu-4.collapse.submenu(style='')
+                                    ul.nav.flex-column
+                                        li.nav-item
+                                            a.nav-link(href='/dashboard/profile') Show and Edit
+                                        |                                         
+                                        li.nav-item
+                                            a.nav-link(href='/dashboard/ChangePassword') Change Password
+                                        |                                         
+                                        li.nav-item
+                                            a.nav-link(href='/dashboard/RechargeAccount') Recharge Account
+                            li.nav-item
+                                a.nav-link(href='/Dashboard/ShowComments')
+                                    i.fas.fa-fw.fa-table
+                                    | show all Comments
+                            li.nav-divider
+                                | News
+                            |                             
+                            li.nav-item
+                                a.nav-link(href='#', data-toggle='collapse', aria-expanded='false', data-target='#submenu-6', aria-controls='submenu-6')
+                                    i.fas.fa-fw.fa-file
+                                    |  Top Products
+                                |                                 
+                                #submenu-6.collapse.submenu(style='')
+                                    ul.nav.flex-column
+                                        li.nav-item
+                                            a.nav-link(href='pages/blank-page.html') Blank Page
+                                        |                                         
+                                        li.nav-item
+                                            a.nav-link(href='pages/blank-page-header.html') Blank Page Header
+                                        |                                         
+                                        li.nav-item
+                                            a.nav-link(href='pages/login.html') Login
+                                        |                                         
+                                        li.nav-item
+                                            a.nav-link(href='pages/404-page.html') 404 page
+                                        |                                         
+                                        li.nav-item
+                                            a.nav-link(href='pages/sign-up.html') Sign up Page
+                                        |                                         
+                                        li.nav-item
+                                            a.nav-link(href='pages/forgot-password.html') Forgot Password
+                                        |                                         
+                                        li.nav-item
+                                            a.nav-link(href='pages/pricing.html') Pricing Tables
+                                        |                                         
+                                        li.nav-item
+                                            a.nav-link(href='pages/timeline.html') Timeline
+                                        |                                         
+                                        li.nav-item
+                                            a.nav-link(href='pages/calendar.html') Calendar
+                                        |                                         
+                                        li.nav-item
+                                            a.nav-link(href='pages/sortable-nestable-lists.html') Sortable/Nestable List
+                                        |                                         
+                                        li.nav-item
+                                            a.nav-link(href='pages/widgets.html') Widgets
+                                        |                                         
+                                        li.nav-item
+                                            a.nav-link(href='pages/media-object.html') Media Objects
+                                        |                                         
+                                        li.nav-item
+                                            a.nav-link(href='pages/cropper-image.html') Cropper
+                                        |                                         
+                                        li.nav-item
+                                            a.nav-link(href='pages/color-picker.html') Color Picker
+                            |                             
+                            li.nav-item
+                                a.nav-link(href='#', data-toggle='collapse', aria-expanded='false', data-target='#submenu-7', aria-controls='submenu-7')
+                                    i.fas.fa-fw.fa-inbox 
+                                    |  Notifications
+                                    span.badge.badge-secondary New
+                                |                                 
+                                #submenu-7.collapse.submenu(style='')
+                                    ul.nav.flex-column
+                                        li.nav-item
+                                            a.nav-link(href='pages/inbox.html') Inbox
+                                        |                                         
+                                        li.nav-item
+                                            a.nav-link(href='pages/email-details.html') Email Detail
+                                        |                                         
+                                        li.nav-item
+                                            a.nav-link(href='pages/email-compose.html') Email Compose
+                                        |                                         
+                                        li.nav-item
+                                            a.nav-link(href='pages/message-chat.html') Message Chat
+                            |                             
+                            li.nav-item
+                                a.nav-link(href='#', data-toggle='collapse', aria-expanded='false', data-target='#submenu-8', aria-controls='submenu-8')
+                                    i.fas.fa-fw.fa-columns
+                                    | Icons
+                                |                                 
+                                #submenu-8.collapse.submenu(style='')
+                                    ul.nav.flex-column
+                                        li.nav-item
+                                            a.nav-link(href='pages/icon-fontawesome.html') FontAwesome Icons
+                                        |                                         
+                                        li.nav-item
+                                            a.nav-link(href='pages/icon-material.html') Material Icons
+                                        |                                         
+                                        li.nav-item
+                                            a.nav-link(href='pages/icon-simple-lineicon.html') Simpleline Icon
+                                        |                                         
+                                        li.nav-item
+                                            a.nav-link(href='pages/icon-themify.html') Themify Icon
+                                        |                                         
+                                        li.nav-item
+                                            a.nav-link(href='pages/icon-flag.html') Flag Icons
+                                        |                                         
+                                        li.nav-item
+                                            a.nav-link(href='pages/icon-weather.html') Weather Icon
+                            |                             
+                            li.nav-item
+                                a.nav-link(href='#', data-toggle='collapse', aria-expanded='false', data-target='#submenu-9', aria-controls='submenu-9')
+                                    i.fas.fa-fw.fa-map-marker-alt
+                                    | Maps
+                                |                                 
+                                #submenu-9.collapse.submenu(style='')
+                                    ul.nav.flex-column
+                                        li.nav-item
+                                            a.nav-link(href='pages/map-google.html') Google Maps
+                                        |                                         
+                                        li.nav-item
+                                            a.nav-link(href='pages/map-vector.html') Vector Maps
+                            |                             
+                            li.nav-item
+                                a.nav-link(href='#', data-toggle='collapse', aria-expanded='false', data-target='#submenu-10', aria-controls='submenu-10')
+                                    i.fas.fa-f.fa-folder
+                                    | Menu Level
+                                |                                 
+                                #submenu-10.collapse.submenu(style='')
+                                    ul.nav.flex-column
+                                        li.nav-item
+                                            a.nav-link(href='#') Level 1
+                                        |                                         
+                                        li.nav-item
+                                            a.nav-link(href='#', data-toggle='collapse', aria-expanded='false', data-target='#submenu-11', aria-controls='submenu-11') Level 2
+                                            |                                             
+                                            #submenu-11.collapse.submenu(style='')
+                                                ul.nav.flex-column
+                                                    li.nav-item
+                                                        a.nav-link(href='#') Level 1
+                                                    |                                                     
+                                                    li.nav-item
+                                                        a.nav-link(href='#') Level 2
+                                        |                                         
+                                        li.nav-item
+                                            a.nav-link(href='#') Level 3
+        // ==============================================================
+        // end left sidebar
+        // ==============================================================
+        // ==============================================================
+        // wrapper
+        // ==============================================================
+        .dashboard-wrapper
+            block Dash
+                            // Optional JavaScript
+                            // jquery 3.3.1
+    // bootstap bundle js
+    // slimscroll js
+    script(src='../../static/assets/vendor/slimscroll/jquery.slimscroll.js')
+   
+
+    // main js
+    script(src='../../static/assets/libs/js/main-js.js')
+    // chart chartist js
+    script(src='../../static/assets/vendor/charts/chartist-bundle/chartist.min.js')
+    // sparkline js
+    script(src='../../static/assets/vendor/charts/sparkline/jquery.sparkline.js')
+    // morris js
+    script(src='../../static/assets/vendor/charts/morris-bundle/raphael.min.js')
+    script(src='../../static/assets/vendor/summernote/js/summernote-bs4.js')
+    |     
+    script(src='../../static/assets/vendor/charts/morris-bundle/morris.js')
+    // chart c3 js
+    script(src='../../static/assets/vendor/charts/c3charts/c3.min.js')
+    |     
+    script(src='../../static/assets/vendor/charts/c3charts/d3-5.4.0.min.js')
+    |     
+    script(src='../../static/assets/vendor/charts/c3charts/C3chartjs.js')
+    |     
+    script(src='../../static/assets/libs/js/dashboard-ecommerce.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js')
+    //- script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+
+

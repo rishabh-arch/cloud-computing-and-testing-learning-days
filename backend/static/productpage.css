@@ -1,0 +1,354 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+.prodCon{
+display: flex;
+flex-wrap: wrap;
+flex-direction: row;
+margin-top: 120px;
+/* margin-left: 10px; */
+flex: 25%;
+max-width: 100%;
+/* border: 2px solid black; */
+justify-content: space-around;
+}
+.heading{
+font-size: 20px;
+white-space: break-spaces;
+text-align: center;
+/* margin-left: 40px; */
+    color: rgb(21, 7, 59);
+    /* border: 2px solid black; */
+    /* width: 27rem; */
+    margin: auto;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+.productspec{
+    position: relative;
+/* max-width: 20%; */
+height: 350px;
+/* display: flex;
+flex-wrap: wrap; */
+/* justify-content: first baseline; */
+/* flex-direction: column; */
+/* border: 2px solid black; */
+box-shadow: 0 3px 10px rgba(0, 0, 0, 0.075);
+
+
+}
+.HeadSpec{
+    color: aliceblue;
+    text-align: center;
+    font-size: large;
+    margin: 0;
+    background-color: rgb(9, 9, 51);
+    border-top-right-radius: 10px;
+border-top-left-radius: 10px;
+}
+
+.productbar{
+/* border: 2px solid black; */
+position: relative;
+
+
+}
+.spec{
+    /* position: absolute; */
+    height: 100%;
+    width: 340px;
+    margin-top: 0;
+    color: rgb(9, 10, 10);
+border-bottom-right-radius: 10px;
+border-bottom-left-radius: 10px;
+    background-color: white;
+
+
+}
+.spec_Title{
+    font-size: larger;
+    /* border-bottom: 1px solid black; */
+    /* color: ; */
+}
+.c_spec{
+margin-bottom: 20px;
+}
+.spec_starts{
+    position: absolute;
+    top: 30px;
+    padding: 10px;
+}
+.productpic>img{
+/* height:360px; */
+/* width: 340px; */
+/* width: -webkit-fill-available; */
+/* max-width: 450px; */
+
+transition:all 0.2s;
+font: 50px Impact;
+
+}
+
+
+.mybuyprod{
+    align-items: center;
+    /* max-width: 50%; */
+    /* border: 2px solid red; */
+     display: flex;
+     flex-wrap: wrap;
+    flex-direction: column;
+}
+#zoom_btn{
+    border-radius: 3px;
+    /* padding: 5px; */
+    background-color: #b4b0af;
+    position: absolute;
+    top: 2%; 
+    right: 70px;
+    /* z-index: 4; */
+    color: rgb(255, 255, 255);
+}
+.btn_margin{
+    /* border: 1px solid blue; */
+    padding: 5px;
+    /* padding-right: 10px; */
+    /* width: 33px; */
+}
+.fa-search-plus{
+font-size: 20px;
+    /* width: 20px; */
+}
+.myProduct{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+width: 350px;
+    padding: 15px;
+    margin: 10px;
+border:none;
+border-bottom: 2px solid rgb(16, 4, 36);
+outline: none;
+}
+.btn1{
+height: 60px;
+width: 100px;
+margin: 10px;
+background: rgb(2, 0, 14);
+/* border: 5px solid rgb(22, 10, 73); */
+cursor: pointer;
+color: aliceblue;
+border-radius: 22px;
+outline: none;
+
+}
+.btn1:hover{
+    color: rgb(2, 0, 14);
+    background: aliceblue;
+
+}
+.productid{
+
+    margin-left: 20px;
+}
+
+
+.owner_container>p{
+    text-align: center;
+    font-family: 'Fredoka One', cursive;;
+    font-size: xx-large;
+    color: rgb(16, 16, 71);
+}
+.owner_container{
+    margin-top: 20px;
+    background-color: white;
+}
+
+li a{
+    text-decoration: none;
+}
+
+.card {
+    border: none;
+    background-color: #fff;
+    width: 300px;
+    text-align: center;
+    height: 590px;
+    /* border-radius: 16px */
+}
+
+.info {
+    line-height: 19px
+}
+
+.name {
+    padding: 20px;
+    display: block;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+}
+.name-header {
+    background-image: linear-gradient(to right,red, yellow);
+
+}
+.stock-details{
+    margin-top: 20px;
+    text-align: left;
+    margin-left: 20px;
+}
+.order {
+    font-size: 14px;
+    font-weight: 400;
+    color: #b7b5b5
+}
+.input-group-btn{
+    display: flex;
+    flex-wrap:wrap;
+    flex-direction: row;
+    position: relative;
+    justify-content: center;
+    margin: 10px;
+}
+.quantity-left-minus,.quantity-right-plus{
+    background-color: #5AF;
+    border-radius: 0;
+    border-right: none;
+    height: 39px;
+    outline: none;
+    width: 41px;
+    font-size: 15px;
+    color: white;
+    border: 2px solid rgb(56, 52, 52);
+}
+.quantity-right-plus{
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-left: none;
+}
+.quantity-left-minus{
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-right: none;
+}
+#quantity{
+    border: 2px solid rgb(56, 52, 52);
+width: 100px;
+    border-right: none;
+    border-left: none;
+text-align: center;
+/* border: none; */
+outline: none;
+
+    border-radius: 0;
+    height: 39px;
+}
+.qty-btn-submit{
+
+    width: 225px;
+    height: 39px;
+    margin-bottom: 20px;
+    outline: none;
+    border: none;
+    background-color: rgb(15, 29, 94);
+    color:white;
+}
+.stock_details{
+    position: relative;
+
+}
+
+.detail {
+    margin: 20px;
+    text-align: center;
+    background-color: rgb(23, 13, 63);
+}
+
+.stock_details img{
+    position: absolute;
+    top: 33px;
+    left: 129px;
+}
+
+
+.summery {
+    color: #f3eded;
+    font-weight: 400;
+    /* font-size: 13px */
+    font-size: 17px;
+}
+
+
+.text {
+    margin: 10px;
+margin-top: 51px;
+}
+
+.new {
+    color: #000;
+    font-size: 14px;
+    font-weight: 600
+}
+
+.money {
+    font-size: 14px;
+    font-weight: 500
+}
+
+.address {
+    color: #858282;
+    font-weight: 500;
+    font-size: 14px
+}
+
+.last {
+    font-size: 10px;
+    font-weight: 500
+}
+.total-price{
+    margin-bottom: 20px;
+}
+#total-price-cs{
+font-size: 23px;
+
+}
+#total-price-js{
+font-size: 26px;
+font-weight: 1000;
+
+}
+.unit-price{
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: rgba(250, 203, 211, 0.329);
+}
+#total-price-cs{
+font-size: 23px;
+
+}
+#total-price-js{
+font-size: 26px;
+font-weight: 1000;
+
+}
+.address-line {
+    color: #4C40E0;
+    font-size: 15px;
+    font-weight: 700
+}
+@media screen and (max-width: 800px) {
+    .prodCon {
+        flex: 100%;
+        max-width: 100%;
+    }
+  }
+  
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    #zoom_btn{
+        top: 2px; 
+        right: 70px;
+    }
+    /* .productspec{
+        max-width: 100%;
+    } */
+    .prodCon {
+      flex: 100%;
+      max-width: 100%;
+    }
+  }

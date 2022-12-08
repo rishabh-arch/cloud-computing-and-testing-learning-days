@@ -1,0 +1,75 @@
+
+.height-100 {
+    height: 100vh
+}
+.cardclip-con{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#cardclip{
+
+
+    width: 336px;
+    height: 400px;
+    border: none;
+    /* border-radius: 20px; */
+    overflow: hidden;
+    cursor: pointer;
+    margin: 19px;
+}
+.content {
+    padding: 10px;
+    /* margin-top: 27px; */
+    top: 11px;
+}
+.card:hover .clip-path {
+    clip-path: circle(320px at center 0)
+}
+.postion{
+
+    
+}
+.clip-path {
+
+    position: relative;
+    width: 100%;
+    height: 62%;
+    clip-path: circle(243px at center 0);
+    /* background: url(https://www.heart.org/-/media/images/news/2019/january-2019/0115hookah_sc.jpg); */
+    display: flex;
+    /* background-size: 100% 100%; */
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    transition: all 0.3s;
+}
+
+.clip-path h2 {
+    color: #fff;
+    font-size: 30px
+}
+
+.content {
+    padding: 15px
+}
+
+.content p {
+    font-size: 14px
+}
+
+.content a {
+    width: 100px;
+    height: 50px;
+    background-color: red;
+    color: #fff !important;
+    padding: 7px;
+    border-radius: 6px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 12px
+}
+
+.content a:hover {
+    background-color: #ea0505
+}

@@ -1,0 +1,129 @@
+*{
+margin: 0;
+padding: 0%;
+box-sizing: border-box;
+}
+.HEADBAR{
+    position:fixed;
+    width: 100%;
+z-index: 1;
+top: 0;
+}
+
+header{
+    box-sizing: border-box;
+    /* margin: 0; */
+    /* top: 0; */
+    background-color: rgb(67, 67, 78);
+    /* position: fixed; */
+    /* z-index: 1; */
+/* border-bottom: 2px solid black; */
+/* height: 8vh;
+width: 100%; */
+display: flex;
+flex: wrap;
+align-items: stretch;
+justify-content: space-evenly;
+}
+.TOP,.TOP .coninfo a,.social a{
+
+    color: wheat;
+
+}
+
+
+
+.TOP2{
+    
+    /* position: fixed;
+    z-index: 1; */
+    background-color: rgb(7, 2, 14);
+/* border-bottom: 2px solid black ; */
+/* height: 5vh; */
+width: 100%;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-evenly;
+
+}
+
+.TOP2 a{
+text-decoration: none;
+color: azure;
+/* border: 2px solid rgb(255, 254, 254); */
+
+}
+
+.Rightnav{
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 250px; /* Set the width of the sidebar */
+    /* border-left: 2px solid black; */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: -1; /* Stay on top */
+    right: 0;
+    background: none;
+    overflow-x: hidden; /*Disable horizontal scroll */
+    padding-top: 120px;
+    /* display:inline; */
+ }
+
+.itemlist{
+    
+/* align-items: center; */
+    /* margin-top: 0px; */
+/* border: 2px solid black; */
+display: block;
+align-items: center;
+/* left: 0px; */
+}
+.pp img{
+height: 320px;
+width: 220px;
+border: 2px solid black;
+}
+
+.productpage>.itemcon{
+    /* align-items: center; */
+  list-style: none;  
+  text-align: center;
+border: 2px solid black;
+height: 222px;
+background-color: aliceblue;
+/* text-decoration: none; */
+/* flex-wrap: wrap; */
+}
+
+.product{
+    float: left;
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+   /* justify-content: center; */
+     padding: 22px;
+    margin-top: 70px;
+    /* margin-left: 22px; */
+/* width: 1200px; */
+/* height: 140vh;  */
+/* border: 2px solid black; */
+/* background-color: brown; */
+
+}
+.productpage{
+    /* background-color: blue; */
+    padding: 20px;
+    /* border: 2px solid black; */
+    display: grid;
+    justify-content: center;
+    /* grid-template-columns: 300px 100px 100px; */
+    /* grid-template-columns: 300px auto 100px; */
+    /* grid-template-columns: 1fr 4fr 1fr; */
+    grid-template-columns: repeat(5, 180px);
+    grid-gap: 2rem;
+
+}
+
+
+footer{
+    clear: both;
+/* position: fixed; */
+  /* bottom: 0; */
+}

@@ -1,0 +1,35 @@
+#submit{
+  position: relative;
+}
+
+.loader {
+  position: absolute;
+  bottom: 10px;
+  right: 106px;
+  z-index: 2;
+    border: 3px solid white;
+    border-radius: 50%;
+    border-top: 3px solid rgb(240, 240, 241);
+    border-bottom:3px solid rgb(3, 9, 37);;
+    width: 20px;
+    height: 20px;
+    -webkit-animation: spin 0.5s linear infinite;
+    animation: spin 01s linear infinite;
+  }
+.loader-profile {
+  bottom: 8px;
+  right: -28px;
+  border: 3px solid #0037ff;
+  border-top: 3px solid rgb(1 1 1);
+  border-bottom: 3px solid rgb(1 1 1);
+  }
+  
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

@@ -1,0 +1,63 @@
+
+
+.column{
+    /* height: auto; */
+position: relative;
+overflow: hidden;
+height: 270px;
+
+}
+
+.itemcon .over{
+
+    width: 100%;
+
+    }
+/* .itemcon{
+    background-color: brown;
+    border: 2px solid black;
+height: 1000px;
+    width: 1000px;
+} */
+    .over{
+        position: absolute;
+        left: -100%;
+        bottom: 0;
+        width: 100%;
+        height: 60px;
+        display: flex;
+justify-content: center;        
+background-color: rgb(187, 5, 5);
+        transition: all 0.19s;
+border-top-left-radius: 20px;
+        }
+
+        .pitemAvail{
+
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 600px;
+            display: flex;
+            z-index: 1;
+    justify-content: center;        
+    background-color: rgb(187, 5, 5);
+            /* transition: all 0.19s; */
+    /* border-top-left-radius: 20px; */
+           
+        }
+
+        .itemcon:hover .over{
+            left: 0;
+            }
+
+            .over button{
+font-size: 22px;
+border: none;
+color: wheat;
+background: none;
+outline: none;
+    
+            }
+            

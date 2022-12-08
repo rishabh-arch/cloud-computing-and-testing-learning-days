@@ -1,0 +1,13 @@
+{
+    "name": "Your Great Site",
+    "short_name": "Site 😎",
+    "description": "Learn how to create and share something or other.",
+    "start_url": "http://192.168.0.105:5000/market",
+    "background_color": "#000000",
+    "theme_color": "#232f3e",
+    "icons": [{
+      "src": "icon-256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }]
+  }

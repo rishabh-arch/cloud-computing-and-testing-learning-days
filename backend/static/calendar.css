@@ -1,0 +1,24 @@
+#date-picker{
+   width: 46%;
+   border-radius: 0;
+   border: 1px solid black;
+   border-right: 0;
+   outline: none;
+   /* font-size: small; */
+}
+#date-btn{
+border-radius: 0;
+border: 1px solid black;
+background-color: rgb(219, 84, 6);
+color: #ffff;
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+border-left: 0;
+outline: none;
+}
+#date-btn:active{
+background-color: #5AF;
+
+}
+.show-calendar{
+    z-index: 1;
+}

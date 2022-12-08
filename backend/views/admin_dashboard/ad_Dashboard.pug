@@ -1,0 +1,96 @@
+extends ../base.pug
+
+block style
+    style 
+        include ../../static/dashboard.css
+block scripts
+    //- script(src="../static/dashboard.js")
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js' charset='utf-8')
+    
+
+block content
+    input#check(type='checkbox')/
+    // header area start
+    .header2
+        label(for='check')
+            i#sidebar_btn.fas.fa-bars
+        .left_area
+            h3
+                | ADMIN-
+                span PANEL
+        .right_area
+            a.right_btn#product_btn(href='/Dashboard/EMP_ID_PAGE') Your Products
+            a.right_btn#in_order_btn(href='/Dashboard/OrderRequest') Order Request
+            a.right_btn#Add_new_btn(href='/Dashboard/productUpload') Add Product
+            //- a.right_btn(href='/logout') Logout
+    // header area end
+    // mobile navigation bar start
+    .mobile_nav
+        .mobile_nav_items
+            a(href='/Dash')
+                i.fas.fa-desktop
+                span Dashboard
+            a(href='#')
+                i.fas.fa-cogs
+                span Components
+            a(href='#')
+                i.fas.fa-table
+                span Tables
+            a(href='#')
+                i.fas.fa-th
+                span Forms
+            a(href='#')
+                i.fas.fa-info-circle
+                span About
+            a(href='#')
+                i.fas.fa-sliders-h
+                span Settings
+    // mobile navigation bar end
+    // sidebar start
+    .sidebar
+        a(href='/admin/Dashboard')
+            i.fas.fa-desktop
+            span Dashboard
+        a(href='/admin/Dashboard/Shoprequest')
+            i.fas.fa-cogs
+            span Shop request
+        a(href='/admin/Dashboard/Shoprecords')
+            i.fas.fa-th
+            span Shop Records
+        a(href='/admin/Dashboard/OrdersRecords')
+            i.fas.fa-table
+            span Orders Records
+        a(href='/admin/Dashboard/ProductRecords')
+            i.fas.fa-table
+            span Product Records
+        a(href='/admin/Dashboard/UpdateHomeCards')
+            i.fas.fa-table
+            span Update Home Cards
+        a(href='/admin/Dashboard/UpdateSlides')
+            i.fas.fa-table
+            span Update Slides
+        a(href='/admin/Dashboard/AddNewMember')
+            i.fas.fa-info-circle
+            span Add new Member
+            span(style="margin-left:5px; font-size:12px; color:#19B3D3") admin
+        a(href='/admin/Dashboard/AllMembers')
+            i.fas.fa-info-circle
+            span All Members
+            span(style="margin-left:5px; font-size:12px; color:#19B3D3") admin
+        a(href='/admin/Dashboard/AddPromocode')
+            i.fas.fa-sliders-h
+            span Add Promocode
+            span(style="margin-left:5px; font-size:12px; color:#19B3D3") admin
+        a(href='/admin/Dashboard/PromoOffer')
+            i.fas.fa-sliders-h
+            span(style="font-size:10px;") Add Promocode Offer
+            span(style="margin-left:5px; font-size:12px; color:#19B3D3") admin
+    .content
+        block Dash
+    script(type='text/javascript').
+        $(document).ready(function(){
+        $('.nav_btn').click(function(){
+        $('.mobile_nav_items').toggleClass('active');
+        });
+        });

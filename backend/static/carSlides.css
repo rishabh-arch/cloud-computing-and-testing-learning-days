@@ -1,0 +1,41 @@
+
+.items {
+    width: 100%;
+    margin: 0px auto;
+    /* margin-top: 100px */
+}
+
+.slick-slide {
+    margin: 10px
+}
+
+.slick-slide img {
+    width: 100%;
+    border: 0px solid #fff;
+    height: 24em;
+}
+.thumb-product{
+
+    position: relative;
+}
+.thumb-card{
+    position: absolute;
+}
+.thumb-price{
+    position: absolute;
+    top: 21rem;
+    left: 0;
+    background-color: #0f0a0a73;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: larger;
+    font-weight: 700;
+}
+img {
+    filter: blur(0);
+    /* opacity: 1; */
+    transition: filter 1s;
+}
+img[data-src] {
+    filter: blur(4px);}

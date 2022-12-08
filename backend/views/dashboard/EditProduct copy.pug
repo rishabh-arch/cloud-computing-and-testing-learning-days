@@ -1,0 +1,43 @@
+extends Dashboard.pug
+
+block append style
+    style
+        include ../../static/productUpload.css
+        include ../../static/loader.css
+block append scripts
+    //- script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+    script(src="../../static/categorienav.js")
+    script(src="../static/checkjs.js")
+
+block Dash
+    p.heading
+        | Edit Your Product
+        .UploadPage
+            .Uploadinfo
+                p#PID ProductID:- #{PID}
+            form.uploadform(action=`/Dashboard/EditProduct/`+ PID , method="post" enctype="multipart/form-data")
+                input.catsclass(type="file",name="images" accept="image/*")
+                //- input.catsclass(type="file",name="avatar" accept="image/*" required)
+                input.catsclass(type="text",name="name2",placeholder="enter product name" value= name required)
+                input.catsclass(type="text",name="colour2",placeholder="enter colour" value= colour  )
+                input.catsclass(type="number",name="Mprice2",placeholder="Market Price" value=Mprice   required)
+                input.catsclass(type="number",name="Oprice2",placeholder="Your Price" value= Oprice  required)
+                input.catsclass(type="number",name="Quantities2",placeholder="Total Quantities You have" value = Quantities required)
+                .productTag
+                    | --: Enter Product Tags
+                    input.catsclass(type="text",name="tag12",placeholder="TAG-1" value= tag1  )
+                    input.catsclass(type="text",name="tag22",placeholder="TAG-2" value= tag2  )
+                    input.catsclass(type="text",name="tag32",placeholder="TAG-3" value=tag3  )
+                
+                .radio
+                    input#AVAILABLE.radioj(type='radio' name='Product_Avail' value='AVAILABLE' for="AVAILABLE" required)
+                    label.radiojl(for='AVAILABLE') AVAILABLE
+                    input#OUTOFSTOCK.radioj(type='radio' name='Product_Avail' value='OUT-OF-STOCK' for="OUTOFSTOCK" required)
+                    label.radiojl(for='OUTOFSTOCK') OUT OF STOCK
+                    input#SALE.radioj(type='radio' name='Product_Avail' value='SALE' for="SALE!" required)
+                    label.radiojl(for='SALE') SALE
+
+                textarea.catsclass(type="text",name="specs2",placeholder="Specificatons") #{Specification}
+                .sub_btn
+                    input.catsclass#submit_btn(type="submit" onclick="submitLimit()")
+                    #add

@@ -1,0 +1,298 @@
+extends base.pug
+block append heads
+    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
+
+block style
+    style
+        //- include ../static/homeActnew.css
+        include ../static/homeActnew2.css
+        include ../static/homeAct.css
+        include ../static/slideshow.css
+        include ../static/style2.css
+        //- include ../static/lightslider.css
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css")
+
+block scripts
+    script(src="../static/jquery.js")
+    script(src="../static/request/Bookmark.js")
+    script.
+        $(document).ready(function () {
+        $(window).scroll(function () {
+        if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+            sendData();
+        }
+        });
+
+        function sendData() {
+        $.ajax(
+            {
+                type: "POST",
+                url: "/",
+                data: "{}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+            async: "true",
+            cache: "false",
+
+            success: function (msg) {
+                $("#myDiv").append(msg.d);
+            },
+
+            Error: function (x, e) {
+                alert("Some error");
+            }
+        });
+    }
+    });
+
+    //- script(type="text/javascript" src="../static/JQuery3.3.1.js")
+
+block content
+    .productrow
+        .slider
+            .slides
+                // radio buttons start
+                input#radio1(type='radio' name='radio-btn')
+                input#radio2(type='radio' name='radio-btn')
+                input#radio3(type='radio' name='radio-btn')
+                input#radio4(type='radio' name='radio-btn')
+                // radio buttons end
+                // slide images start
+                a.slide.first(href=`${Link1}` target = "_blank")
+                    img(src='./static/Slides_photo/SLIDE1.jpg' alt='')
+                a.slide(href=`${Link2}` target = "_blank")
+                    img(src='./static/Slides_photo/SLIDE2.jpg' alt='')
+                a.slide(href=`${Link3}` target = "_blank")
+                    img(src='./static/Slides_photo/SLIDE3.jpg' alt='')
+                a.slide(href=`${Link4}` target = "_blank")
+                    img(src='./static/Slides_photo/SLIDE4.jpg' alt='')
+                // slide images end
+                // automatic navigation start
+                .navigation-auto
+                    .auto-btn1
+                    .auto-btn2
+                    .auto-btn3
+                    .auto-btn4
+                // automatic navigation end
+                // manual navigation start
+                .navigation-manual
+                    label.manual-btn(for='radio1')
+                    label.manual-btn(for='radio2')
+                    label.manual-btn(for='radio3')
+                    label.manual-btn(for='radio4')
+                // manual navigation end
+                // image slider end
+        script(type='text/javascript').
+            var counter = 1;
+            setInterval(function(){
+            document.getElementById('radio' + counter).checked = true;
+            counter++;
+            if(counter > 4){
+            counter = 1;
+            }
+            }, 3000);
+        .mt-100
+            .row
+                .col-md-4.col-sm-6
+                    .card.mb-30
+                        a.card-img-tiles(href='#', data-abc='true')
+                            .inner
+                                .main-img
+                                    img(src='https://i.imgur.com/O0GMYuw.jpg', alt='Category')
+                                |                         
+                                .thumblist
+                                    img(src='https://i.imgur.com/ILEU18M.jpg', alt='Category')
+                                    img(src='https://i.imgur.com/2kePJmX.jpg', alt='Category')
+                        |                 
+                        .card-body.text-center
+                            h4.card-title Laptops
+                            |                     
+                            p.text-muted Starting from $499
+                            a.btn.btn-outline-primary.btn-sm(href='#', data-abc='true') View Products
+                |         
+                .col-md-4.col-sm-6
+                    .card.mb-30
+                        a.card-img-tiles(href='#', data-abc='true')
+                            .inner
+                                .main-img
+                                    img(src='https://i.imgur.com/uRgdVY1.jpg', alt='Category')
+                                |                         
+                                .thumblist
+                                    img(src='https://i.imgur.com/VwSKS7A.jpg', alt='Category')
+                                    img(src='https://i.imgur.com/gTvZ2H5.jpg', alt='Category')
+                        |                 
+                        .card-body.text-center
+                            h4.card-title Mobiles
+                            |                     
+                            p.text-muted Starting from $50
+                            a.btn.btn-outline-primary.btn-sm(href='#', data-abc='true') View Products
+                |         
+                .col-md-4.col-sm-6
+                    .card.mb-30
+                        a.card-img-tiles(href='#', data-abc='true')
+                            .inner
+                                .main-img
+                                    img(src='https://i.imgur.com/0jO40CF.jpg', alt='Category')
+                                |                         
+                                .thumblist
+                                    img(src='https://i.imgur.com/dWYAg41.jpg', alt='Category')
+                                    img(src='https://i.imgur.com/5oQEZSC.jpg', alt='Category')
+                        |                 
+                        .card-body.text-center
+                            h4.card-title Accessories
+                            |                     
+                            p.text-muted Starting from $9
+                            a.btn.btn-outline-primary.btn-sm(href='#', data-abc='true') View Products
+                |         
+                .col-md-4.col-sm-6
+                    .card.mb-30
+                        a.card-img-tiles(href='#', data-abc='true')
+                            .inner
+                                .main-img
+                                    img(src='https://i.imgur.com/0jO40CF.jpg', alt='Category')
+                                |                         
+                                .thumblist
+                                    img(src='https://i.imgur.com/dWYAg41.jpg', alt='Category')
+                                    img(src='https://i.imgur.com/5oQEZSC.jpg', alt='Category')
+                        |                 
+                        .card-body.text-center
+                            h4.card-title Accessories
+                            |                     
+                            p.text-muted Starting from $9
+                            a.btn.btn-outline-primary.btn-sm(href='#', data-abc='true') View Products
+                |         
+                .col-md-4.col-sm-6
+                    .card.mb-30
+                        a.card-img-tiles(href='#', data-abc='true')
+                            .inner
+                                .main-img
+                                    img(src='https://i.imgur.com/0jO40CF.jpg', alt='Category')
+                                |                         
+                                .thumblist
+                                    img(src='https://i.imgur.com/dWYAg41.jpg', alt='Category')
+                                    img(src='https://i.imgur.com/5oQEZSC.jpg', alt='Category')
+                        |                 
+                        .card-body.text-center
+                            h4.card-title Accessories
+                            |                     
+                            p.text-muted Starting from $9
+                            a.btn.btn-outline-primary.btn-sm(href='#', data-abc='true') View Products
+                |         
+                .col-md-4.col-sm-6
+                    .card.mb-30
+                        a.card-img-tiles(href='#', data-abc='true')
+                            .inner
+                                .main-img
+                                    img(src='https://i.imgur.com/0jO40CF.jpg', alt='Category')
+                                |                         
+                                .thumblist
+                                    img(src='https://i.imgur.com/dWYAg41.jpg', alt='Category')
+                                    img(src='https://i.imgur.com/5oQEZSC.jpg', alt='Category')
+                        |                 
+                        .card-body.text-center
+                            h4.card-title Accessories
+                            |                     
+                            p.text-muted Starting from $9
+                            a.btn.btn-outline-primary.btn-sm(href='#', data-abc='true') View Products
+                
+    .container_products
+        each n,i in newOBJ
+            .product
+                .product-card
+                    h2.name #{n.name}
+                    span.priceM ₹#{n.Mprice}
+                    span.priceO ₹#{n.Oprice}
+                    a.popup-btn Quick View
+                    span.City #{n.Owner_Details[5].Owner_State}
+                    button.BM-btn(type="button" value= `${n.PID}`)
+                        P(id=`${n.PID}` class="cart-alert")
+                        svg.BM-btn-icon#BM-btn-iconjs(width="16" height="16" fill="currentColor" class="bi bi-file-plus-fill" viewBox="0 0 16 16" style="color:white;")
+                            path(fill-rule="evenodd" d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5V6z")
+
+                    a(href=`/p/${n.PID}?key=${n.url_key}` )
+                        //- img.product-img(src="../static/hookah/thumbnail/thumbnail-" + n.PID + "_0.jpg" alt='')
+                        img.product-img(data-src="../static/hookah/thumbnail/thumbnail-" + n.PID + "_0.jpeg" alt='')
+                .popup-view
+                    .popup-card
+                        a
+                            i.fa.fa-times.close-btn
+                        .product-img
+                            img(data-src="../static/hookah/thumbnail/thumbnail-"+ n.PID + "_0.jpeg" alt='' loading="lazy")
+                        .info
+                            h2
+                                | #{n.name}
+                                br
+                                span #{n.Category}
+                            span.priceM ₹#{n.Mprice}
+                            span.priceO ₹#{n.Oprice}
+                            a.add-cart-btn(href=`/p/${n.PID}?key=${n.url_key}` ) Proceed
+                            a.add-wish(href=`/p/${n.PID}?key=${n.url_key}` ) Add to Favourites
+
+            //- .column
+            //-     a.itemcon#cursor(href="/p/"+n.PID )
+            //-         .pitem
+            //-             .pitemMage
+            //-                 - var img = "../static/hookah/" + n.PID + ".jpg"
+            //-                 img(src= img alt ='NO MORE PRODUCT')
+            //-             .pitemAvail
+            //-                 |   #{n.availability}
+            //-             .pitemCost
+            //-                 p.prod_name
+            //-                     |  #{n.name}
+            //-                 .prod_price
+            //-                     p.realP
+            //-                         |  ₹#{n.Mprice}
+            //-                     p.ourP
+            //-                         |  ₹#{n.Oprice}
+            //- .over
+            //-     button(type="button" onClick=`onClick('{"PID":"${n.PID}","availability":"${n.availability}","name":"${n.name}","Mprice":"${n.Mprice}","Oprice":"${n.Oprice}"}')`) button
+            //-         //- button(type='button' onClick="onClick()") BUY NOW
+    .pagination
+        a.Npage(href=`/?page=${back}`) PREVIOUS&raquo;
+        a.Npage(href=`/?page=${next}`) NEXT&raquo;
+            //-   a.add-wish(href='#') Add to Wishlist
+    script(type='text/javascript').
+        var popupViews = document.querySelectorAll('.popup-view');
+        var popupBtns = document.querySelectorAll('.popup-btn');
+        var closeBtns = document.querySelectorAll('.close-btn');
+        //javascript for quick view button
+        var popup = function(popupClick){
+        popupViews[popupClick].classList.add('active');
+        }
+        popupBtns.forEach((popupBtn, i) => {
+        popupBtn.addEventListener("click", () => {
+        popup(i);
+        });
+        });
+        //javascript for close button
+        closeBtns.forEach((closeBtn) => {
+        closeBtn.addEventListener("click", () => {
+        popupViews.forEach((popupView) => {
+        popupView.classList.remove('active');
+        });
+        });
+        });
+    script(type="text/javascript" src="../static/script.js")
+    script.
+        (async function() {
+            var elements = document.querySelectorAll('img[data-src]');
+            var index = 0;
+            var lazyLoad = function() {	
+                if(index >= elements.length) return;
+                var item = elements[index];	
+                if((this.scrollY + this.innerHeight) > item.offsetTop) {		
+                var src = item.getAttribute("data-src");
+                item.src = src;
+                item.addEventListener('load', function() {
+                item.removeAttribute('data-src');    	
+                });     
+                index++;
+                lazyLoad();
+                }
+            };
+            var init = function() {
+                window.addEventListener('scroll', lazyLoad);
+                lazyLoad();
+            };
+            return init();
+        })();

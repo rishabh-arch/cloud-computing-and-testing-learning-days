@@ -1,0 +1,422 @@
+extends base.pug
+block heads
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+    link(rel='stylesheet', type='text/css', href='https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css')
+    |  
+    link(rel='stylesheet', type='text/css', href='https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css')
+    link(rel='stylesheet' href='../static/carSlides.css')
+
+block append style
+    style 
+        include ../static/productpage.css
+        include ../static/goshare.css
+        include ../static/productpage2.css
+        include ../static/rating.css
+        include ../static/modelimg.css
+        include ../static/homeActnew2.css
+        include ../static/magnify.css
+        include ../static/RatingGraph2.css
+        include ../static/RatingGraph3.css
+        include ../static/sharebtn.css
+        include ../static/detail_tables.css
+        include ../static/productpage3.css
+        include ../static/boot431.css
+        include ../static/CommentSec.css
+
+
+
+block scripts
+    script(src="../static/categorienav.js")
+    script(src="../static/ctc.js")
+    script(src="../static/productid.js")
+    script(src="../static/Addpromo.js")
+    script(src="../static/modelimg.js")
+    script(src="../static/request/RatingRq.js")
+    script(src="../static/request/RatingRqChart.js")
+    script(src="../static/jquery.magnify.js" charset="utf-8")
+    script(src="https://www.google.com/recaptcha/api.js" async defer)
+    script(src="../static/request/Bookmark.js")
+    script(type="text/javascript" src="../static/request/zoom.js")
+    script(src="https://checkout.razorpay.com/v1/checkout.js")
+
+    script.
+        $(document).ready(function() {
+            $('input[type="checkbox"][name="zcheck"]').click(function() {
+            if($(this).is(":checked")) {
+            $zoom = $('.zoom').magnify();
+            $('#zoom_btn').css('background-color', '#db2606');
+            }
+            else if($(this).is(":not(:checked)")) {
+            $zoom.destroy();
+            $('#zoom_btn').css('background-color', '#b4b0af');
+            }
+            });
+            });
+block content
+    mixin chart
+        #chart
+            //- a(style="position:absolute; z-index:1;" href="#comment-section") Show Comments
+            ul#bars
+                li
+                    .bar(data-percentage=`${OBJ.P_Rate[4]}`)
+                    span.fa.fa-star 5
+                li
+                    .bar(data-percentage=`${OBJ.P_Rate[3]}`)
+                    span.fa.fa-star 4
+                li
+                    .bar(data-percentage=`${OBJ.P_Rate[2]}`)
+                    span.fa.fa-star 3
+                li
+                    .bar(data-percentage=`${OBJ.P_Rate[1]}`)
+                    span.fa.fa-star 2
+                li
+                    .bar(data-percentage=`${OBJ.P_Rate[0]}`)
+                    span.fa.fa-star 1
+    .prodCon
+        .productbar
+            .productpic
+                #app
+                    .main-wrapper
+                        h2 Categorie
+                        #zoom_btn
+                            label.fa.fa-search-plus.btn_margin(for="zoom_button")
+                                input#zoom_button(type="checkbox" value="1" name="zcheck" hidden)
+                        //- i.fa.fa-search-plus
+                        .img-main-wrapper 
+                            transition(name='fade' mode='out-in')
+                                img.img-absolute(v-if='currentChairIndex !== undefined' :key='chairs[currentChairIndex].main' :src='chairs[currentChairIndex].main')
+                            transition(name='fade' mode='out-in')
+                                img.img-absolute(v-if='currentMatIndex !== undefined' :key='mats[currentMatIndex].main' :src='mats[currentMatIndex].main')
+                            img.img-main(src=`../static/hookah/${OBJ.PID}_0.jpeg` alt='' id="image" class="zoom" data-magnify-src=`../static/hookah/${OBJ.PID}_0.jpeg`)
+                        .content-row
+                            h3 More
+                            .img-thumbnail-wrapper
+                                img.img-thumbnail( src=`../static/hookah/${OBJ.PID}_1.jpeg` alt='' onclick=`e1=document.querySelector('#image'); e1.src= "../static/hookah/${OBJ.PID}_1.jpeg" ; e1.dataset.magnifySrc="../static/hookah/${OBJ.PID}_1.jpeg"; document.getElementById('zoom_button').checked=false;`)
+                                img.img-thumbnail( src=`../static/hookah/${OBJ.PID}_2.jpeg` alt='' onclick=`e1=document.querySelector('#image'); e1.src= "../static/hookah/${OBJ.PID}_2.jpeg" ; e1.dataset.magnifySrc="../static/hookah/${OBJ.PID}_2.jpeg"`)
+                                img.img-thumbnail( src=`../static/hookah/${OBJ.PID}_3.jpeg` alt='' onclick=`e1=document.querySelector('#image'); e1.src= "../static/hookah/${OBJ.PID}_3.jpeg" ; e1.dataset.magnifySrc="../static/hookah/${OBJ.PID}_3.jpeg"`)
+                                img.img-thumbnail( src=`../static/hookah/${OBJ.PID}_0.jpeg` alt='' onclick=`e1=document.querySelector('#image'); e1.src= "../static/hookah/${OBJ.PID}_0.jpeg" ; e1.dataset.magnifySrc="../static/hookah/${OBJ.PID}_0.jpeg"`)
+                            h3(style="margin-bottom:0px;")
+                                span(style="text-decoration-line: line-through; margin-right:5px;") ₹55555
+                                span(style="font-size:30px") ₹1234
+                            .social_box
+                                ul
+                                    li
+                                        a(style="color:blue;" href="https://www.facebook.com/sharer/sharer.php?u=http://05b37a0ce971.ngrok.io/p/10025" data-action="share/facebook/share" target="_blank")
+                                            i.fa.fa-facebook-f
+                                    li
+                                        a(style="color:#3039e6;" href="http://twitter.com/share?url=" data-action="share/twitter/share" target="_blank")
+                                            i.fa.fa-twitter
+                                    li
+                                        a(style="color:green;" href="https://api.whatsapp.com/send?text=http://05b37a0ce971.ngrok.io/p/10025" data-action="share/whatsapp/share" target="_blank")
+                                            i.fa.fa-whatsapp
+                                    li
+                                        a(style="color:red;" id="copylink" onclick=`AdvancedCopy('${OBJ.PID}')`)
+                                            i.fa.fa-copy
+
+                            .c-share
+                                input#checkbox.c-share__input(type='checkbox')
+                                label.c-share__toggler(for='checkbox')
+                                    span.fa.fa-ellipsis-v
+                                ul.c-share_options
+                                    li
+                                        a(href="https://api.whatsapp.com/send?text=http://05b37a0ce971.ngrok.io/p/10025") report
+
+        .productbuy
+            h2.P-information
+                | Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id libero reprehenderit ea inventore voluptas eligendi hic. Minus vitae est asperiores exercitationem modi! Sint, maxime!
+                .table-wrapper
+                    table.fl-table
+                        tbody
+                            tr
+                                td Product Code
+                                td #{OBJ.PID}
+                            tr
+                                td Product Name
+                                td #{OBJ.name}
+                            tr
+                                td Brand
+                                td #{OBJ.brand}
+                            tr
+                                td Colour
+                                td #{OBJ.colour}
+                            tr
+                                td Market Price
+                                td #{OBJ.Mprice}
+                            tr
+                                td Selling Price
+                                td #{OBJ.Oprice}
+                            tr
+                                td Total Stocks
+                                td #{OBJ.Quantities}
+                            tr
+                                td Tags
+                                td #{OBJ.tag}
+                            tr
+                                td Ratings
+                                td #{OBJ.Rating}
+                            tr
+                                td Cateogory
+                                td #{OBJ.Category}
+                            tbody
+            //- .product_ad
+            //-     | Advertisement ke liye cchoda hai
+            +chart
+            
+
+
+            //- form(action=`/p/${OBJ.PID}` , method="post" class="mybuyprod")
+            //-     input(type="text", class="myProduct", id="name",name="customer_name",value=username, placeholder="enter your name" required )
+            //-     input(type="email", class="myProduct", name="email",value=email, placeholder="enter your Email")
+            //-     input(type="phone", class="myProduct", name="phone",value=phone, placeholder="enter your PhoneNO." required)
+            //-     input(type="text", class="myProduct", name="address",value=Address, placeholder="enter your Address" required)
+            //-     input(type="text", class="myProduct", name="PromoCode", placeholder="enter your PromoCode(if any)",id = "PromoCode",oninput="PromoCode()" onkeyup="Case()")
+            //-     input(type="number", class="myProduct", min="1",value = 1,max = Quantities,name="quantity",placeholder=`Quantities between 1-${Quantities}` required)
+            //-     .g-recaptcha(data-sitekey="6LfA0xEaAAAAAPu_01YnOJljwD5bLZRLDzAMIexp")
+            //-     button(class="btn1")
+            //-         | ORDER
+            //- button(class="btn2" id="rzp-button1") |anything
+        .card.p-4.mt-3
+            .first
+                .info
+                    span.name.name-header  BUYING OPTIONS
+                    .stock-details
+                        .stock Stock Status:
+                            span
+                                strong 4343
+                        .minimum Minimum:   
+                            span
+                                strong 1
+            .stock-quantity
+                .input-group
+                    span.input-group-btn
+                        button.quantity-left-minus.fa.fa-minus(type='button' data-type='minus' data-field='')
+                        input#quantity.form-control.input-number(type='text' name='quantity' value='1' min='1' max='100')
+                        button.quantity-right-plus.fa.fa-plus(type='button' data-type='plus' data-field='')
+                    .qty-btn
+                        button.qty-btn-submit(type='submit' data-url=`/user/addtocart/${OBJ.PID}?key=${OBJ.url_key}`) Add to Cart
+                    if(cartQuantity!="")
+                        span
+                            a(href="/checkout" style="color:red") Already #{cartQuantity} in cart
+                    .total-price
+                        span#total-price-cs Total Price:₹
+                            span#total-price-js #{OBJ.Oprice}
+                    .unit-price
+                        span#unit-price-cs unit Price:₹
+                            span#unit-price-js #{OBJ.Oprice}
+            .stock_details
+                img(src=`../static/hookah/${OBJ.PID}_0.jpeg` width='50')
+                .detail
+                    span.summery Seller
+                hr
+                .text
+                    span.new Alex Dorlew Lorem ipsum dolor sit amet consectetur
+                span.address Total products: &nbsp
+                    span.tp_count 1234 &nbsp
+                span.address Total sales: &nbsp
+                    span.tp_count 4244
+                .last
+                    span.address-line Company-Score:&nbsp79%
+        
+    //- .Details_explorer 
+    //-     .features-bar
+    //-         span.title-bar
+    //-             | EVERYTHING
+    //-         //- .specification-bar
+    //-         //-     | !{OBJ.Specification}
+
+
+    
+    
+    .Details_explorer 
+        .features-bar
+            span.title-bar
+                | DETAILS
+            .specification-bar
+                | !{OBJ.Specification}
+
+    .owner_container-new
+        mixin slides
+            .items
+                mixin car(price)
+                    div.thumb-product
+                        img(data-src='https://res.cloudinary.com/dxfq3iotg/image/upload/v1565190720/gallery/preview/02_o_car.jpg')
+                        span.thumb-price #{price} 
+                +car("₹654645")
+                +car("₹11111") 
+                +car("₹13435") 
+                +car("₹15651")
+                +car("₹15656")
+                +car("₹11111")
+        +slides
+        +slides
+    .comment-widgets.mb-20#comment-section
+        #comment-part Comments &#8729 #{totalReview}
+        .d-flex.flex-row.comment-row
+            .p-2
+                span.round
+                    img(src='https://i.imgur.com/uIgDDDd.jpg', alt='user', width='50')
+            |                         
+            .comment-text.w-100
+                h5 Samso Nagaro
+                span.comment-footer.mb-5
+                    .date #{new Date().toString().substr(3, 13)}
+                |
+                #rating(hidden) #{userRating.Rating}
+                span.warn Note: Your Previous Review Will be Replace                              
+                span.d-flex.flex-row.justify-content-center.mt-2
+                    form(action=`/rating/${OBJ.PID}` method="POST" id="submitform")
+                        input#star-5-2.star.star-5(type='radio' name='star'  value="5")
+                        label.star.star-5(for='star-5-2')
+                        input#star-4-2.star.star-4(type='radio' name='star' value="4")
+                        label.star.star-4(for='star-4-2')
+                        input#star-3-2.star.star-3(type='radio' name='star' value="3")
+                        label.star.star-3(for='star-3-2')
+                        input#star-2-2.star.star-2(type='radio' name='star' value="2")
+                        label.star.star-2(for='star-2-2')
+                        input#star-1-2.star.star-1(type='radio' name='star' value="1")
+                        label.star.star-1(for='star-1-2')  
+                        textarea(id="tutorial" name="Comment" rows="5" cols="40" style="margin-top: 5px; width: 100%; height: 122px; resize:none;font-size:20px; " placeholder='Comment(Optional)') #{userRating.Comment}
+                        button.btn.btn-primary.btn-block.fa.fa-send(type='button' id="submit-rating" style="color: #fff;")
+                    a#confirmMsg(href="/login" style="color: #0063ff;")
+        each n in userRatingAll
+            .d-flex.flex-row.comment-row
+                .p-2
+                    span.round
+                        img(src='https://i.imgur.com/uIgDDDd.jpg', alt='user', width='50')
+                |                         
+                .comment-text.w-100
+                    h5 Samso Nagaro
+                                       
+                    .comment-footer
+                        span.date #{`${n.dateRate}`.toString().substr(3, 13)}
+                        |  
+                        span.action-icons
+                                if(n.Rating==5)
+                                    i.fa.fa-star(style="color:#0063ff;")
+                                    i.fa.fa-star.starDefault(style="color:#0063ff;")
+                                    i.fa.fa-star.starDefault(style="color:#0063ff;")
+                                    i.fa.fa-star.starDefault(style="color:#0063ff;")
+                                    i.fa.fa-star.starDefault(style="color:#0063ff;")
+                                if(n.Rating==4)
+                                    i.fa.fa-star(style="color:#0063ff;")
+                                    i.fa.fa-star.starDefault(style="color:#0063ff;")
+                                    i.fa.fa-star.starDefault(style="color:#0063ff;")
+                                    i.fa.fa-star.starDefault(style="color:#0063ff;")
+                                    i.fa.fa-star.starDefault
+                                if(n.Rating==3)
+                                    i.fa.fa-star(style="color:#0063ff;")
+                                    i.fa.fa-star.starDefault(style="color:#0063ff;")
+                                    i.fa.fa-star.starDefault(style="color:#0063ff;")
+                                    i.fa.fa-star.starDefault
+                                    i.fa.fa-star.starDefault
+                                if(n.Rating==2)
+                                    i.fa.fa-star(style="color:#0063ff;")
+                                    i.fa.fa-star.starDefault(style="color:#0063ff;")
+                                    i.fa.fa-star.starDefault
+                                    i.fa.fa-star.starDefault
+                                    i.fa.fa-star.starDefault
+                                if(n.Rating==1)
+                                    i.fa.fa-star(style="color:#F62;")
+                                    i.fa.fa-star.starDefault
+                                    i.fa.fa-star.starDefault
+                                    i.fa.fa-star.starDefault
+                                    i.fa.fa-star.starDefault
+                                         
+                    p.m-b-5.m-t-10
+                        | #{n.Comment}
+        a.btn.btn-lg(href=`/comments?PID=${OBJ.PID}`) View ALL
+    script(type='text/javascript', src='https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js')
+    script(type='text/javascript').
+        var popupViews = document.querySelectorAll('.popup-view');
+        var popupBtns = document.querySelectorAll('.popup-btn');
+        var closeBtns = document.querySelectorAll('.close-btn');
+        //javascript for quick view button
+        var popup = function(popupClick){
+        popupViews[popupClick].classList.add('active');
+        }
+        popupBtns.forEach((popupBtn, i) => {
+        popupBtn.addEventListener("click", () => {
+        popup(i);
+        });
+        });
+        //javascript for close button
+        closeBtns.forEach((closeBtn) => {
+        closeBtn.addEventListener("click", () => {
+        popupViews.forEach((popupView) => {
+        popupView.classList.remove('active');
+        });
+        });
+        });
+    script.
+        $(document).ready(function()
+        {
+        ratingvalue = $('#rating').text();
+        console.log(ratingvalue)
+        $(`input:radio[name=star]:nth(-${ratingvalue})`).attr('checked',true);
+        $('.items').slick({
+        dots: true,
+        infinite: true,
+        speed: 800,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        responsive: [
+        {
+        breakpoint: 1024,
+        settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: true
+        }
+        },
+        {
+        breakpoint: 600,
+        settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+        }
+        },
+        {
+        breakpoint: 480,
+        settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+        }
+        }
+
+        ]
+        });
+        })
+    script(type="text/javascript" src="../static/script.js")
+    script(src="../static/request/zoom.js")
+    script(src="../static/lazyload.js")
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.js')
+    script(type="text/javascript").
+        var options = {
+        "key": "rzp_test_prQcCHNWovj933", // Enter the Key ID generated from the Dashboard
+        "amount": "50000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+        "currency": "INR",
+        "name": "Acme Corp",
+        "description": "Test Transaction",
+        "image": "https://example.com/your_logo",
+        "order_id": "order_GKR1ybF4XP9OTs", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+        "callback_url": "/razorpay/",
+        "prefill": {
+            "name": "Gaurav Kumar",
+            "email": "gaurav.kumar@example.com",
+            "contact": "9999999999"
+        },
+        "notes": {
+            "address": "Razorpay Corporate Office"
+        },
+        "theme": {
+            "color": "#3399cc"
+        }
+        };
+        var rzp1 = new Razorpay(options);
+        document.getElementById('rzp-button1').onclick = function(e){
+            rzp1.open();
+            e.preventDefault();
+        }

@@ -1,0 +1,63 @@
+extends base.pug
+
+block style
+    style
+        include ../static/Addpromo.css
+block scripts
+    script(src="../static/Addpromo.js")
+    
+
+block content
+    
+        .promopage
+            .text
+                | Add New ID
+                form.promoform(action=`/NewIDGenerate` , method="post" enctype="multipart/form-data")
+                    input.details(type="text",name="name",placeholder="enter Employee name" required)
+                    input.details(type="number",name="searchPhoneID",placeholder="enter PhoneNumber" required)
+                    input.details(type="text",name="Payment",placeholder="payment-Source" required)
+                    input.details(type="text",name="Address",placeholder="Enter Address" required)
+                    input.details(type="text",name="State",placeholder="Enter State" required)
+                    input.details(type="text",name="City",placeholder="Enter City" required)
+                    input.details(type="number",name="PINCODE",placeholder="Enter PINCODE" required)
+                    //- input.details(type="text",id="fname",name="Promocode",onkeyup="Case()",placeholder="Create Promocode" required)
+                    input.details(type="email",name="email",placeholder="enter email" required)
+                    button
+                        | Submit
+                    .EMP_id
+                        | Your Company ID is #{COMPANYID}
+            .text
+                | Delete ID
+                form.promoform(action=`/DeleteID` , method="post" enctype="multipart/form-data")
+                    input.details(type="number",name="DeleteEMPID",placeholder="enter PhoneNumber" required)
+                    button
+                        | Submit
+
+                    .EMP_id
+                        | ID is #{DELETE}
+
+            .text
+                | Search ID
+                form.promoform(action=`/SearchID` , method="post" enctype="multipart/form-data")
+                    input.details(type="number",name="searchPhoneID",placeholder="enter PhoneNumber" required)
+                    button
+                        | Submit
+                    .EMP_id
+                        p
+                            | Your Company ID is #{YourID}
+                        P
+                            | name is #{name}
+                        p   
+                            | PaymentSource is #{Payment}
+                        p   
+                            | Address is #{Address}
+                        p   
+                            | State is #{State}
+                        p   
+                            | City is #{City}
+                        p
+                            | email is #{email}
+                        p
+                            | TotalProducts is #{TotalProducts}
+        .NOTE
+            |   ReVise The Details

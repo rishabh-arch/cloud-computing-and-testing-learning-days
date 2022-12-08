@@ -1,0 +1,98 @@
+.overlay {
+    -webkit-tap-highlight-color: transparent;
+    height: 100%;
+    width: 0px;
+    position: fixed;
+    z-index: 1;
+    left: -105px;
+    top: 0;
+    box-shadow: 0px 0px 10px rgb(0 0 0 / 50%);
+    background-color: rgb(255 255 255 / 99%);
+    overflow-x: hidden;
+    /* transition: 0.2s; */
+}
+
+.overlay-content {
+    position: relative;
+    /* top: 10%; */
+    width: 130%;
+    text-align: left;
+    margin-left: 110px;
+    /* margin-top: 20px; */
+    padding-bottom: 70px;
+}
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #1b1a1a;
+    display: block;
+    transition: 0.01s;
+}
+
+.overlay-content .social2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: center;
+    margin-left: -220px;
+    font-size: 28px;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+color: rgb(0, 92, 128);
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: -27px;
+    right: 0;
+    z-index: 1;
+    color: white;
+    font-size: 60px;
+}
+
+.logo>span {
+    display: none;
+}
+.user-log-mobile{
+    display: block;
+    background-color: #090918;
+    color: white;
+    padding: 20px;
+    position: relative;
+    left: -10px;
+    font-size: 15px;
+    font-weight: 800;
+    /* top: -86px; */
+
+
+}
+@media screen and (max-height: 450px) {
+    .overlay a {
+        font-size: 20px
+    }
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .logo>span {
+        display: block;
+    }
+}
+.sidebar-head-mobile{
+    border-top: 2px solid rgb(77, 73, 73);
+    color: #090918;
+}
+.sidebar-head-mobile>a{
+    width: 50%;
+}
+.sidebar-head-mobile>a:hover{
+    color: rgb(0, 92, 128);
+  }

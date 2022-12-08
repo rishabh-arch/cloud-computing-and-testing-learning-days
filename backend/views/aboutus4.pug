@@ -1,0 +1,87 @@
+extends base.pug
+
+block style
+    style
+        include ../static/createShop.css
+
+block scripts
+    script(type="text/javascript" src="../static/createShop.js")
+
+block content
+    .container-fluid
+        .row.justify-content-center
+            .col-11.col-sm-9.col-md-7.col-lg-6.col-xl-5.text-center.p-0.mt-3.mb-2
+                .card.px-0.pt-4.pb-0.mt-3.mb-3
+                    h2#heading Sign Up Your User Account
+                    |                 
+                    p Fill all form field to go to next step
+                    |                 
+                    form#msform
+                        // progressbar
+                        ul#progressbar
+                  
+                            li#account
+                                strong Account
+                            //- li#account.active
+                            //-     strong Account
+                            li#personal
+                                strong Personal                      
+                        .progress
+                            .progress-bar.progress-bar-striped.progress-bar-animated(role='progressbar', aria-valuemin='0', aria-valuemax='100')
+                        |  
+                        br
+                        // fieldsets
+                        fieldset(style="width: 100%;")
+                            .form-card
+                                .row
+                                    .col-7
+                                        h2.fs-title terms and conditions
+                                    |                                 
+                                    .col-5
+                                        h2.steps Step 1 - 5
+                                |  
+                                label.fieldlabels(for="user_email") Email: *
+                                |  
+                                input(type='email', name='email', id="user_email" placeholder='Email Id' required)
+                                |  
+                                label.fieldlabels(for="user_name") Username: *
+                                |  
+                                input(type='text', name='user_name', id="user_name" placeholder='UserName' required)
+                                |  
+                                label.fieldlabels Password: *
+                                |  
+                                input(type='password', name='pwd', placeholder='Password' required)
+                                |  
+                                label.fieldlabels Confirm Password: *
+                                |  
+                                input(type='password', name='cpwd', placeholder='Confirm Password' required)
+                            |  
+                            input.next.action-button(type='button', name='next', value='Next')
+                        fieldset(style="width: 100%;")
+                            .form-card
+                                .row
+                                    .col-7
+                                        h2.fs-title Personal Information:
+                                    |                                 
+                                    .col-5
+                                        h2.steps Step 2 - 4
+                                |  
+                                label.fieldlabels First Name: *
+                                |  
+                                input(type='text', name='fname', placeholder='First Name' required)
+                                |  
+                                label.fieldlabels Last Name: *
+                                |  
+                                input(type='text', name='lname', placeholder='Last Name' required)
+                                |  
+                                label.fieldlabels Contact No.: *
+                                |  
+                                input(type='text', name='phno', placeholder='Contact No.' required)
+                                |  
+                                label.fieldlabels Alternate Contact No.: *
+                                |  
+                                input(type='text', name='phno_2', placeholder='Alternate Contact No.' required)
+                            
+                            input(type='submit')
+                            |  
+                            input.previous.action-button-previous(type='button', name='previous', value='Previous')

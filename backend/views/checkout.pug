@@ -1,0 +1,151 @@
+extends base.pug
+block append heads
+    link(href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' rel="stylesheet")
+    link(href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel="stylesheet")
+block style
+    style
+        include ../static/checkout.css
+
+block scripts
+
+    script.
+        $(document).ready(() => {
+                $('.remover').click(function() {
+                    confirmation = confirm("Confirm?");
+                    if(confirmation){
+            var url_link = $(this).attr("data-url");
+            $.ajax({
+                    type: 'post',
+                    url: url_link,
+                    timeout: 2000,
+                    success: (newOBJ)=>{
+                      window.location.reload();
+                    }
+                })
+                .done(function(newOBJ) {
+                    return newOBJ;
+                })
+                    }
+            });
+                $('.Editor').click(function() {
+                    confirmation = confirm("Edit Quantity?");
+                    if(confirmation){
+            var url_link = $(this).attr("data-url");
+            var id  = $(this).attr("data-val");
+            console.log(id)
+            var quantity  = $(`#${id}`).val();
+            console.log(quantity)
+            $.ajax({
+                    type: 'post',
+                    url: url_link+quantity,
+                    timeout: 2000,
+                    success: (newOBJ)=>{
+                      window.location.reload();
+                    }
+                })
+                .done(function(newOBJ) {
+                    return newOBJ;
+                })
+                    }
+            });
+            });
+
+
+block content
+    .container-fluid
+        .row
+            aside.col-lg-9
+                .card
+                    .table-responsive
+                        table.table.table-borderless.table-shopping-cart
+                            thead.text-muted
+                                tr.small.text-uppercase
+                                    th(scope='col') Product
+                                    | &#x9;                                
+                                    th(scope='col', width='120') Quantity
+                                    | &#x9;                                
+                                    th(scope='col', width='120') Price
+                                    | &#x9;                                
+                                    th.text-right.d-none.d-md-block(scope='col', width='200')
+                            | &#x9;                        
+                            tbody
+                                each n in userCart
+                                    tr
+                                        td
+                                            figure.itemside.align-items-center
+                                                a.aside(href=`/p/${n.PID}?key=${n.url_key}`)
+                                                    img.img-sm(src=`../static/hookah/thumbnail/thumbnail-${n.PID}_0.jpeg`)
+                                                | &#x9;                                        
+                                                figcaption.info
+                                                    a.title.text-dark(href='#', data-abc='true') #{n.PID_name}
+                                                    | &#x9;                                            
+                                                    p.text-muted.small
+                                                        | brand: #{n.brand} 
+                                                        br
+                                                        |  colour: #{n.colour}
+                                        | &#x9;                                
+                                        td
+                                            input(type = "number",value=`${n.quantity}` id=`${n.PID}`)
+                                        | &#x9;                                
+                                        td
+                                            -var total = n.Oprice * n.quantity
+                                            .price-wrap
+                                                var.price Total-  #{total}
+                                                |  
+                                                small.text-muted For Each - #{n.Oprice}
+                                        | &#x9;                                
+                                        td.text-right.d-md-block
+                                            a.btn.btn-light.Editor(data-original-title='Save to Wishlist', title='',data-toggle='tooltip', data-abc='true',data-val=`${n.PID}`,data-url=`/user/editfromcart/${n.PID}?key=${n.url_key}&quantity=`)
+                                                | Edit
+                                            a.btn.btn-light.text-light.remover(data-abc='true', data-url=`/user/deletefromcart/${n.PID}?key=${n.url_key}`)  Remove
+                                    | &#x9;
+            | &#x9;        
+            aside.col-lg-3
+                .card.mb-3
+                    .card-body
+                        form
+                            .form-group
+                                label Have coupon?
+                                | &#x9;                            
+                                .input-group
+                                    input.form-control.coupon(type='text', name='', placeholder='Coupon code')
+                                    |  
+                                    span.input-group-append
+                                        button.btn.btn-primary.btn-apply.coupon Apply
+                | &#x9;            
+                .card
+                    .card-body
+                        dl.dlist-align
+                            dt Total price:
+                            | &#x9;                        
+                            dd.text-right.ml-3 $69.97
+                        | &#x9;                    
+                        dl.dlist-align
+                            dt Discount:
+                            | &#x9;                        
+                            dd.text-right.text-danger.ml-3 - $10.00
+                        | &#x9;                    
+                        dl.dlist-align
+                            dt Total:
+                            | &#x9;                        
+                            dd.text-right.text-dark.b.ml-3
+                                strong $59.97
+                        | &#x9;                    
+                        hr
+                        |  
+                        a.btn.btn-out.btn-primary.btn-square.btn-main(href='#', data-abc='true')  Make Purchase 
+                        |  
+                        a.btn.btn-out.btn-success.btn-square.btn-main.mt-2(href='#', data-abc='true') Continue Shopping
+    .px-1.py-5.mx-auto.row.justify-content-center
+        .col-xl-9.col-lg-10.col-sm-11
+            .cardboard.pl-4.pl-md-5.pr-3
+                .row
+                    .left-side.col-md-6
+                        p.pt-5.mb-0 Converse All Star
+                        |                     
+                        h3.pb-3 Make Your Day Comfortable
+                        |  
+                        button.btn.btn-pink.mb-md-5 Shop Now
+                    |                 
+                    .right-side.col-md-6
+                        img.shoe-img.pl-5.pl-md-0(src='https://i.imgur.com/EaNHGjT.png')

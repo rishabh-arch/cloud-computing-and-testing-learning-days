@@ -1,0 +1,165 @@
+
+.mt-50 {
+    margin-top: 70px;
+}
+
+.mb-50 {
+    margin-bottom: 50px;
+}
+
+.bg-teal-400 {
+    background-color: #26a69a;
+}
+
+a {
+    text-decoration: none;
+}
+body {
+    background-color: blue;
+}
+
+.card {
+    border: none;
+    background: #eee;
+}
+
+
+a:link {
+    text-decoration: none;
+}
+.progressbar-track {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    position: relative
+}
+
+.progressbar-track .progressbar {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-left: 0rem
+}
+
+.progressbar-track .progressbar li {
+    font-size: 1.5rem;
+    border: 1px solid #333;
+    padding: 5px 10px;
+    border-radius: 50%;
+    background-color: #dddddd;
+    z-index: 1;
+    position: relative
+}
+.progressbar-track .progressbar li.green {
+    border: 1px solid #007965;
+    background-color: #d5e6e2
+}
+.progressbar-track .progressbar li::after {
+    position: absolute;
+    font-size: 0.9rem;
+    top: 50px;
+    left: 0px
+}
+
+.card-inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.card-inner:hover {
+    transform: scale(1.1);
+}
+
+.mg-text span {
+    font-size: 12px;
+}
+
+.mg-text {
+    line-height: 14px;
+}
+#newset{
+    position: unset;
+    width: 70px;
+    min-height: 0;
+    padding-right: 0;
+    padding-left: 0;
+    margin: 1px;
+}
+.row{
+    background: white;
+}
+#tracker {
+    position: absolute;
+    border-top: 1px solid #bbb;
+    width: 100%;
+    top: 25px
+}
+
+#step-1::after {
+    content: 'Placed';
+    left: -5px;
+
+}
+
+#step-2::after {
+    content: 'Accepted';
+    left: -10px;
+}
+
+#step-3::after {
+    content: 'Packed'
+}
+
+#step-4::after {
+    content: 'Shipped'
+}
+
+#step-5::after {
+    content: 'Delivered';
+    /* left: -10px */
+}
+._5AF{
+color: #5AF;
+}
+#row-unset{
+    margin-left: 0;
+    margin-right: 0;
+}
+#Nothing{
+    color: #bbb;
+    font-size: 83px;
+    border: 1px solid;
+    padding: 74px;
+}
+#img-crop{
+    height: 200px;
+    width: 274px;
+    border: 2px solid rgba(0, 0, 0, 0.452);
+    position: relative;
+    overflow: hidden;
+
+}
+#canvas{
+    /* width: -webkit-fill-available; */
+    height: -webkit-fill-available;
+
+
+}
+.img-size{
+    position: absolute;
+
+    font-size: 50px;
+    color: #dddcda;
+    font-weight: 900;
+    top: 52px;
+    left: 30px;
+}

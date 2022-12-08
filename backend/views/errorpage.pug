@@ -1,0 +1,18 @@
+extends base.pug
+
+block style
+    style 
+        include ../static/Errorpage.css
+block scripts
+    script(src="../static/categorienav.js")
+    //- script(src="../static/Addpromo.js")
+    
+
+block content
+    .ErrorPicture
+        img(src= "../static/social/pug.png" alt="THIS IS NOT THE PRODUCT")
+        | SORRY!
+        .ErrorCode
+            | The Page You are Visiting is Not Available
+        .HOME
+            a(href="/") HOME

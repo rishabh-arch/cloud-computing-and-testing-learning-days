@@ -1,0 +1,16 @@
+.cats{
+font-size: 14px;
+padding: 6px;
+
+border-radius: 5px;
+}
+.TOP2_cats{
+    margin: 5px;
+    text-align: initial;
+    margin-left: 77px;
+}
+.cats:hover{
+    /* box-shadow:inset 0px -5px 0px 0px #fff */
+    outline: 1px solid rgb(255, 255, 255);
+/* outline-style:; */
+}

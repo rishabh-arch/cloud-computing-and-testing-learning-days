@@ -1,0 +1,180 @@
+extends base.pug
+
+block style
+    style
+        include ../static/createShop.css
+
+block scripts
+    script(type="text/javascript" src="../static/createShop.js")
+
+block content
+    .container-fluid
+        .row.justify-content-center
+            .col-11.col-sm-9.col-md-7.col-lg-6.col-xl-5.text-center.p-0.mt-3.mb-2
+                .card.px-0.pt-4.pb-0.mt-3.mb-3
+                    h2#heading Sign Up Your User Account
+                    |                 
+                    p Fill all form field to go to next step
+                    |                 
+                    form#msform
+                        // progressbar
+                        ul#progressbar
+                            li#terms.active
+                                strong T&C
+                            li#account
+                                strong Account
+                            //- li#account.active
+                            //-     strong Account
+                            li#personal
+                                strong Personal
+                            |                         
+                            li#payment
+                                strong Image
+                            |                         
+                            li#confirm
+                                strong Finish
+                        |                     
+                        .progress
+                            .progress-bar.progress-bar-striped.progress-bar-animated(role='progressbar', aria-valuemin='0', aria-valuemax='100')
+                        |  
+                        br
+                        // fieldsets
+                        fieldset(style="width: 100%;")
+                            .form-card
+                                .row
+                                    .col-7
+                                        h2.fs-title terms and conditions:
+                                    |                                 
+                                    .col-5
+                                        h2.steps Step 1 - 5
+                                |You are responsible for your use of the services and for any content you provide, including compliance with applicable laws, rules, and regulations. You should only provide content that you are comfortable sharing with others. Any use or reliance on any content or materials posted via the Services or obtained by you through the Services is at your own risk. We do not endorse, support, represent or guarantee the completeness, truthfulness, accuracy, or reliability of any content or communications posted via the Services or endorse any opinions expressed via the Services. You understand that by using the Services, you may be exposed to content that might be offensive, harmful, inaccurate or otherwise inappropriate, or in some cases, postings that have been mislabeled or are otherwise deceptive. All content is the sole responsibility of the person who originated such content. We may not monitor or control the content posted via the Services and, we cannot take responsibility for such content.
+                                div(style="margin-top:20px;")
+                                    input(type='checkbox', name='cpwd' id="checkkk" style="width:unset;" value="agreed" required)
+                                    strong 
+                                        label(for="checkkk") ok i wil follow your rulezz
+                            |  
+                            input.next.action-button(type='button', name='next', value='Next')
+                        fieldset(style="width: 100%;")
+                            .form-card
+                                .row
+                                    .col-7
+                                        h2.fs-title Personal Information:
+                                    |                                 
+                                    .col-5
+                                        h2.steps Step 2 - 5
+                                |  
+                                label.fieldlabels(for="userF_name") First Name: *
+                                input(type='text', name='userF_name', id="userF_name" placeholder='First Name' required)
+                                |  
+
+                                label.fieldlabels(for="userM_name") Middle Name:
+                                input(type='text', name='userM_name', id="userM_name" placeholder='Middle Name')
+                                |
+
+                                label.fieldlabels(for="userL_name") Last Name: *
+                                input(type='Text', name='userL_name' id="userL_name", placeholder='Last name' required)
+                                |
+
+                                label.fieldlabels(for="user_contact") Contact Number: *
+                                input(type='Number', name='user_contact' id="user_contact", placeholder='Contact Number' required)
+                                |
+
+                                label.fieldlabels(for="userAL_contact") Alternate Contact Number: *
+                                input(type='Number', name='userAL_contact' id="userAL_contact", placeholder='Alternate Contact Number' required)
+                                |
+
+                                label.fieldlabels(for="user_password") Password: *
+                                |  
+                                input(type='password', name='user_password', id ="user_password" placeholder='Password' autocomplete="off")
+                            |  
+                            input.next.action-button(type='button', name='next', value='Next')
+                            input.previous.action-button-previous(type='button', name='previous', value='Previous')
+
+                        |                     
+                        fieldset#AT(style="width: 100%;")
+                            .form-card
+                                .row
+                                    .col-7
+                                        h2.fs-title shop Information:
+                                    |                                 
+                                    .col-5
+                                        h2.steps Step 3 - 5
+                                |
+                                .Working_Options  
+                                    .floater
+                                    label.WO-label#WO-select1(for="r1" ) Work From Home
+                                        input#r1(type="radio" value="one" name="ch" hidden checked).playSound
+                                    label.WO-label#WO-select2(for="r2" ) Work as a Retailer
+                                        input#r2( type="radio" value="two" name="ch" hidden).playSound
+                                #Shop_form
+                                    label.fieldlabels Shop Name: *
+                                    |  
+                                    input(type='text', name='fname', placeholder='First Name' disabled)
+                                    |  
+                                    label.fieldlabels Shop Address: *
+                                    |  
+                                    input(type='text', name='lname', placeholder='Last Name')
+                                    |  
+                                    label.fieldlabels Shop Pincode.: *
+                                    |  
+                                    input(type='text', name='phno', placeholder='Contact No.')
+                                    |  
+                                    label.fieldlabels Shop State: *
+                                    |  
+                                    input(type='text', name='phno_2', placeholder='Alternate Contact No.')
+                            |  
+                            input.next.action-button(type='button', name='next', value='Next')
+                            |  
+                            input.previous.action-button-previous(type='button', name='previous', value='Previous')
+                        |                     
+                        fieldset(style="width: 100%;")
+                            .form-card
+                                .row
+                                    .col-7
+                                        h2.fs-title Image Upload:
+                                    |                                 
+                                    .col-5
+                                        h2.steps Step 4 - 5
+                                label.fieldlabels Upload Your Photo:
+                                |  
+                                input(type='file', name='pic', accept='image/*', id="pic")
+                                |  
+                                label.fieldlabels Upload Signature Photo:
+                                |  
+                                input(type='file', name='pic', accept='image/*')
+                                label.fieldlabels Upload Signature Photo:
+                                |  
+                                input(type='file', name='pic', accept='image/*')
+                                label.fieldlabels Upload Signature Photo:
+                                |  
+                                input(type='file', name='pic', accept='image/*')
+                                .warn Make Sure You Dont left Any Fields!
+                            input.action-button#submit-shop(type='submit' )
+                            input.previous.action-button-previous(type='button', name='previous', value='Previous')
+                        //- fieldset(style="width: 100%;")
+                        //-     .form-card
+                        //-         .row
+                        //-             .col-7
+                        //-                 h2.fs-title Finish:
+                        //-             |                                 
+                        //-             .col-5
+                        //-                 h2.steps Step 4 - 4
+                        //-         |  
+                        //-         br
+                        //-         br
+                        //-         |                             
+                        //-         h2.purple-text.text-center
+                        //-             strong SUCCESS !
+                        //-         |  
+                        //-         br
+                        //-         |                             
+                        //-         .row.justify-content-center
+                        //-             .col-3
+                        //-                 img.fit-image(src='https://i.imgur.com/GwStPmg.png')
+                        //-         |  
+                        //-         br
+                        //-         br
+                        //-         |                             
+                        //-         .row.justify-content-center
+                        //-             .col-7.text-center
+                        //-                 h5.purple-text.text-center You Have Successfully Signed Up

@@ -1,0 +1,29 @@
+extends Dashboard.pug
+
+block append style
+    link(rel='stylesheet' href='../../static/profile.css')
+
+block append scripts
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js")
+    script(src="../../static/request/editDetails.js")
+    script(src="../../static/jquery2.js")
+
+block Dash
+    .container
+        label.close-btn.fas.fa-times(for='show' title='close')
+        .text
+            | Edit Profile
+        form(action='/dashboard/editprofile' method="POST" id="EditDetails")
+            .data
+                label OLD PASSWORD
+                input(type='text' name="Address" required='' value=Address )
+            .data
+                label NEW PASSWORD
+                input(type='text' name="State" required='' value=State)
+            .data
+                label CONFIRM PASSWORD
+                input(type='text' name="City" required='' value=City)
+            .btn
+                .inner
+                button(type='submit' id="submit") Submit

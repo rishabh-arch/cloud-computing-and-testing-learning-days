@@ -1,0 +1,280 @@
+
+p {
+    color: grey
+}
+
+#heading {
+    text-transform: uppercase;
+    color: #673AB7;
+    font-weight: normal
+}
+
+#msform {
+    text-align: center;
+    position: relative;
+    margin-top: 20px;
+    width: 94vw;
+    margin-bottom: 57px;
+}
+
+#msform fieldset {
+    background: white;
+    border: 0 none;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding-bottom: 20px;
+    position: relative
+}
+
+.form-card {
+    text-align: left
+}
+
+#msform fieldset:not(:first-of-type) {
+    display: none
+}
+
+#msform input,
+#msform textarea {
+    padding: 8px 15px 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    margin-bottom: 25px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2C3E50;
+    background-color: #ECEFF1;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+#msform input:focus,
+#msform textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #673AB7;
+    outline-width: 0
+}
+
+#msform .action-button {
+    width: 100px;
+    background: #673AB7;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 0px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 0px 10px 5px;
+    float: right
+}
+
+#msform .action-button:hover,
+#msform .action-button:focus {
+    background-color: #311B92
+}
+
+#msform .action-button-previous {
+    width: 100px;
+    background: #616161;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 0px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px 10px 0px;
+    float: right
+}
+
+#msform .action-button-previous:hover,
+#msform .action-button-previous:focus {
+    background-color: #000000
+}
+
+.card {
+    z-index: 0;
+    border: none;
+    position: relative
+}
+
+.fs-title {
+    font-size: 25px;
+    color: #673AB7;
+    margin-bottom: 15px;
+    font-weight: normal;
+    text-align: left;
+}
+
+.purple-text {
+    color: #673AB7;
+    font-weight: normal
+}
+
+.steps {
+    font-size: 25px;
+    color: gray;
+    margin-bottom: 10px;
+    font-weight: normal;
+    text-align: right;
+    margin-left: 10px;
+
+}
+
+.fieldlabels {
+    color: gray;
+    text-align: left;
+    display: block;
+}
+
+#progressbar {
+    /* margin-bottom: 30px; */
+    overflow: hidden;
+    color: lightgrey;
+    /* width: 78em; */
+    padding-left: 0;
+
+}
+
+#progressbar .active {
+    color: #673AB7
+}
+
+#progressbar li {
+    list-style-type: none;
+    font-size: 15px;
+    width: 20%;
+    float: left;
+    position: relative;
+    font-weight: 400
+}
+
+#progressbar #account:before {
+    font-family: FontAwesome;
+    content: "\f13e";
+}
+#progressbar #terms:before {
+    font-family: FontAwesome;
+    content: "\f0fc";
+}
+
+#progressbar #personal:before {
+    font-family: FontAwesome;
+    content: "\f007";
+}
+
+#progressbar #payment:before {
+    font-family: FontAwesome;
+    content: "\f030";
+}
+
+#progressbar #confirm:before {
+    font-family: FontAwesome;
+    content: "\f00c";
+}
+
+#progressbar li:before {
+    width: 50px;
+    height: 50px;
+    line-height: 45px;
+    display: block;
+    font-size: 20px;
+    color: #ffffff;
+    background: lightgray;
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
+    padding: 2px
+}
+
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: lightgray;
+    position: absolute;
+    left: 0;
+    top: 25px;
+    z-index: -1
+}
+
+#progressbar li.active:before,
+#progressbar li.active:after {
+    background: #673AB7
+}
+/* 
+.progress {
+    height: 20px;
+} */
+
+.progress-bar {
+    background-color: #673AB7
+    
+}
+
+.fit-image {
+    width: 5%;
+    object-fit: cover
+}
+
+.warn{
+    color: red;
+    visibility: hidden;
+}
+.warn-visible{
+    visibility: visible;
+
+}
+#msform #r2{
+    width: unset;
+    background-color: 1px solid green;
+}
+#msform #r1{
+    width: unset;
+    border: 1px solid rgb(15, 15, 15);
+
+}
+.Working_Options{
+    display: flex;
+    flex-direction: row;
+    /* background: #673ab7; */
+    position: relative;
+    /* border: 2px solid black; */
+    font-size: x-large;
+    font-weight: 700;
+    color: rgb(8, 8, 8);
+    justify-content: space-between;
+    text-align: center;
+}
+.WO-label{
+    /* background: rgb(5, 110, 105); */
+    border-radius: 10px;
+    cursor:pointer;
+    width: 50%;
+    padding: 10px;
+    z-index: 2;
+    /* transition: all 1s linear; */
+}
+.floater{
+    position: absolute;
+    width: 50%;
+    background-color: rgb(35 47 62);
+    left: 0;
+    height: 100%;
+    z-index: 1;
+    transition: all 0.1s;
+}
+.floater-left{
+    left: 50%;
+}
+.floater-left-0{
+    left: 0;
+}
+.floater::before{
+    content: "rishabh";
+    opacity: 0;
+}

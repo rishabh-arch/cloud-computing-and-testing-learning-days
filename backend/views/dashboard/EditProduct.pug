@@ -1,0 +1,151 @@
+extends Dashboard.pug
+block heads
+    link(rel='stylesheet', href='../../static/assets/vendor/bootstrap/css/bootstrap.min.css')
+    |     
+    link(href='../../static/assets/vendor/fonts/circular-std/style.css', rel='stylesheet')
+    |     
+    link(rel='stylesheet', href='../../static/assets/libs/css/style.css')
+    |     
+    link(rel='stylesheet', href='../../static/assets/vendor/fonts/fontawesome/css/fontawesome-all.css')
+    |     
+    link(rel='stylesheet', href='../../static/assets/vendor/select2/css/select2.css')
+    |     
+    link(rel='stylesheet', href='../../static/assets/vendor/summernote/css/summernote-bs4.css')
+    |     
+    link(rel='stylesheet', href='../../static/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css')
+block append style
+    style
+        include ../../static/productUpload.css
+        include ../../static/loader.css
+        include ../../static/productpage2.css
+
+block append scripts
+
+
+  
+block Dash
+    p.heading
+        | Upload Your Product
+        .UploadPage
+            form.uploadform(action=`/Dashboard/EditProduct/`+ product_detail.PID , method="post" enctype="multipart/form-data")
+                #app(style="position:relative;")
+                    .main-wrapper
+                        h2 Category
+                        .img-main-wrapper
+                            transition(name='fade' mode='out-in')
+                                img.img-absolute(v-if='currentChairIndex !== undefined' :key='chairs[currentChairIndex].main' :src='chairs[currentChairIndex].main')
+                            transition(name='fade' mode='out-in')
+                                img.img-absolute(v-if='currentMatIndex !== undefined' :key='mats[currentMatIndex].main' :src='mats[currentMatIndex].main')
+                            img.img-main(src=`../static/hookah/${product_detail.PID}_0.jpeg`, alt="" id="canvas")
+                            .plus_sign(onclick=`document.getElementById('myInput2').click();document.getElementById('canvas').src = "../static/hookah/${product_detail.PID}_0.jpeg";`)
+                                i.fa.fa-plus-circle.fa-mod-main
+                                    input(type="file" name="images" id="myInput2" style="visibility:hidden;" accept="" onchange="document.getElementById('canvas').src = window.URL.createObjectURL(this.files[0])")
+                        .content-row
+                            h3 More
+                            .img-thumbnail-wrapper
+                                img.img-thumbnail(src=`../../static/hookah/${product_detail.PID}_1.jpeg`,id="canvasT1")
+                                .plus_signT(onclick=`document.getElementById('myInput3').click();`)
+                                    i.fa.fa-plus-circle.fa-mod
+                                        input(type="file" name="images" id="myInput3" style="visibility:hidden;" accept="" onchange="document.getElementById('canvasT1').src = window.URL.createObjectURL(this.files[0])")
+                                img.img-thumbnail(src=`../../static/hookah/${product_detail.PID}_2.jpeg`, alt="" id="canvasT2")
+                                .plus_signT(onclick=`document.getElementById('myInput4').click();`)
+                                    i.fa.fa-plus-circle.fa-mod
+                                        input(type="file" name="images" id="myInput4" style="visibility:hidden;" accept="" onchange="document.getElementById('canvasT2').src = window.URL.createObjectURL(this.files[0])")
+                                img.img-thumbnail(src=`../../static/hookah/${product_detail.PID}_3.jpeg`, alt="" id="canvasT3")
+                                .plus_signT(onclick=`document.getElementById('myInput5').click();`)
+                                    i.fa.fa-plus-circle.fa-mod
+                                        input(type="file" name="images" id="myInput5" style="visibility:hidden;" accept="" onchange="document.getElementById('canvasT3').src = window.URL.createObjectURL(this.files[0])")
+                            h3(style="margin-bottom:0px;")
+                                span(style="text-decoration-line: line-through; margin-right:5px;") ₹Market Price
+                                span(style="font-size:30px") ₹Your Price
+                    #app_input
+                        //- input.catsclass(type="file",name="images" accept="image/*" required)
+                        input.catsclass(type="text",name="Productname",placeholder="enter product name",maxlength="40" value=product_detail.name required )
+                        input.catsclass(type="text",name="brand",placeholder="enter Brand",maxlength="40" value=product_detail.brand required )
+                        input.catsclass(type="text",name="colour",placeholder="enter colour",maxlength="30" value=product_detail.colour )
+                        input.catsclass#Market_price(type="text",name="Mprice",placeholder="Market Price"  value=product_detail.Mprice required)
+                        input.catsclass#Your_price(type="text",name="Oprice",placeholder="Your Price" value=product_detail.Oprice required)
+                        input.catsclass#quantities(type="text",name="Quantities",placeholder="Total Quantities You have" value=product_detail.Quantities required )
+                        p Categories:
+                        .radio
+                            select.catsclass(name="ProductCats" data-selected=product_detail.Category)
+                                
+                                option(value="Hookah" ) laptop
+                                option(value="Pipes" ) mobile
+                                option(value="Chillum") camera
+                                option(value="Flavours") projector
+                                option(value="Hookah Kit") watch
+                                option(value="Coal") headphone
+                                option(value="Others") Others
+                        .radio
+                            select.catsclass(name="InStock")
+                                option(value="Available") Available
+                                option(value="Out Of Stock") Out Of Stock
+                .email-compose-fields
+                    .to
+                        .form-group.row.pt-0
+                            label.col-md-1.control-label Tags:
+                            |                                 
+                            .col-md-11
+                                select.js-example-basic-multiple(multiple='multiple' name="tags")
+                                    each n,i in product_detail.tag
+                                        option(value=n selected =true) #{n}
+                    //- input.catsclass(type="text",name="tag1",placeholder="TAG-1")
+                    //- input.catsclass(type="text",name="tag2",placeholder="TAG-2")
+                    //- input.catsclass(type="text",name="tag3",placeholder="TAG-3")
+                    .email.editor
+                        .col-md-12.p-0
+                            .form-group
+                                label.control-label.sr-only(for='summernote') Descriptions 
+                                |                                 
+                                textarea#summernote.form-control(name='specs', rows='6', placeholder='Write Descriptions') 
+                                .oldSpecs(hidden=true) 
+                                    | !{product_detail.Specification}
+                
+
+                //- textarea.catsclass(style="resize:none; height:180px;" type="text",name="specs",placeholder="Specificatons")
+                .sub_btn
+                    input.catsclass#submit_btn(type="submit")
+                    #add
+    script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8")
+    script(src='../../static/assets/vendor/jquery/jquery-3.3.1.min.js')
+    |     
+    script(src='../../static/assets/vendor/bootstrap/js/bootstrap.bundle.js')
+    |     
+    script(src='../../static/assets/vendor/slimscroll/jquery.slimscroll.js')
+    |     
+    script(src='../../static/assets/vendor/select2/js/select2.min.js')
+    |     
+    script(src='../../static/assets/vendor/summernote/js/summernote-bs4.js')
+    |     
+    script(src='../../static/assets/libs/js/main-js.js')
+    script(src='../../static/jquery.mask.js')
+    script(src='../../static/jquery.mask.min.js')
+    |     
+    script.
+      $(document).ready(function() {
+      $('.js-example-basic-multiple').select2({ tags: true });
+      });
+    |     
+    script.
+      $(document).ready(function() {
+      $('#summernote').summernote({
+      height: 300
+      });
+      });
+    //- script(src="../../static/categorienav.js")
+    //- script(src="../static/checkjs.js")
+    script.
+        $(document).ready(function(){
+        $('#Market_price').mask('0000000');
+        $('#Your_price').mask('0000000');
+        $('#quantities').mask('00');
+        var str = $( ".oldSpecs" ).html();
+        $( ".note-editable" ).html(str);
+        })
+    script.
+        document.querySelectorAll('[data-selected]').forEach(e => {
+        e.value = e.dataset.selected
+        });

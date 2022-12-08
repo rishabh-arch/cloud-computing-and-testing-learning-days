@@ -1,0 +1,71 @@
+extends base.pug
+block append heads
+    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
+block append style
+    style
+        include ../static/trendbar.css
+        include ../static/homeActnew2.css
+block append scripts
+    //- script(type="text/javascript" src="../static/JQuery3.3.1.js")
+    //- script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js")
+    //- script(src="../static/jquery2.js")
+    script(src="../static/request/BookmarkDelete.js")
+
+block content
+    .product2mkmk
+        h3.trendbar
+            p Favourites
+        .container_products
+            each n,i in newOBJ
+                .product
+                    .product-card
+                        h2.name #{n.P_name}
+                        span.priceM ₹#{n.P_Mprice}
+                        span.priceO ₹#{n.P_Oprice}
+                        a.popup-btn Quick View
+                        
+                        button.BM-btn(type="button" value= `${n.P_ID}`)
+                            P(id=`${n.P_ID}` class="cart-alert")
+                            svg.BM-btn-icon#BM-btn-iconjs(width="16" height="16" fill="currentColor" class="bi bi-file-minus-fill" viewBox="0 0 16 16")
+                                path(d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM6 7.5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1 0-1z")
+
+                        a(href=`/p/${n.P_ID}?key=${n.url_key}` )
+                            img.product-img(src="../static/hookah/thumbnail/thumbnail-" + n.P_ID + "_0.jpeg" alt='')
+                    .popup-view
+                        .popup-card
+                            a
+                                i.fa.fa-times.close-btn
+                            .product-img
+                                img(src="../static/hookah/thumbnail/thumbnail-" + n.P_ID + "_0.jpeg" alt='')
+                            .info
+                                h2
+                                    | #{n.P_name}
+                                    br
+                                    span #{n.P_Category}
+                                p
+                                    | #{n.P_Specification}
+                                span.priceM ₹#{n.P_Mprice}
+                                span.priceO ₹#{n.P_Oprice}
+                                a.add-cart-btn(href=`/p/${n.P_ID}?key=${n.url_key}` ) Add to Cart
+                                a.add-wish(href=`/p/${n.P_ID}?key=${n.url_key}` ) Add to Wishlist
+    script(type='text/javascript').
+        var popupViews = document.querySelectorAll('.popup-view');
+        var popupBtns = document.querySelectorAll('.popup-btn');
+        var closeBtns = document.querySelectorAll('.close-btn');
+        //javascript for quick view button
+        var popup = function(popupClick){
+        popupViews[popupClick].classList.add('active');
+        }
+        popupBtns.forEach((popupBtn, i) => {
+        popupBtn.addEventListener("click", () => {
+        popup(i);
+        });
+        });
+        //javascript for close button
+        closeBtns.forEach((closeBtn) => {
+        closeBtn.addEventListener("click", () => {
+        popupViews.forEach((popupView) => {
+        popupView.classList.remove('active');
+        });
+        });
+        });

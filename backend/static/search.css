@@ -1,0 +1,71 @@
+    .searchbar {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        /* max-width: 400px; */
+        align-items: center;
+        position: relative;
+        /* border: 2px solid red; */
+    }
+    
+    .infos2 {
+        /* margin-top: 55px; */
+        display: none;
+        margin-top: 2px;
+        margin-bottom: 0px;
+    }
+    
+    form.example {
+        display: flex;
+        /* flex-wrap:wrap; */
+        /* flex-direction: row; */
+        margin: 5px;
+        margin-right: 0;
+        /* right: 0; */
+        /* align-items: flex-end; */
+        /* border: 2px solid rgb(204, 25, 25)21, 13, 13); */
+    }
+    
+    form.example input {
+        padding: 10px;
+        font-size: 17px;
+        border: none;
+        /* float: right; */
+        /* width: 70%; */
+        /* flex: 25%; */
+        border-radius: 0px;
+        background: #f1f1f1;
+        border-right: none;
+        outline: none;
+    }
+
+    form.example button {
+        float: right;
+        width: 50px;
+        border-radius: 0px;
+        outline: none;
+        padding: 10px;
+        background: #db5406;
+        color: white;
+        font-size: 17px;
+        border: 1px solid grey;
+        border: none;
+        cursor: pointer;
+    }
+    
+    form.example button:hover {
+        background: #c94d05;
+    }
+    
+    form.example::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+    
+    @media screen and (max-width: 758px) {
+        .infos2 {
+            display: block;
+        }
+    }

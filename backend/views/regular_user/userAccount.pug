@@ -1,0 +1,65 @@
+extends userDashboard.pug
+block heads
+block append style
+    style
+        include ../../static/loader.css
+
+block userDashboard
+    .rounded.bg-white.mb-5
+        form.row#row-unset
+            .col-md-3
+                .d-flex.flex-column.align-items-center.text-center.p-3.py-5
+                    #img-crop
+                        img#canvas(src='/hjgf/jhgh' onerror="this.src='../../static/defaultuser.png'")
+                        //- .img-size 275x200
+                    span.fa.fa-pencil(onclick="document.getElementById('myInput2').click()")
+                        #submitForm2
+                            input(type="file" id="myInput2" style="visibility:hidden;" accept="" onchange="document.getElementById('canvas').src = window.URL.createObjectURL(this.files[0])" name="images")
+                    span.font-weight-bold Rishabh Garg
+                    span.text-black-50 Rishabhgargts@gmail.com
+            |         
+            .col-md-5
+                .p-3.py-5
+                    .d-flex.justify-content-between.align-items-center.mb-3
+                        h4.text-right Profile Settings
+                    |                 
+                    .row.mt-2
+                        .col-md-6
+                            label.labels Name
+                            input.form-control(type='text', placeholder='first name', value='',name="Name_Of_user")
+                        |                     
+                        .col-md-6
+                            label.labels Surname
+                            input.form-control(type='text', value='', placeholder='surname',name="Surname_Of_user")
+                    |                 
+                    .row.mt-3
+                        .col-md-12
+                            label.labels Mobile Number
+                            input.form-control(type='text', placeholder='enter phone number', value='',name="phone_Of_user")
+                        |                     
+                        .col-md-12
+                            label.labels Address Line
+                            input.form-control(type='text', placeholder='enter address', value='',name="Address_Of_user")
+                        .col-md-12
+                            label.labels State
+                            input.form-control(type='text', placeholder='enter state', value='',name="State_Of_user")
+                        |                     
+                        .col-md-12
+                            label.labels Landmark
+                            input.form-control(type='text', placeholder='enter landmark', value='',name="Landmark_Of_user")
+                    .row.mt-3
+                        .col-md-6
+                            label.labels City 
+                            input.form-control(type='text', placeholder='country', value='',name="City_of_user")
+                        |                     
+                        .col-md-6
+                            label.labels Pincode
+                            input.form-control(type='text', placeholder='enter pincode', value='',name="Pincode_Of_user")
+                    |                 
+                    .mt-5.text-center
+                        button.btn.btn-primary.profile-button#submit(type='submit' onclick="submitLimit()") Save Profile
+                            #add
+    script.
+        function submitLimit() {
+        $(`#add`).toggleClass("loader loader-profile");
+        }

@@ -1,0 +1,155 @@
+extends base.pug
+
+block style
+    link(rel='stylesheet' href='fonts/material-icon/css/material-design-iconic-font.min.css')
+    link(rel='stylesheet' href='../static/Employee_styleForm.css')
+    link(rel='stylesheet' href='../static/underReview.css')
+    link( rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css')
+
+block scripts
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.js')
+    script.
+        $(document).ready(function()
+        {
+
+
+        if($('.bbb_viewed_slider').length)
+        {
+        var viewedSlider = $('.bbb_viewed_slider');
+
+        viewedSlider.owlCarousel(
+        {
+        loop:true,
+        margin:30,
+        autoplay:true,
+        autoplayTimeout:6000,
+        nav:false,
+        dots:false,
+        responsive:
+        {
+        0:{items:1},
+        575:{items:2},
+        768:{items:3},
+        991:{items:4},
+        1199:{items:6}
+        }
+        });
+
+        if($('.bbb_viewed_prev').length)
+        {
+        var prev = $('.bbb_viewed_prev');
+        prev.on('click', function()
+        {
+        viewedSlider.trigger('prev.owl.carousel');
+        });
+        }
+
+        if($('.bbb_viewed_next').length)
+        {
+        var next = $('.bbb_viewed_next');
+        next.on('click', function()
+        {
+        viewedSlider.trigger('next.owl.carousel');
+        });
+        }
+        }
+
+
+        });
+
+block content
+    .editProfile
+        .wrapper(style="margin-top:120px;")
+            .title
+                | #{result}
+                .title2(style="font-size:15px;")
+                    | #{result2}
+                a(href="/" style="font-size:15px;") Go to Home
+    .container-fluid.px-1.py-5.mx-auto.row.justify-content-center
+        .col-xl-9.col-lg-10
+            .card1.pl-4.pl-md-5.pr-3
+                .row
+                    .left-side.col-md-6
+                        p.pt-5.mb-0 Has just arrived!
+                        |                     
+                        h3.mb-0
+                            strong Summer Collection 2019
+                        |  
+                        small Footwear, Bags, Sunglasses, Caps &amp; much more.
+                        br
+                        |  
+                        button.btn.btn-pink.mb-5
+                            | Shop Now &nbsp;&nbsp;
+                            .fa.fa-angle-right
+                    |                 
+                    .right-side.col-md-6.row.justify-content-center
+                        .d-flex
+                            img.girl-img.fit-image(src='../static/social/pug.png')
+            |         
+            .card2.pl-4.pl-md-5.pr-3
+                .row.px-3
+                    .col-md-12
+                        .blocks.row.d-flex
+                            .d-flex.flex-column
+                                img.fit-image.img-block(src='https://i.imgur.com/fAGPS4s.jpg')
+                                |  
+                                small.text-center Men
+                            |                         
+                            .d-flex.flex-column
+                                img.fit-image.img-block(src='https://i.imgur.com/HPYQLNh.jpg')
+                                |  
+                                small.text-center Women
+                            |                         
+                            .d-flex.flex-column
+                                img.fit-image.img-block(src='https://i.imgur.com/iUIt6UP.jpg')
+                                |  
+                                small.text-center Kids
+
+    .bbb_viewed
+        .container2
+            .row
+                .col
+                    .bbb_main_container
+                        .bbb_viewed_title_container
+                            h3.bbb_viewed_title Best selling products
+                            |                         
+                            .bbb_viewed_nav_container
+                                .bbb_viewed_nav.bbb_viewed_prev
+                                    i.fa.fa-chevron-left
+                                |                             
+                                .bbb_viewed_nav.bbb_viewed_next
+                                    i.fa.fa-chevron-right
+                        |                     
+                        .bbb_viewed_slider_container
+                            .owl-carousel.owl-theme.bbb_viewed_slider
+                                .owl-item
+                                    .bbb_viewed_item.discount.d-flex.flex-column.align-items-center.justify-content-center.text-center
+                                        .bbb_viewed_image
+                                            img(src='https://res.cloudinary.com/dxfq3iotg/image/upload/v1560924153/alcatel-smartphones-einsteiger-mittelklasse-neu-3m.jpg', alt='')
+                                        |                                     
+                                              
+                                .owl-item
+                                    .bbb_viewed_item.d-flex.flex-column.align-items-center.justify-content-center.text-center
+                                        .bbb_viewed_image
+                                            img(src='https://res.cloudinary.com/dxfq3iotg/image/upload/v1560924221/51_be7qfhil.jpg', alt='')
+                                            
+                                .owl-item
+                                    .bbb_viewed_item.d-flex.flex-column.align-items-center.justify-content-center.text-center
+                                        .bbb_viewed_image
+                                            img(src='https://res.cloudinary.com/dxfq3iotg/image/upload/v1560924241/8fbb415a2ab2a4de55bb0c8da73c4172--ps.jpg', alt='')
+                                                     
+                                .owl-item
+                                    .bbb_viewed_item.is_new.d-flex.flex-column.align-items-center.justify-content-center.text-center
+                                        .bbb_viewed_image
+                                            img(src='https://res.cloudinary.com/dxfq3iotg/image/upload/v1560924275/images.jpg', alt='')
+                                .owl-item
+                                    .bbb_viewed_item.discount.d-flex.flex-column.align-items-center.justify-content-center.text-center
+                                        .bbb_viewed_image
+                                            img(src='https://res.cloudinary.com/dxfq3iotg/image/upload/v1560924361/21HmjI5eVcL.jpg', alt='')
+                                                   
+                                .owl-item
+                                    .bbb_viewed_item.d-flex.flex-column.align-items-center.justify-content-center.text-center
+                                        .bbb_viewed_image
+                                            img(src='https://res.cloudinary.com/dxfq3iotg/image/upload/v1560924241/8fbb415a2ab2a4de55bb0c8da73c4172--ps.jpg', alt='')
+                                       

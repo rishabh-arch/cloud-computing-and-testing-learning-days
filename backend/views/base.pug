@@ -1,0 +1,322 @@
+doctype html
+html(lang="en")
+    head
+        meta(name='viewport' content='width=device-width, initial-scale=1.0,user-scalable=no')
+        //- meta(name="description" content="SABKO MILEGA")
+        meta(name='og:image' content="https://photocascadia.files.wordpress.com/2011/09/300x200-300dpi.jpg")
+        meta(name='og:description' content='fdfdf milega')
+        meta(name="theme-color" content="#232f3e")
+        title #{page_title}
+        link(rel="shortcut icon" type="image/jpg" href="https://cdn-images-1.medium.com/max/1600/1*4tSd4YB-Hz4LhjdzUfsR2A.png")
+        link(rel="preconnect" href="https://fonts.gstatic.com")
+        link(rel="manifest" href="manifest.json")
+        link(href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet")
+
+        block heads
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+
+        block style
+        style
+            include ../static/homeActnew.css
+            include ../static/titleAtt.css
+            include ../static/itemoverlay.css
+            include ../static/pagination.css
+            include ../static/categorienav.css
+            include ../static/categorienav_desktop.css
+            include ../static/TOP.css
+            include ../static/TOP2.css
+            include ../static/homeprod.css
+            include ../static/footer.css
+            include ../static/mobile_menu.css
+            include ../static/search.css
+            include ../static/table_home.css
+            include ../static/newhead.css
+            include ../static/assets/vendor/bootstrap/css/nav_right_menu.css
+            include ../static/progressor.css
+        
+
+        script(src="../static/categorienav.js")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8")
+        script.
+            $(document).ready(function() {
+            var obj = document.createElement("audio");
+            obj.src="../static/popS.mp3";
+            obj.volume=0.10;
+            obj.autoPlay=false;
+            obj.preLoad=true;       
+
+            $(".playSound").click(function() {
+                obj.play();
+            });
+
+            });
+        script.
+            $(window).on('load',function() {
+            $({property: 0}).animate({property: 105}, {
+            duration: 1000,
+            step: function() {
+            var _percent = Math.round(this.property);
+            $('#progress').css('width', _percent+"%");
+            if(_percent == 105) {
+            $("#progress").addClass("done");
+            }
+            },
+            complete: function() {
+            }
+            });
+            });
+            
+        block scripts
+        //- script(type="text/javascript" src="../static/JQuery3.3.1.js")
+        //- script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js")
+        
+
+    body
+        #progress.waiting 
+            dt 
+            dd
+        .HEADBAR
+            script.
+                $(function(){
+                search_width = $(".searchform").width()
+                $('#search').autocomplete({
+                    appendTo: ".searchform",
+                    autoFocus: true,
+                source: function(req,res){
+                $.ajax({
+                    url:"/searchbar?key=Home",
+                    dataType:"jsonp",
+                    type:"GET",
+                    data:req,
+                    success: function(data){
+                    res(data)
+                    },
+                    error: function(err){
+                    console.log(err.status);
+                    }
+                });
+                },
+                    classes: {
+                        "ui-autocomplete": "highlight"
+                    },
+                    autofocus:true,
+                minLength:1,
+                select: function(event,ui){
+                if(ui.item){
+                    $('#search').val(ui.item.label);
+                }
+                },
+                open: function(){
+                    $('.ui-autocomplete').css('left', '0px'); // HERE
+                    $('.ui-autocomplete').css('position', 'absolute'); // HERE
+                    $('.ui-autocomplete').css('width', `${search_width}px`); // HERE
+
+                    $('body').toggleClass('changed');
+                },
+                close: function(){
+                    $('body').removeClass('changed');
+                }
+                });
+                });
+            header.TOP
+                a.logo(href="/" style="text-decoration:none;")
+                    
+                    img(src='../static/logo.png')
+                    | DOT MATRIX
+                .coninfo
+                    #myNav.overlay
+                        a.closebtn(href='javascript:void(0)' onclick='closeNav()') &times;
+                        .overlay-content
+                            .user-log-mobile.fa.fa-user-circle 
+                                | Hello,AMAN SINGH
+                            .social2
+                                a.socialicon2(href='/Accessories')
+                                    i.fa.fa-facebook
+                                a.socialicon2(href='/checkout')
+                                    i.fa.fa-youtube
+                                a.socialicon2(href='')
+                                    i.fa.fa-instagram
+                                a.socialicon2(href='')
+                                    i.fa.fa-twitter
+                            div.sidebar-head-mobile Accessories
+                                a(href='/Accessories?Categories=Hookah,').sidebar-option Laptop
+                                    span.fa.fa-angle-right.sidebar-arrow 
+                                a(href='/Accessories?Categories=Pipes,').sidebar-option mobile
+                                    span.fa.fa-angle-right.sidebar-arrow
+                                a(href='/Accessories?Categories=Chillum,').sidebar-option camera
+                                    span.fa.fa-angle-right.sidebar-arrow
+                                a(href='/Accessories?Categories=Flavours,').sidebar-option projector
+                                    span.fa.fa-angle-right.sidebar-arrow
+                                a(href='/Accessories?Categories=Hookah%20Kit,').sidebar-option headphone
+                                    span.fa.fa-angle-right.sidebar-arrow
+                                a(href='/Accessories?Categories=Coal,').sidebar-option watch
+                                    span.fa.fa-angle-right.sidebar-arrow
+                                a(href='/Accessories?Categories=Others,').sidebar-option Others
+                                    span.fa.fa-angle-right.sidebar-arrow
+                                a(href='/Market').sidebar-option Market
+                                    span.fa.fa-angle-right.sidebar-arrow
+                            div.sidebar-head-mobile Account
+                                a(href='/checkout').sidebar-option Cart
+                                    span.fa.fa-angle-right.sidebar-arrow
+                                a(href='/Dashboard').sidebar-option Explore
+                                    span.fa.fa-angle-right.sidebar-arrow
+                                a(href='/user/Cart').sidebar-option Bookmarks
+                                    span.fa.fa-angle-right.sidebar-arrow
+                                a(href='/reg-dashboard/userOrders').sidebar-option Your Orders
+                                    span.fa.fa-angle-right.sidebar-arrow
+                                a(href='/logout').sidebar-option Sign-Out
+                                    span.fa.fa-angle-right.sidebar-arrow
+                            div.sidebar-head-mobile
+                                | Help
+                                a(href='/aboutus').sidebar-option About
+                                    span.fa.fa-angle-right.sidebar-arrow 
+                                a(href='/customerservice').sidebar-option Customer Service
+                                    span.fa.fa-angle-right.sidebar-arrow
+                    span.side_bar(style='font-size:30px;cursor:pointer' onclick='openNav()')
+                        i.fa.fa-bars(style="color:black;")
+
+                    a#HOMEICO.infos(href='/' data-title="Home")
+                        svg.bi.bi-house-door-fill(width='1em' height='1em' viewbox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg')
+                            path(d='M6.5 10.995V14.5a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5h-4a.5.5 0 0 1-.5-.5V11c0-.25-.25-.5-.5-.5H7c-.25 0-.5.25-.5.495z')
+                            path(fill-rule='evenodd' d='M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z')
+
+                    .searchbar(data-title="Search")
+                        form.searchform(action="/search" class="example" method="PUT")
+                            input(type="text" id="search" name="search" placeholder="Search Product,shop,categories,tags,colour etc" autocomplete="OFF" ) 
+                            button(type="submit")
+                                i.fa.fa-search
+            
+                    a.infos.Cart(href='/user/Cart' data-title="Cart")
+                        svg(xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-file-earmark-plus-fill" viewBox="0 0 16 16")
+                            path(fill-rule="evenodd" d="M2 2a2 2 0 0 1 2-2h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm7.5 1.5v-2l3 3h-2a1 1 0 0 1-1-1zM8.5 7a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V11a.5.5 0 0 0 1 0V9.5H10a.5.5 0 0 0 0-1H8.5V7z")
+           
+                .dashboard-header
+                    a(href='/market' data-title="Market").Login-nav.login-hover
+                        svg(xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-shop" viewBox="0 0 16 16")
+                            path(d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z")
+                        div.Login-nav-font Market
+                    a(href='/checkout' data-title="Cart").Login-nav.login-hover
+                        i.fa.fa-opencart
+                        div.Login-nav-font CART
+                    a(href='/Dashboard' data-title="Account").login-user.login-hover.Login-nav-font.Login-nav
+                        | AMAN SINGH 
+                        div.cl-yellow Account
+            nav.TOP2
+                .TOP2_cats
+                    #myNavdesktop.overlay_desktop
+                        .user-log.fa.fa-user-circle 
+                            | Hello,AMAN SINGH
+                        a.closebtn(href='javascript:void(0)' onclick='closeNav2()') &times;
+                        .overlay_desktop-content
+                            .social2
+                                a.socialicon2(href='')
+                                    i.fa.fa-facebook
+                                a.socialicon2(href='')
+                                    i.fa.fa-youtube
+                                a.socialicon2(href='')
+                                    i.fa.fa-instagram
+                                a.socialicon2(href='')
+                                    i.fa.fa-twitter
+                            div.sidebar-head Accessories
+                                a(href='/Accessories?Categories=Hookah,').sidebar-option Laptop
+                                    span.fa.fa-angle-right.sidebar-arrow 
+                                a(href='/Accessories?Categories=Pipes,').sidebar-option mobile
+                                    span.fa.fa-angle-right.sidebar-arrow
+                                a(href='/Accessories?Categories=Chillum,').sidebar-option headphone
+                                    span.fa.fa-angle-right.sidebar-arrow
+                                a(href='/Accessories?Categories=Flavours,').sidebar-option watch
+                                    span.fa.fa-angle-right.sidebar-arrow
+                                a(href='/Accessories?Categories=Hookah%20Kit,').sidebar-option projector
+                                    span.fa.fa-angle-right.sidebar-arrow
+                                a(href='/Accessories?Categories=Coal,').sidebar-option camera
+                                    span.fa.fa-angle-right.sidebar-arrow
+                                a(href='/Accessories?Categories=Others,').sidebar-option Others
+                                    span.fa.fa-angle-right.sidebar-arrow
+                                a(href='/Market').sidebar-option Market
+                                    span.fa.fa-angle-right.sidebar-arrow
+                            div.sidebar-head Account
+                                a(href='/checkout').sidebar-option Cart
+                                    span.fa.fa-angle-right.sidebar-arrow
+                                a(href='/Dashboard').sidebar-option Explore
+                                    span.fa.fa-angle-right.sidebar-arrow
+                                a(href='/user/Cart').sidebar-option Bookmarks
+                                    span.fa.fa-angle-right.sidebar-arrow
+                                a(href='/reg-dashboard/userOrders').sidebar-option Your Orders
+                                    span.fa.fa-angle-right.sidebar-arrow
+                                a(href='/logout').sidebar-option Sign-Out
+                                    span.fa.fa-angle-right.sidebar-arrow
+                            div.sidebar-head 
+                                | Help
+                                a(href='/aboutus').sidebar-option About
+                                    span.fa.fa-angle-right.sidebar-arrow 
+                                a(href='/customerservice').sidebar-option Customer Service
+                                    span.fa.fa-angle-right.sidebar-arrow
+                    span.side_bar_desktop( onclick='openNav2()')
+                        i.fa.fa-bars(style="color:white;")
+                    a.cats(href='/Accessories') Accessories
+                    a.cats(href='/Accessories?Categories=Hookah,') laptop                    
+                    a.cats(href='/Accessories?Categories=Pipes,') projector
+                    a.cats(href='/admin/Dashboard') Categories
+                    a.cats(href='/Accessories?Categories=Chillum,') mobile
+                    a.cats(href='/Accessories?Categories=Flavours,') camera
+                    a.cats(href='/Accessories?Categories=Hookah%20Kit,') 
+                    a.cats(href='/Accessories?Categories=Coal,') watch
+                    a.cats(href='/Accessories?Categories=Others,') Others
+        block content
+        .container_down
+            .menu
+                a.menu__item.nav1(href="/")
+                    .menu__item__icon
+                        i.fa.fa-home
+                    .menu__item__text Events
+                    .menu__item__dot
+                    .circle
+                a.menu__item(href="/user/Cart")
+                    .menu__item__icon
+                        i.fa.fa-heart
+                    .menu__item__text Favourites
+                    .menu__item__dot
+                    .circle
+                a.menu__item(href="/dashboard")
+                    .menu__item__icon
+                        i.fa.fa-user
+                    .menu__item__text Feed
+                    .menu__item__dot
+                    .circle
+                .menu__item
+                    .menu__item__icon
+                        i.fa.fa-facebook
+                    .menu__item__text Settings
+                    .menu__item__dot
+                    .circle
+
+        footer#footer
+            .footerTop
+                |   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam sapiente, adipisci soluta praesentium mollitia molestias amet accusamus quo ipsa. Fugit!
+            .footerBody
+                .footerLeft
+                    .flcont
+                        | Lorem, ipsutium, repudiandae animi pariatur facilis ratione Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, illum explicabo ea sed quo itaque culpa laborum laudantium provident eaque quae quos cum quasi totam reiciendis praesentium quis? Maiores perspiciatis mollitia veritatis eos laudantium dolorum aliquam consequatur molestias, quisquam eligendi beatae suscipit totam, unde sed aperiam, asperiores dignissimos consectetur ipsam. 
+                .footerMid
+                        .sponsors
+                            .spon1
+                                img(src="../static/hookah/pugblack.png")
+                .footerRight
+                    .flcont
+                        | Visit Our Pages
+                        .social
+                            a.socialicon(href='/Controlpanel')
+                                img(src="../static/social/facebook.png")
+                            a.socialicon(href='/Table')
+                                img(src='../static/social/YouTube.png')
+                            a.socialicon(href='/forEmpPage')
+                                img(src='../static/social/instagram.png')
+                      
+            .footerBottom
+                |Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique, amet.  
+
+        script(src='../static/jquery.js')
+        script(src="https://code.jquery.com/ui/1.12.1/jquery-ui.js")
+        script(src='../static/assets/vendor/bootstrap/js/bootstrap.bundle copy.js')
+
+        

@@ -1,0 +1,160 @@
+extends Dashboard.pug
+
+block append style
+    style 
+        include ../../static/CommentSec.css
+
+
+block append scripts
+    //- script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+    //- script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js")
+    //- script(src="../../static/request/editDetails.js")
+    //- script(src="../../static/jquery2.js")
+    script.
+        $(document).ready(() => {
+            $('.del').click(function() {
+                confirmation = confirm("Confirm?");
+                if(confirmation){
+            var value = $(this).attr("value");
+            var url_link = $(this).attr("data-url");
+            $.ajax({
+                type: 'post',
+                url: url_link,
+                timeout: 2000,
+                success: (newOBJ)=>{
+                    window.location.reload();
+                }
+                    })
+                    .done(function(newOBJ) {
+                        return newOBJ;
+                    })
+                    }
+            });
+            });
+    
+block Dash
+    .comment-widgets.mb-20#comment-section.mt-100
+        .search_field.ui-widget.input-group
+            input(type="text" id="myInput" placeholder="Search by product name or product ID" data-url=`/searchbar?key=forComment` class="form-control mr-sm-2").w-50
+            button.fa.fa-search(class="btn-outline-success my-sm-0")
+        each n in Ratings
+            .d-flex.flex-row.comment-row
+                .p-2
+                    span.round
+                        img(src='https://i.imgur.com/uIgDDDd.jpg', alt='user', width='50')
+                |                         
+                .comment-text.w-100
+                    h5 Samso Nagaro 	&#8729
+                        span #{n.P_ID}
+                                       
+                    .comment-footer
+                        span.date #{`${n.dateRate}`.toString().substr(3, 13)}
+                        |  
+                        span.action-icons6
+                                if(n.Rating==5)
+                                    i.fa.fa-star(style="color:#0063ff;")
+                                    i.fa.fa-star.starDefault(style="color:#0063ff;")
+                                    i.fa.fa-star.starDefault(style="color:#0063ff;")
+                                    i.fa.fa-star.starDefault(style="color:#0063ff;")
+                                    i.fa.fa-star.starDefault(style="color:#0063ff;")
+                                if(n.Rating==4)
+                                    i.fa.fa-star(style="color:#0063ff;")
+                                    i.fa.fa-star.starDefault(style="color:#0063ff;")
+                                    i.fa.fa-star.starDefault(style="color:#0063ff;")
+                                    i.fa.fa-star.starDefault(style="color:#0063ff;")
+                                    i.fa.fa-star.starDefault
+                                if(n.Rating==3)
+                                    i.fa.fa-star(style="color:#0063ff;")
+                                    i.fa.fa-star.starDefault(style="color:#0063ff;")
+                                    i.fa.fa-star.starDefault(style="color:#0063ff;")
+                                    i.fa.fa-star.starDefault
+                                    i.fa.fa-star.starDefault
+                                if(n.Rating==2)
+                                    i.fa.fa-star(style="color:#0063ff;")
+                                    i.fa.fa-star.starDefault(style="color:#0063ff;")
+                                    i.fa.fa-star.starDefault
+                                    i.fa.fa-star.starDefault
+                                    i.fa.fa-star.starDefault
+                                if(n.Rating==1)
+                                    i.fa.fa-star(style="color:#F62;")
+                                    i.fa.fa-star.starDefault
+                                    i.fa.fa-star.starDefault
+                                    i.fa.fa-star.starDefault
+                                    i.fa.fa-star.starDefault
+                    p.m-b-5.m-t-10
+                        | #{n.Comment}
+    .pagination_rounded
+        ul
+            li
+                a.prev(href=`/Dashboard/ShowComments/?page=${back}&product=`)
+                    i.fa.fa-angle-left(aria-hidden='true')
+                    |  Prev
+            |         
+            li
+                a(href=`/Dashboard/ShowComments/?page=1`) 1
+            |         
+            li.hidden-xs
+                a(href=`/Dashboard/ShowComments/?page=2`) 2
+            |         
+            li.hidden-xs
+                a(href=`/Dashboard/ShowComments/?page=3`) 3
+            |         
+            li.hidden-xs
+                a(href=`/Dashboard/ShowComments/?page=4`) 4
+            |         
+            li.hidden-xs
+                a(href=`/Dashboard/ShowComments/?page=5`) 5
+            |            
+            li
+                a(href=`/Dashboard/ShowComments/?page=6`) 6
+            |         
+            li
+                a.next(href=`/Dashboard/ShowComments/?page=${next}`)
+                    | Next 
+                    i.fa.fa-angle-right(aria-hidden='true')
+    script.
+        $(function(){
+            searchfield_width = $(".search_field").width()
+            var url_link = $("#myInput").attr("data-url");
+            console.log(url_link)
+            $('#myInput').autocomplete({
+                appendTo: ".search_field",
+                autoFocus: true,
+            source: function(req,res){
+            $.ajax({
+                url:url_link,
+                dataType:"jsonp",
+                type:"GET",
+                data:req,
+                success: function(data){
+                res(data)
+                },
+                error: function(err){
+                console.log(err.status);
+                }
+            });
+            },
+                classes: {
+                    "ui-autocomplete": "highlight"
+                },
+                autofocus:true,
+            minLength:1,
+            select: function(event,ui){
+            if(ui.item){
+                $('#myInput').val(ui.item.label);
+            }
+            },
+            open: function(){
+                //- $('.ui-autocomplete').css('left', '10px'); // HERE
+                $('.ui-autocomplete').css('position', 'absolute'); // HERE
+                $('.ui-autocomplete').css('background-color', 'white'); // HERE
+                $('.ui-autocomplete').css('list-style', 'none'); // HERE
+                $('.ui-autocomplete').css('padding-left', 0); // HERE
+                $('.ui-autocomplete').css('top', "36px"); // HERE
+                $(".search_field").children(".ui-autocomplete").css('width',`${searchfield_width}px`);
+
+
+            }
+
+            });
+            });

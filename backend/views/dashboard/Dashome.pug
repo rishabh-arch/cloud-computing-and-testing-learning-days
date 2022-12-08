@@ -1,0 +1,74 @@
+extends Dashboard.pug
+
+block append style
+    link(rel='stylesheet' href='../../static/countcard.css')
+    link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css')
+
+block append scripts
+    //- script(src='https://code.jquery.com/jquery-3.4.1.js')
+
+block Dash
+    .card-body.color1
+        .float-left
+            h3
+                span.currency ₹
+                span.count #{TotalRevenue}
+            p Revenue
+        .float-right
+            i.pe-7s-cart
+        // Widget End
+        // Widget Start
+    .card-body.color2
+        .float-left
+            h3
+                span.count #{Clients}
+            p Clients
+        .float-right
+            i.pe-7s-users
+        // Widget End
+        // Widget Start
+    .card-body.color3
+        .float-left
+            h3
+                span.count #{Completed_Orders}
+            p(style="font-size:13px;") Completed Orders
+        .float-right
+            i.pe-7s-plane
+    .card-body.color4
+        .float-left
+            h3
+                span.count #{Order_left}
+            p Orders Left
+        .float-right
+            if Order_left>0
+                i.pe-7s-mail-open-file
+            else
+                i.pe-7s-mail-open
+    .card-body.color5
+        .float-left
+            h3
+                span.count 4365
+            p Total Products
+        .float-right
+            i.pe-7s-drawer
+    .card-body.color6
+        .float-left
+            h3
+                span.count #{total_score}
+                span %
+            p(style="font-size:11px;") COMPANY SCORE
+        .float-right
+            i.pe-7s-graph3
+        // Widget End
+    script(type='text/javascript').
+        $('.count').each(function(){
+        $(this).prop('Counter',0).animate({
+        Counter: $(this).text()
+        }, {
+        duration:2000,
+        easing:'swing',
+        step: function(now){
+        $(this).text(Math.ceil(now));
+        }
+        });
+        });

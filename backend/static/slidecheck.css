@@ -1,0 +1,51 @@
+.carousel-item {
+    height: 65vh;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover
+}
+
+.display-4 {
+    font-family: 'Source Serif Pro', serif
+}
+
+.lead {
+    font-family: 'Source Serif Pro', serif
+}
+
+.navbar.scrolled {
+    background: rgb(34, 31, 31);
+    transition: background 500ms;
+}
+
+.font-weight-light {
+    font-family: 'Source Serif Pro', serif
+}
+#indicators{
+    margin-bottom: 20px;
+}
+.margin-top{
+    margin-top: 120px;
+}
+.carousel-caption2 {
+    position: absolute;
+    right: 15%;
+    bottom: 20px;
+    left: 15%;
+    /* z-index: 10; */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center;
+}
+.carousel-indicators{
+    z-index: 1;
+}
+#countdown{
+    background-color: rgba(255, 255, 255, 0.486);
+    color: black;
+    font-size: 2vmax;
+}

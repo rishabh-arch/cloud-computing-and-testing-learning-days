@@ -1,0 +1,40 @@
+.ControlBar{
+    margin-top: 120px;
+display: flex;
+flex-wrap:wrap ;
+justify-content: space-around;
+    /* border: 2px solid black; */
+}
+
+.controlOptions{
+width: 250px;
+border:  2px solid black;
+height: 200px;
+margin: 20px;
+display: flex;
+align-items: center;
+justify-content: center;
+/* justify-content: center; */
+/* text-align: center; */
+/* text-decoration: none; */
+background-color: rgb(10, 10, 26);
+box-shadow: 10px 10px 5px rgb(179, 38, 38);
+transition: all 0.1s;
+text-decoration: none;
+color: rgb(143, 143, 175);
+border-radius: 10px;
+
+}
+
+
+.controlOptions:hover{
+
+transform: scale(1.1);
+}
+.ControlBox{
+    text-align: center;
+    font-family:'Stalinist One', cursive;
+/* text-align: center; */
+font-size:x-large;
+    /* border: 2px solid black; */
+}

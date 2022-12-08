@@ -1,3 +1,6 @@
 /node_modules
-/frontend/node_modules
-/frontend/build
+/uploads
+/.env
+/views2
+/check.js
+/Home.html

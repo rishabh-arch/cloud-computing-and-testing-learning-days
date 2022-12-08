@@ -22,18 +22,6 @@ services:
       - /app/node_modules
     depends_on:
       - mongodb
-  
-  frontend:
-    build: ./frontend
-    ports:
-      - "3000:3000"
-    volumes:
-      - ./frontend/src:/app/src
-    stdin_open: true
-    tty: true
-    depends_on:
-      - backend
-
 volumes:
   data:
   logs:

@@ -1,0 +1,184 @@
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+.container {
+    /* margin-top: 120px; */
+}
+
+th,
+td {
+    text-align: left;
+    padding: 8px;
+    width: 0;
+}
+
+.tableMage {
+    overflow-x: auto;
+}
+
+
+/* .ui-menu {
+display: flex;
+flex-direction: row;
+justify-content: center;
+}
+*/
+
+.search_field {
+    position: relative;
+}
+
+.ui-menu-item::before {
+    content: "";
+    background: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvectorified.com%2Fimages%2Fwhite-search-icon-transparent-background-33.png&f=1&nofb=1");
+    background-size: 20px 16px;
+    background-repeat: no-repeat;
+    height: 16px;
+    width: 33px;
+    display: block;
+    position: absolute;
+    margin: 10px;
+    margin-top: 0;
+}
+
+.ui-menu-item:hover {
+    text-overflow: ellipsis;
+    background-color: #c9d8db;
+    /* display: inline-block; */
+}
+
+.ui-menu-item {
+    padding: 5px;
+}
+
+.ui-menu-item-wrapper {
+    margin-left: 50px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.search_field {
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    position: relative;
+    /* width: fit-content; */
+}
+
+#Search_btn {
+    /* font-size: 41px;
+    color: gray;
+    background-color: white;
+    padding: 9px;
+    border-left: none; */
+    width: 50px;
+    border-radius: 0px;
+    outline: none;
+    padding: 10px;
+    background: #c3bfd6;
+    color: white;
+    font-size: 17px;
+    border: 2px solid black;
+    border-left: none;
+    cursor: pointer;
+    height: 51px;
+    border-radius: 5px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#myInput,
+#myInput2 {
+    display: flex;
+    position: relative;
+    background: none;
+    border: 2px solid black;
+    /* margin-right: 10px; */
+    outline: none;
+    background-color: white;
+    /* border-bottom: 2px solid rgb(221, 218, 218); */
+    height: 51px;
+    width: 422px;
+    border-radius: 5px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    /* border-top-left-radius: 0; */
+    border-right: none;
+    margin-bottom: 20px;
+    font-size: larger;
+    padding-left: 10px;
+}
+
+#search-icon-bar {
+    position: relative;
+    background-color: white;
+    height: 30px;
+    border-bottom: 2px solid rgb(221, 218, 218);
+    border-top-left-radius: 5px;
+    padding: 10px;
+    padding-top: 7px;
+    color: #b1b5b6;
+    /* margin-top: 0; */
+}
+
+#ui-id-2 {
+    position: absolute;
+    /* padding-top: 10px; */
+    padding: 10px;
+    background-color: white;
+    /* width: 334px; */
+    list-style: none;
+    animation: growDown 50ms ease-in-out forwards;
+    transform-origin: top center;
+    color: black;
+    border: 2px solid rgb(0, 0, 0);
+    border-top: 0;
+    z-index: 1;
+}
+
+@keyframes growDown {
+    0% {
+        transform: scaleY(0)
+    }
+    80% {
+        transform: scaleY(1.1)
+    }
+    100% {
+        transform: scaleY(1)
+    }
+}
+
+.bodyTable {
+    margin: 10px;
+    margin-top: 64px;
+    /* border: 2px solid red; */
+}
+
+.wraptext {
+    word-break: break-all;
+    white-space: nowrap;
+}
+
+.tableLink {
+    /* background-color: rgb(9, 9, 48); */
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.customborder {
+    border-radius: 2%;
+    border: 2px solid #E95420;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}

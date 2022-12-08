@@ -1,0 +1,336 @@
+extends base.pug
+block append heads
+    //- link(href='https://use.fontawesome.com/releases/v5.7.2/css/all.css' rel="stylesheet")
+    link(href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel="stylesheet")
+
+block append style
+    style
+        include ../static/accessories.css
+        include ../static/homeActnew2.css
+        include ../static/checkout.css
+
+block append scripts
+    script(src="../static/accessories.js")
+    script(src="../static/request/Bookmark.js" async)
+    script.
+        $(document).ready(() => {
+            $('#reset-time').change(event =>{
+        event.preventDefault();
+        $("input[value='Rating']").prop('checked', true);
+        $("input[value='1']").prop('checked', false);
+
+        for(i =1;i<=13;i++){
+        if ($(`#chkbtn${i}`).is(':checked')) {
+           $(`#chkbtn${i}`).prop('checked', false);
+        }
+        }
+            });
+        $('input[name="apply_btn"]').change( event=> {
+        event.preventDefault();
+            type = "";
+            Categories = "";
+            //- Search = "";
+        for(i =1;i<=2;i++){
+        if ($(`#chkbtn${i}`).is(':checked')) {
+            type = ($(`#chkbtn${i}`).val())+"," + type;
+        }
+        }
+        for(i =2;i<=8;i++){
+        if ($(`#chkbtn${i}`).is(':checked')) {
+            Categories = ($(`#chkbtn${i}`).val())+"," + Categories;
+        }
+        }
+        var sort = $("input[name='rdn']:checked").val();
+        var filter = $("input[name='rdn2']:checked").val();
+        //- for(i =9;i<=13;i++){
+        //- if ($(`#chkbtn${i}`).is(':checked')) {
+        //-     Search = ($(`#chkbtn${i}`).val())+"," + Search;
+        //- }
+        //- }
+        window.location.replace(`/Accessories?Categories=${Categories}&types=${type}&sort=${sort}&filter=${filter}`);
+        });
+        });
+
+
+block content
+    .container_100
+        #header.d-flex.align-items-center.justify-content-between
+            button#filter-btn.btn.btn-hide.text-uppercase(type='button', data-toggle='collapse', data-target='#filterbar', aria-expanded='false', aria-controls='filterbar', onclick='changeBtnTxt()')
+                span#filter-angle.fa.fa-angle-left
+                |  
+                span#btn-txt Hide filters
+            |         
+
+        #content.my-5
+            #filterbar.collapse
+                .box.border-bottom
+                    .form-group.text-center
+                        .btn-group(data-toggle='buttons')
+                            label.btn.btn-success.form-check-label
+                                input#reset-time.form-check-input(type='button' name='reset_btn' value="1" hidden)
+                                |  Reset
+                            |  
+                            label.btn.btn-success.form-check-label.active
+                                input#apply-btn.form-check-input(type='radio', name='apply_btn' value="2")
+                                |  Apply
+                //-     |                 
+                //-     div
+                //-         label.tick
+                //-             | New 
+                //-             input#chkbtn1(type='checkbox', checked='checked' value="New")
+                //-             |  
+                //-             span.check
+                //-     |                 
+                //-     div
+                //-         label.tick
+                //-             | Sale 
+                //-             input#chkbtn2(type='checkbox' value="Sale")
+                //-             |  
+                //-             span.check
+                //- |             
+                .box.border-bottom
+                    .box-label.text-uppercase.d-flex.align-items-center
+                        | Select Categories 
+                        button#out.btn.ml-auto(type='button', data-toggle='collapse', data-target='#inner-box', aria-expanded='false', aria-controls='inner-box', onclick='outerFilter()')
+                            span.fa.fa-plus.text-primary
+                    |                 
+                    #inner-box.collapse.mt-2.mr-1
+                        .my-1
+                            label.tick
+                                | Laptop
+                                input#chkbtn3(type='checkbox', checked='checked' value="Hookah")
+                                |  
+                                span.check
+                        |                     
+                               
+                        .my-1
+                            label.tick
+                                | mobile 
+                                input#chkbtn4(type='checkbox' value="Pipes")
+                                |  
+                                span.check
+                        |                     
+                        .my-1
+                            label.tick
+                                | watch 
+                                input#chkbtn5(type='checkbox' value="Chillum")
+                                |  
+                                span.check
+                        |                     
+                        .my-1
+                            label.tick
+                                | camera
+                                input#chkbtn6(type='checkbox' value="Flavours")
+                                |  
+                                span.check
+                        |                     
+                        .my-1
+                            label.tick
+                                | headphones
+                                input#chkbtn7(type='checkbox' value="Hookah Kit")
+                                |  
+                                span.check
+                        |                     
+                        .my-1
+                            label.tick
+                                | projector 
+                                input#chkbtn8(type='checkbox', checked='' value="Coal")
+                                |  
+                                span.check
+                        .my-1
+                            label.tick
+                                | Others 
+                                input#chkbtn2(type='checkbox', checked='checked' value="Others")
+                                |  
+                                span.check
+                        |             
+                //- .box.border-bottom
+                //-     .box-label.text-uppercase.d-flex.align-items-center
+                //-         | Search 
+                //-         button.btn.ml-auto(type='button', data-toggle='collapse', data-target='#inner-box2', aria-expanded='false', aria-controls='inner-box2')
+                //-             span.fas.fa-plus
+                //-     |                 
+                //-     #inner-box2.collapse.mt-2.mr-1
+                //-         .my-1
+                //-             label.tick
+                //-                 | Size 
+                //-                 input#chkbtn9(type='checkbox', checked='checked' value="Size")
+                //-                 |  
+                //-                 span.check
+                //-         |                     
+                //-         .my-1
+                //-             label.tick
+                //-                 | Color 
+                //-                 input#chkbtn10(type='checkbox' value="Color")
+                //-                 |  
+                //-                 span.check
+                //-         |                     
+                //-         .my-1
+                //-             label.tick
+                //-                 | height 
+                //-                 input#chkbtn11(type='checkbox', checked='' value="height")
+                //-                 |  
+                //-                 span.check
+                //-         |                     
+                //-         .my-1
+                //-             label.tick
+                //-                 | width 
+                //-                 input#chkbtn12(type='checkbox' value="width")
+                //-                 |  
+                //-                 span.check
+                //-         |                     
+                //-         .my-1
+                //-             label.tick
+                //-                 | Line 
+                //-                 input#chkbtn13(type='checkbox' value="Line")
+                //-                 |  
+                //-                 span.check
+                .box.border-bottom
+                    .box-label.text-uppercase.d-flex.align-items-center
+                        | Sort 
+                        button.btn.ml-auto(type='button', data-toggle='collapse', data-target='#inner-box3', aria-expanded='false', aria-controls='inner-box3')
+                            span.fa.fa-plus.text-primary
+                    |                 
+                    #inner-box3.collapse.mt-2.mr-1
+                        .my-1
+                            label.tick
+                                | Price 
+                                input#chkbtn9(type='radio' name= 'rdn' value="Oprice" checked='')
+                                |  
+                                span.check
+                        |                     
+                        .my-1
+                            label.tick
+                                | Popularity 
+                                input#chkbtn10(type='radio' name= 'rdn' value="TotalOrders")
+                                |  
+                                span.check
+                        |                     
+                        .my-1
+                            label.tick
+                                | Rating
+                                input#chkbtn11(type='radio' name= 'rdn' value="Rating")
+                                |  
+                                span.check
+                .box.border-bottom
+                    .box-label.text-uppercase.d-flex.align-items-center
+                        | Filter 
+                        button.btn.ml-auto(type='button', data-toggle='collapse', data-target='#inner-box4', aria-expanded='false', aria-controls='inner-box4')
+                            span.fa.fa-plus.text-primary
+                    |                 
+                    #inner-box4.collapse.mt-2.mr-1
+                        .my-1
+                            label.tick
+                                | LOW to HIGH 
+                                input#chkbtn9(type='radio' name= 'rdn2' value="1" checked='')
+                                |  
+                                span.check
+                        |                     
+                        .my-1
+                            label.tick
+                                | HIGH to LOW 
+                                input#chkbtn10(type='radio' name= 'rdn2' value="-1")
+                                |  
+                                span.check
+                .row-card
+                    .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
+                        #card-list.section-block
+                            h3.section-title Card List Groups
+                            |                                     
+                            p Create lists of content in a card with a flush list group.
+                    |                             
+                    .mywidth
+                        .card
+                            img.img-fluid(src='../static/hookah/thumbnail/thumbnail-PIDC300001_0.jpeg', alt='Card image cap')
+                            |                                     
+                            .card-body
+                                h3.card-title Kitchen Sink
+                                |                                         
+                                p.card-text
+                                    | Some quick example text to build on the card title and make up the bulk of the card&apos;s content.
+                            |                                     
+                            ul.list-group.list-group-flush
+                                li.list-group-item Cras justo odio
+                                |                                         
+                                li.list-group-item Dapibus ac facilisis in
+                                |                                         
+                                li.list-group-item Vestibulum at eros
+                            |                                     
+                            .card-body
+                                a.card-link(href='#') Card link
+                                |                                         
+                                a.card-link(href='#') Another link
+
+            #products
+                .container_products(style="width:auto;")
+                    each n,i in newOBJ
+                        .product
+                            .product-card
+                                h2.name #{n.name}
+                                span.priceM ₹#{n.Mprice}
+                                span.priceO ₹#{n.Oprice}
+                                a.popup-btn Quick View
+                                span.City #{n.Owner_Details[5].Owner_State}
+                                button.BM-btn(type="button" value= `${n.PID}`)
+                                    P(id=`${n.PID}` class="cart-alert")
+                                    svg.BM-btn-icon#BM-btn-iconjs(width="16" height="16" fill="currentColor" class="bi bi-file-plus-fill" viewBox="0 0 16 16" style="color:white;")
+                                        path(fill-rule="evenodd" d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5V6z")
+
+                                a(href=`/p/${n.PID}?key=${n.url_key}` )
+                                    //- img.product-img(src="../static/hookah/thumbnail/thumbnail-" + n.PID + "_0.jpg" alt='')
+                                    img.product-img(data-src="../static/hookah/thumbnail/thumbnail-" + n.PID + "_0.jpeg" alt='')
+                            .popup-view
+                                .popup-card
+                                    a
+                                        i.fa.fa-times.close-btn
+                                    .product-img
+                                        img(data-src="../static/hookah/thumbnail/thumbnail-"+ n.PID + "_0.jpeg" alt='' loading="lazy")
+                                    .info
+                                        h2
+                                            | #{n.name}
+                                            br
+                                            span #{n.Category}
+                                        span.priceM ₹#{n.Mprice}
+                                        span.priceO ₹#{n.Oprice}
+                                        a.add-cart-btn(href=`/p/${n.PID}?key=${n.url_key}` ) Proceed
+                                        a.add-wish(href=`/p/${n.PID}?key=${n.url_key}` ) Add to Favourites
+                .px-1.py-5.mx-auto.row.justify-content-center
+                    .col-xl-9.col-lg-10.col-sm-11
+                        .cardboard.pl-4.pl-md-5.pr-3
+                            .row
+                                .left-side.col-md-6
+                                    p.pt-5.mb-0 Converse All Star
+                                    |                     
+                                    h3.pb-3 Make Your Day Comfortable
+                                    |  
+                                    button.btn.btn-pink.mb-md-5 Shop Now
+                                |                 
+                                .right-side.col-md-6
+                                    img.shoe-img.pl-5.pl-md-0(src='https://i.imgur.com/EaNHGjT.png')
+    
+    
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js')
+    script(type='text/javascript').
+        var popupViews = document.querySelectorAll('.popup-view');
+        var popupBtns = document.querySelectorAll('.popup-btn');
+        var closeBtns = document.querySelectorAll('.close-btn');
+        //javascript for quick view button
+        var popup = function(popupClick){
+        popupViews[popupClick].classList.add('active');
+        }
+        popupBtns.forEach((popupBtn, i) => {
+        popupBtn.addEventListener("click", () => {
+        popup(i);
+        });
+        });
+        //javascript for close button
+        closeBtns.forEach((closeBtn) => {
+        closeBtn.addEventListener("click", () => {
+        popupViews.forEach((popupView) => {
+        popupView.classList.remove('active');
+        });
+        });
+        });
+    script(type="text/javascript" src="../static/script.js")
+    script(type="text/javascript" src="../static/lazyload.js")

@@ -1,0 +1,67 @@
+.contactcon{
+display: lex;
+/* clear: both; */
+flex-wrap: wrap;
+flex-direction: column;
+margin-top: 120px;
+margin-left: 70px;
+/* border: 2px solid rgb(221, 22, 22); */
+flex: 25%;
+  max-width: 70%;
+  /* align-items: center; */
+}
+
+.myform{
+display: flex;
+flex-wrap: wrap;
+flex-direction: column;
+/* border: 2px solid black; */
+  /* align-items: center; */
+  /* padding: 0 4px; */
+}
+
+.myInput{
+    /* width: 800px; */
+   
+    font-size: 20px;
+padding: 10px;
+margin: 10px;
+border: none;
+border-bottom: 2px solid black;
+outline: none;
+}
+.btn{
+text-align: center;
+font-size: 25px;
+border-radius: 22px;
+/* width: 100px; */
+/* margin-left: 340px; */
+background: none;
+border: 4px solid rgb(2, 2, 53);
+/* color: rgb(8, 56, 48); */
+cursor: pointer;
+}
+.btn:hover{
+
+    background-color: rgb(5, 5, 46);
+    color: aliceblue;
+}
+.bi-telephone-fill{
+color: rgb(5, 161, 223);
+}
+
+@media screen and (max-width: 800px) {
+    .contactcon {
+      flex: 50%;
+      max-width: 50%;
+    }
+  }
+  
+  
+  @media screen and (max-width: 600px) {
+    .contactcon {
+      flex: 100%;
+      max-width: 100%;
+    }
+  }
+  

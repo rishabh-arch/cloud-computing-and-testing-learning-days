@@ -1,0 +1,26 @@
+extends base.pug
+
+block style
+    link(rel='preconnect' href='https://fonts.gstatic.com')
+    link(href='https://fonts.googleapis.com/css2?family=Stalinist+One&display=swap' rel='stylesheet')
+
+    style
+        include ../static/ControlPanel.css
+
+block content
+    .ControlBar
+        a.controlOptions(href='/AddPromo')
+            .ControlBox
+                | ADD Promocode
+        a.controlOptions(href='/NewIDGenerate')
+            .ControlBox
+                | ADD New ID
+        a.controlOptions(href='/AddOffer')
+            .ControlBox
+                | Create Offer
+        a.controlOptions(href='/BumperUpload')
+            .ControlBox
+                | Bumper
+        a.controlOptions(href='/StartService')
+            .ControlBox
+                | DontClick (Only for Owner)

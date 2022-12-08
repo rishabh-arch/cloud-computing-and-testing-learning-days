@@ -1,0 +1,86 @@
+extends Dashboard.pug
+
+block append style
+    link(rel='stylesheet' href='../../static/profile.css')
+    link(rel='stylesheet' href='../../static/loader.css')
+
+block append scripts
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+    //- script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js")
+    script(src="../../static/request/editDetails.js")
+    script(src="../../static/jquery2.js")
+block Dash
+    .container
+        form(action="/dashboard/editprofile", method="post" enctype="multipart/form-data").row.gutters
+            .col-xl-3.col-lg-3.col-md-12.col-sm-12.col-12
+                .card.h-100
+                    .card-body
+                        .account-settings
+                            .user-profile
+                                .user-avatar
+                                    img#canvas(src=`../../static/profile_photo/${user_details.uniqueID}.jpeg`, alt='Maxwell Admin' onerror="this.src='../../static/defaultuser.png'")
+                                    a.changeimg(onclick="document.getElementById('myInput2').click()")
+                                        #submitForm2
+                                            input(type="file" id="myInput2" style="visibility:hidden;" accept="" onchange="document.getElementById('canvas').src = window.URL.createObjectURL(this.files[0])" name="images")
+                                        svg(width="16" height="16" fill="currentColor" class="bi bi-pen-fill" viewBox="0 0 16 16")
+                                            path(fill-rule="evenodd" d="M13.498.795l.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001z")
+                                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                                h5.user-name  #{user_details.username}
+                                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                                h6.user-email #{user_details.email}
+                            | &#x9;&#x9;&#x9;&#x9;&#x9;
+                            .about
+                                h5.mb-2.text-primary About
+                                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                                p
+                                    | EVeryone please FUCK OFF.
+            | &#x9;
+            .col-xl-9.col-lg-9.col-md-12.col-sm-12.col-12
+                .card.h-100
+                   .card-body
+                        .row.gutters
+                            .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
+                                h6.mb-3.text-primary Personal Details
+                            .col-xl-6.col-lg-6.col-md-6.col-sm-6.col-12
+                                .form-group
+                                    label(for='fullName') Full Name
+                                    input#fullName.form-control(type='text', name = 'user_name' placeholder='Enter full name' value=`${user_details.username}`)
+                            .col-xl-6.col-lg-6.col-md-6.col-sm-6.col-12
+                                .form-group
+                                    label(for='phone') Phone
+                                    input#phone.form-control(type='text',name="user_phone" placeholder='Enter phone number' value=`${user_details.phone}`)
+                            .col-xl-6.col-lg-6.col-md-6.col-sm-6.col-12
+                                .form-group
+                                    label(for='website') Youtube URL
+                                    input#website.form-control(type='url',name="youtube_url" placeholder='Youtube url' value=`${user_details.youtube_url}`)
+                        .row.gutters
+                            .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
+                                h6.mb-3.text-primary Address
+                            .col-xl-6.col-lg-6.col-md-6.col-sm-6.col-12
+                                .form-group
+                                    label(for='Street') Address
+                                    input#Street.form-control(type='name', name="Address" placeholder='Enter Address' value=`${user_details.Address}`)
+                            .col-xl-6.col-lg-6.col-md-6.col-sm-6.col-12
+                                .form-group
+                                    label(for='ciTy') City
+                                    input#ciTy.form-control(type='name',name="City"  placeholder='Enter City' value=`${user_details.City}`)
+                            .col-xl-6.col-lg-6.col-md-6.col-sm-6.col-12
+                                .form-group
+                                    label(for='sTate') State
+                                    input#sTate.form-control(type='text',name="State"  placeholder='Enter State' value=`${user_details.State}`)
+                            .col-xl-6.col-lg-6.col-md-6.col-sm-6.col-12
+                                .form-group
+                                    label(for='zIp') Zip Code
+                                    input#zIp.form-control(type='text', name="PinCode" placeholder='Zip Code' value=`${user_details.pincode}`)
+                        .row.gutters
+                            .col-xl-12.col-lg-12.col-md-12.col-sm-12.col-12
+                                .text-right
+                                    button#submit.btn.btn-primary(type='submit', name='submit' onclick="submitLimit()") Update
+                                    #add
+    script.
+        function submitLimit() {
+        $(`#add`).toggleClass("loader");
+        }
+//- Copyright © 2021 bootdey.com
+
+//- Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:

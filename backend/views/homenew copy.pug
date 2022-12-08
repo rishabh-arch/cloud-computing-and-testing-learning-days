@@ -1,0 +1,92 @@
+extends base.pug
+
+block style
+    style
+        include ../static/homeActnew.css
+        include ../static/homeAct.css
+        include ../static/slideshow.css
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css")
+block scripts
+    script(src="../static/jquery.js")
+    script(src="../static/jquery2.js")
+    //- script(src="../static/slideshow.js")
+    //- script!= `var slideIndex = 1; showSlides(slideIndex);function plusSlides(n) {showSlides(slideIndex += n);}function currentSlide(n) {showSlides(slideIndex = n); }function showSlides(n) {var i; var slides = document.getElementsByClassName("mySlides");var dots = document.getElementsByClassName("dot");if (n > slides.length) {slideIndex = 1}    if (n < 1) {slideIndex = slides.length}for (i = 0; i < slides.length; i++) {slides[i].style.display = "none";  }for (i = 0; i < dots.length; i++) {dots[i].className = dots[i].className.replace(" active", ""); }slides[slideIndex-1].style.display = "block";   dots[slideIndex-1].className += " active";}`
+block content
+    .productrow
+        //- .BUMPER
+        //-     a.bumperLink(href=Link)
+        //-         .bumperMage
+        //-             img(src=ImageCode)
+        //- .searchbar
+        //-     form(action="/search" class="example" method="PUT")
+        //-         input(type="text" id="search" name="search" placeholder="Search" pattern="[A-z]{2}[0-9]{4}" autofcomplete="OFF")
+        //-         button(type="submit")
+        //-             i.fa.fa-search
+        .slider
+            .slides
+                // radio buttons start
+                input#radio1(type='radio' name='radio-btn')
+                input#radio2(type='radio' name='radio-btn')
+                input#radio3(type='radio' name='radio-btn')
+                input#radio4(type='radio' name='radio-btn')
+                // radio buttons end
+                // slide images start
+                .slide.first
+                    img(src='../static/hookah/jj.jpg' alt='')
+                .slide
+                    img(src='../static/hookah/jj.jpg' alt='')
+                .slide
+                    img(src='../static/hookah/jj.jpg' alt='')
+                .slide
+                    img(src='../static/hookah/jj.jpg' alt='')
+                // slide images end
+                // automatic navigation start
+                .navigation-auto
+                    .auto-btn1
+                    .auto-btn2
+                    .auto-btn3
+                    .auto-btn4
+                // automatic navigation end
+            // manual navigation start
+            .navigation-manual
+                label.manual-btn(for='radio1')
+                label.manual-btn(for='radio2')
+                label.manual-btn(for='radio3')
+                label.manual-btn(for='radio4')
+            // manual navigation end
+            // image slider end
+        script(type='text/javascript').
+            var counter = 1;
+            setInterval(function(){
+            document.getElementById('radio' + counter).checked = true;
+            counter++;
+            if(counter > 4){
+            counter = 1;
+            }
+            }, 5000);
+
+        .row#loadProduct
+            each n,i in newOBJ
+                .column
+                    a.itemcon#cursor(href="/p/"+n.PID )
+                        .pitem
+                            .pitemMage
+                                - var img = "../static/hookah/" + n.PID + ".jpg"
+                                img(src= img alt ='NO MORE PRODUCT')
+                            .pitemAvail
+                                |   #{n.availability}
+                            .pitemCost
+                                p.prod_name
+                                    |  #{n.name}
+                                .prod_price
+                                    p.realP
+                                        |  ₹#{n.Mprice}
+                                    p.ourP
+                                        |  ₹#{n.Oprice}
+                    //- .over
+                    //-     button(type="button" onClick=`onClick('{"PID":"${n.PID}","availability":"${n.availability}","name":"${n.name}","Mprice":"${n.Mprice}","Oprice":"${n.Oprice}"}')`) button
+                    //-         //- button(type='button' onClick="onClick()") BUY NOW
+    .pagination
+        a.Npage(href=`/?page=${back}`) PREVIOUS&raquo;
+        a.Npage(href=`/?page=${next}`) NEXT&raquo;
+            

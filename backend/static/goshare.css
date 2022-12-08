@@ -1,0 +1,27 @@
+.social_box ul {
+    list-style: none;
+    position: relative;
+}
+
+.social_box ul li {
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    background: #0063ff;
+    text-align: center;
+    line-height: 55px;
+    cursor: pointer;
+    border-radius: 0px;
+    transition: background-color .5s ease-out, border-radius .5s .25s ease-out, margin .5s .25s ease-out
+}
+
+.social_box ul li i {
+    color: #eee;
+    font-size: 22px;
+}
+
+
+.social_box ul li {
+    border-radius: 50px;
+    margin: 0 3px
+}

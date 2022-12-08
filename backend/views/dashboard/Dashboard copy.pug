@@ -1,0 +1,86 @@
+extends ../base.pug
+
+block style
+    style 
+        include ../../static/dashboard.css
+block scripts
+    //- script(src="../static/dashboard.js")
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css')
+    //- script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js' charset='utf-8')
+    
+
+block content
+    input#check(type='checkbox')/
+    // header area start
+    .header2
+        label(for='check')
+            i#sidebar_btn.fas.fa-bars
+        .left_area
+            h3
+                | Dash
+                span BOARD
+        .right_area
+            a.right_btn#product_btn(href='/Dashboard/EMP_ID_PAGE') Your Products
+            a.right_btn#in_order_btn(href='/Dashboard/OrderRequest') Order Request
+            a.right_btn#Add_new_btn(href='/Dashboard/productUpload') Add Product
+            //- a.right_btn(href='/logout') Logout
+    // header area end
+    // mobile navigation bar start
+    .mobile_nav
+        .nav_bar
+            img.mobile_profile_image(src='../static/hookah/30005.jpg' alt='')
+            i.fa.fa-bars.nav_btn
+        .mobile_nav_items
+            a(href='/Dashboard')
+                i.fas.fa-desktop
+                span Dashboard
+            a(href='/Dashboard/profile')
+                i.fas.fa-cogs
+                span Profile
+            a(href='/Dashboard/Orders')
+                i.fas.fa-th
+                span Orders
+            a(href='/Dashboard/YourShop')
+                i.fas.fa-table
+                span Your Shop
+            a(href='/Dashboard/productUpload')
+                i.fas.fa-table
+                span upload product
+            a(href='/logout')
+                i.fas.fa-info-circle
+                span LOGOUT
+            a(href='#')
+                i.fas.fa-sliders-h
+                span Setting
+    // mobile navigation bar end
+    // sidebar start
+    .sidebar
+        .profile_info
+            img.profile_image(src='../static/hookah/30005.jpg' alt='')
+            h4 #{username}
+        a(href='/Dashboard')
+            i.fas.fa-desktop
+            span Dashboard
+        a(href='/Dashboard/profile')
+            i.fas.fa-cogs
+            span Profile
+        a(href='/Dashboard/Orders')
+            i.fas.fa-th
+            span Orders
+        a(href='/Dashboard/YourShop')
+            i.fas.fa-table
+            span Your Shop
+        a(href='/logout')
+            i.fas.fa-info-circle
+            span LOGOUT
+        a(href='#')
+            i.fas.fa-sliders-h
+            span Setting
+    .content
+        block Dash
+    script(type='text/javascript').
+        $(document).ready(function(){
+        $('.nav_btn').click(function(){
+        $('.mobile_nav_items').toggleClass('active');
+        });
+        });

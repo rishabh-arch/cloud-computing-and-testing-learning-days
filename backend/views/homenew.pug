@@ -1,0 +1,244 @@
+extends base.pug
+block append heads
+    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
+
+block style
+    style
+        //- include ../static/homeActnew.css
+        include ../static/homeActnew2.css
+        include ../static/homeAct.css
+        //- include ../static/slideshow.css
+        include ../static/style2.css
+        include ../static/slidecheck.css
+        include ../static/shopClass.css
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css")
+
+block scripts
+    script(src="../javascript/jquery.js" async)
+    script(src="../static/request/Bookmark.js" async)
+    script.
+        var countDownDate = new Date("Apr 2, 2021 18:37:25").getTime();
+
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+
+        // Get today's date and time
+        var now = new Date().getTime();
+            
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+            
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+        // Output the result in an element with id="demo"
+        document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+        + minutes + "m " + seconds + "s ";
+            
+        // If the count down is over, write some text 
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("demo").innerHTML = "EXPIRED";
+        }
+        }, 1000);
+
+    //- script(type="text/javascript" src="../static/JQuery3.3.1.js")
+
+block content
+    mixin shop-class 
+        .container-shop.d-flex.justify-content-center.mt-5
+            .main
+                .row
+                    mixin shops
+                        .col-md-3
+                            div
+                                .one
+                                    
+                                    .d-flex.justify-content-center
+                                        img.rounded-circle(data-src='https://i.imgur.com/hczKIze.jpg', width='50')
+                                    |                         
+                                    .text-center
+                                        span.fa.fa-home#BlueTick &nbsp
+                                        span.name Uesugi Suzuki
+                                        |                             
+                                        p.mail ususksfjk@gmail.com
+                                    |                         
+                                    .text-center#text-verticle
+                                        span.total.d-block.pt-2 Total Products
+                                            div.money $ 828,255
+                                        span.total.d-block.pt-2 Total Sales
+                                            div.money $ 828,255
+                                        span.total.d-block.pt-2 Company Score
+                                            div.money $ 828,255
+                                    
+                                    |                         
+                                    a.text-center.align-items-center.d-flex.justify-content-center.pt-2.pb-2(href="/")
+                                        span.details GO TO SHOP
+                    +shops                
+                    +shops                
+                    +shops                
+                    +shops                
+                    +shops                
+                    +shops                
+                    +shops                
+                    +shops                
+
+    .productrow
+        #indicators.carousel.slide(data-ride='carousel')
+            ol.carousel-indicators
+                li.active(data-target='#indicators', data-slide-to='0')
+                |             
+                li(data-target='#indicators', data-slide-to='1')
+                |             
+                li(data-target='#indicators', data-slide-to='2')
+            |         
+            .carousel-inner(role='listbox')
+                // Slide One - Set the background image for this slide in the line below
+                .carousel-item.active(style="background-image: url('http://thewowstyle.com/wp-content/uploads/2015/01/nature-images-wallpaper.jpg')")
+                    .carousel-caption2#countdown
+                        h3#demo
+                        |                     
+                        p Rs 4800
+                // Slide Two - Set the background image for this slide in the line below
+                .carousel-item(style="background-image: url('https://images.unsplash.com/photo-1460602594182-8568137446ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80')")
+                    .carousel-caption2.d-none.d-md-block
+                        h3.display-4 Image two
+                        |                     
+                        p.lead Some description about the second slide
+                // Slide Three - Set the background image for this slide in the line below
+                .carousel-item(style="background-image: url('https://images.unsplash.com/photo-1465146633011-14f8e0781093?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')")
+                    .carousel-caption2.d-none.d-md-block
+                        h3.display-4 Image three
+                        |                     
+                        p.lead Some description about the third slide
+            |  
+            a.carousel-control-prev(href='#indicators', role='button', data-slide='prev')
+                span.carousel-control-prev-icon(aria-hidden='true')
+                |  
+                span.sr-only Previous
+            |  
+            a.carousel-control-next(href='#indicators', role='button', data-slide='next')
+                span.carousel-control-next-icon(aria-hidden='true')
+                |  
+                span.sr-only Next
+        .mt-100
+            .row
+                mixin ACC_BOX(title,description)
+                    .col-md-4.col-sm-6
+                        .card.mb-30
+                            a.card-img-tiles(href='#', data-abc='true')
+                                .inner
+                                    .main-img
+                                        img(data-src='https://i.imgur.com/O0GMYuw.jpg', alt='Category')
+                                    |                         
+                                    .thumblist
+                                        img(data-src='https://i.imgur.com/ILEU18M.jpg', alt='Category')
+                                        img(data-src='https://i.imgur.com/2kePJmX.jpg', alt='Category')
+                            |                 
+                            .card-body.text-center
+                                h4.card-title #{title}
+                                |                     
+                                p.text-muted #{description}
+                                a.btn.btn-outline-primary.btn-sm(href='#', data-abc='true') View Products
+                    |         
+                +ACC_BOX("Explore More","Starting from 1")   
+                +ACC_BOX("Explore More","Starting from 1")   
+                +ACC_BOX("Explore More","Starting from 1")   
+                +ACC_BOX("Explore More","Starting from 1")   
+                +ACC_BOX("Explore More","Starting from 1")   
+                +ACC_BOX("Explore More","Starting from 1")   
+    mixin cont
+        .container_products
+            each n,i in newOBJ
+                .product(title=n.name)
+                    .product-card
+                        h2.name #{n.name}
+                        span.priceM ₹#{n.Mprice}
+                        span.priceO ₹#{n.Oprice}
+                        a.popup-btn Quick View
+                        span.City #{n.Owner_Details[5].Owner_State}
+                        button.BM-btn(type="button" value= `${n.PID}`)
+                            P(id=`${n.PID}` class="cart-alert")
+                            svg.BM-btn-icon#BM-btn-iconjs(width="16" height="16" fill="currentColor" class="bi bi-file-plus-fill" viewBox="0 0 16 16" style="color:white;")
+                                path(fill-rule="evenodd" d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5V6z")
+
+                        a(href=`/p/${n.PID}?key=${n.url_key}` )
+                            img.product-img(data-src="../static/hookah/thumbnail/thumbnail-" + n.PID + "_0.jpeg" alt='')
+                            span.sale-price #{100-((n.Oprice/n.Mprice)*100).toFixed(0)}%
+                    .popup-view
+                        .popup-card
+                            a
+                                i.fa.fa-times.close-btn
+                            .product-img
+                                img(data-src="../static/hookah/thumbnail/thumbnail-"+ n.PID + "_0.jpeg" alt='' loading="lazy")
+                            .info
+                                h2
+                                    | #{n.name}
+                                    br
+                                    span #{n.Category}
+                                span.priceM ₹#{n.Mprice}
+                                span.priceO ₹#{n.Oprice}
+                                a.add-cart-btn(href=`/p/${n.PID}?key=${n.url_key}` ) Proceed
+
+                                a.add-wish(href=`/p/${n.PID}?key=${n.url_key}` ) Add to Favourites
+    +cont
+    +shop-class 
+    //- .pagination
+    //-     a.Npage(href=`/?page=${back}`) PREVIOUS&raquo;
+    //-     a.Npage(href=`/?page=${next}`) NEXT&raquo;
+    .pagination_rounded
+        ul
+            li
+                a.prev(href=`/?page=${back}`)
+                    i.fa.fa-angle-left(aria-hidden='true')
+                    |  Prev
+            |         
+            li
+                a(href=`/?page=1`) 1
+            |         
+            li.hidden-xs
+                a(href=`/?page=2`) 2
+            |         
+            li.hidden-xs
+                a(href=`/?page=3`) 3
+            |         
+            li.hidden-xs
+                a(href=`/?page=4`) 4
+            |         
+            li.hidden-xs
+                a(href=`/?page=5`) 5
+            |            
+            li
+                a(href=`/?page=6`) 6
+            |         
+            li
+                a.next(href=`/?page=${next}`)
+                    | Next 
+                    i.fa.fa-angle-right(aria-hidden='true')
+            //-   a.add-wish(href='#') Add to Wishlist
+    script(type='text/javascript' async).
+        var popupViews = document.querySelectorAll('.popup-view');
+        var popupBtns = document.querySelectorAll('.popup-btn');
+        var closeBtns = document.querySelectorAll('.close-btn');
+        //javascript for quick view button
+        var popup = function(popupClick){
+        popupViews[popupClick].classList.add('active');
+        }
+        popupBtns.forEach((popupBtn, i) => {
+        popupBtn.addEventListener("click", () => {
+        popup(i);
+        });
+        });
+        //javascript for close button
+        closeBtns.forEach((closeBtn) => {
+        closeBtn.addEventListener("click", () => {
+        popupViews.forEach((popupView) => {
+        popupView.classList.remove('active');
+        });
+        });
+        });
+    script(type="text/javascript" src="../static/script.js" async)
+    script(type="text/javascript" src="../static/lazyload.js" async)

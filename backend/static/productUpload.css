@@ -1,0 +1,172 @@
+.heading {
+    margin-top: 0px;
+    font-size: 30px;
+    margin-left: 40px;
+    color: rgb(21, 7, 59);
+    /* border: 2px solid black; */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.UploadPage {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 25%;
+    max-width: 100%;
+    /* border: 2px solid blue; */
+    flex-direction: row;
+    /* justify-content: center; */
+    align-items: center;
+    justify-content: center;
+}
+
+.radio {
+    /* border: 2px solid black; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: inherit;
+}
+
+.radioj,
+.radiojl {
+    /* border: 2px solid black; */
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.radiojl:active {
+    background-color: rgb(110, 110, 218);
+}
+
+.uploadform {
+    /* position: relative; */
+    /* background: none; */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    /* border: 2px solid black; */
+    align-items: center;
+    /* flex: 25%; */
+    /* width: 400px; */
+    justify-content: space-between;
+    max-width: 100%;
+    /* margin-left: -351px; */
+}
+
+.tooltip {
+    display: none;
+}
+
+.text-center {
+    display: none;
+}
+
+.note-popover.popover,
+.select2-container--default .select2-results>.select2-results__options,
+.select2-container--open .select2-dropdown--below {
+    display: none;
+}
+
+.note-editor.note-frame .note-editing-area .note-editable {
+    word-break: break-all;
+}
+
+#app_input {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    /* margin-left: 84px; */
+}
+
+.plus_sign {
+    /* border: 2px solid red; */
+    height: 100%;
+    /* height: 250px; */
+    color: darkgray;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(240, 234, 234);
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.plus_signT {
+    /* border: 2px solid red; */
+    position: relative;
+    left: -68px;
+    top: 19px;
+    color: darkgray;
+    text-align: left;
+    /* background-color: rgb(240, 234, 234); */
+    background: none;
+    width: 10px;
+    /* margin-left: 10px;
+  margin-right: 10px; */
+    /* margin-left: 40px; */
+}
+
+.productTag {
+    display: flex;
+    flex-direction: column;
+}
+
+.catsclass {
+    padding: 15px;
+    width: 300px;
+    margin: 10px;
+    color: rgb(0, 0, 0);
+    /* background: rgb(72, 102,61); */
+    /* border: none; */
+    /* border-bottom: 2px solid black; */
+    outline: none;
+}
+
+#submit_btn {
+    /* border: 2px solid blue; */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    background: #19B3D3;
+    color: wheat;
+    border: none;
+    border-radius: 5px;
+    /* position: relative; */
+}
+
+#submitForm2 {
+    /* border: 2px solid red; */
+    width: 103px;
+    height: 107px;
+    position: relative;
+    left: -29px;
+    top: -30px;
+}
+
+@media screen and (max-width: 800px) {
+    .UploadPage {
+        flex: 50%;
+        /* max-width: 50%; */
+    }
+}
+
+.fa-mod {
+    /* border: 2px solid green; */
+    /* top: 40px; */
+    width: 40px;
+    height: 40px;
+}
+
+.fa-mod-main {
+    /* border: 2px solid green; */
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+
+@media screen and (max-width: 600px) {
+    .UploadPage {
+        flex: 100%;
+        /* max-width: 100%; */
+    }
+}

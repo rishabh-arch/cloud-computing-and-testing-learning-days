@@ -1,0 +1,64 @@
+extends Dashboard.pug
+
+block append style
+    style
+        include ../../static/table.css
+        include ../../static/CustOr.css
+        //- include ../static/ac.css
+block append scripts
+    script(src="../../static/tablefilter.js")
+    //- script(src="../static/ac.js")
+    script.
+        //- autocomplete(document.getElementById("myInput"), newOBJ.name );
+block Dash
+    .bodyTable
+        .tableMage
+            input(type="text" id="myInput" onkeyup="orderid()" placeholder="Search for OrderId.." autocomplete="on")
+            input(type="text" id="myInput2" onkeyup="phoneno()" placeholder="Search for phoneNo.." autocomplete="on")
+            table#myTable
+                tr
+                    th Product
+                    th OrderID
+                    th ProductID
+                    th Status
+                    th PromoCode
+                    th Mark.Price
+                    th Site Price
+                    th Dis_price
+                    th Discount
+                    th Address
+                    th Quantities
+                    th TotalPrice
+                    th Date
+                each n,i in newOBJ
+                    tr
+                        td
+                            a.tableLink(href="/p/"+n.P_ID)
+                                img(src=`../../static/hookah/${n.P_ID}.jpg`)
+                        td(style="color:red;") #{n.OID}
+                        td
+                            a(href="/p/"+n.P_ID target="_blank")
+                                | #{n.P_ID}
+                        if n.Status=="pending"
+                            td(style="color:#7E0E5A;") #{n.Status}
+                        else if n.Status=="DONE"
+                            td(style="color:green;") #{n.Status}
+                        else
+                            td(style="color:red;") #{n.Status}
+                        
+                        td #{n.PromoCode}
+                        td #{n.Mprice}
+                        td #{n.Oprice}
+                        td #{n.Dis_price}
+                        td #{n.Discount}
+                        td(style="color:red;") #{n.Address}
+                        td #{n.quantity}
+                        td #{n.price_quantity}
+                        td #{n.date_od}
+                            //- a.tableLink(href='/Update/'+ n._id)
+                            //-     img(src='../static/social/DONE.png' onclick=`return confirm("This Order will be Change to DONE");`)
+        .pagination
+            a.Npage(href=`/Dashboard/Orders?page=${back}`) PREVIOUS&raquo;
+            a.Npage(href=`/Dashboard/Orders?page=${next}`) NEXT&raquo;
+
+

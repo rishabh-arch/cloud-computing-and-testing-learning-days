@@ -1,0 +1,133 @@
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title HookahBOI
+    //link(rel='stylesheet' href='home.css')
+    style
+      include ../home.css
+      include ../itemoverlay.css
+      include ../pagination.css
+      include ../TOP.css
+      include ../TOP2.css
+  body 
+  .HEADBAR
+    header.TOP
+      .logo
+        img(src='static/logo.png')
+        | HOOKAH BOI
+      .coninfo
+        a#HOMEICO.infos(href='/')
+          svg.bi.bi-house-door-fill(width='1em' height='1em' viewbox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg')
+            path(d='M6.5 10.995V14.5a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5h-4a.5.5 0 0 1-.5-.5V11c0-.25-.25-.5-.5-.5H7c-.25 0-.5.25-.5.495z')
+            path(fill-rule='evenodd' d='M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z')
+        a.infos(href='/trending')
+          svg.bi.bi-bar-chart-fill(width='1em' height='1em' viewbox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg')
+            rect(width='4' height='5' x='1' y='10' rx='1')
+            rect(width='4' height='9' x='6' y='6' rx='1')
+            rect(width='4' height='14' x='11' y='1' rx='1')
+        a.infos(href='/phone')
+          svg.bi.bi-telephone-fill(width='1em' height='1em' viewbox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg')
+            path(fill-rule='evenodd' d='M2.267.98a1.636 1.636 0 0 1 2.448.152l1.681 2.162c.309.396.418.913.296 1.4l-.513 2.053a.636.636 0 0 0 .167.604L8.65 9.654a.636.636 0 0 0 .604.167l2.052-.513a1.636 1.636 0 0 1 1.401.296l2.162 1.681c.777.604.849 1.753.153 2.448l-.97.97c-.693.693-1.73.998-2.697.658a17.47 17.47 0 0 1-6.571-4.144A17.47 17.47 0 0 1 .639 4.646c-.34-.967-.035-2.004.658-2.698l.97-.969z')
+        a.infos(href='/aboutus')
+          svg.bi.bi-file-person-fill(width='1em' height='1em' viewbox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg')
+            path(fill-rule='evenodd' d='M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm-1 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm-3 4c2.623 0 4.146.826 5 1.755V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-1.245C3.854 11.825 5.377 11 8 11z')
+      .social
+        a.socialicon(href='')
+          img(src="static/social/facebook.png")
+        a.socialicon(href='')
+          img(src='static/social/YouTube.png')
+        a.socialicon(href='')
+          img(src='static/social/instagram.png')
+        a.socialicon(href='')
+          img(src='static/social/whatsapp.png')
+    nav.TOP2
+      a.cats(href='') Laptop
+      a.cats(href='') mobile
+      a.cats(href='') watch
+      a.cats(href='') headphone
+      a.cats(href='') projectors
+      a.cats(href='') camera
+      a.cats(href='') others
+  .Rightnav
+    .itemlist
+      a.pp(href='/')
+        - var img = content
+        img(src= img)
+  .product
+    .productpage
+      a.itemcon(href='')
+        .pitem item
+        .over
+          button(type='button') BUY NOW
+      a.itemcon(href='')
+        .pitem item
+        .over
+          button(type='button') BUY NOW
+      a.itemcon(href='')
+        .pitem item
+        .over
+          button(type='button') BUY NOW
+      a.itemcon(href='')
+        .pitem item
+        .over
+          button(type='button') BUY NOW
+      a.itemcon(href='')
+        .pitem item
+        .over
+          button(type='button') BUY NOW
+      a.itemcon(href='')
+        .pitem item
+        .over
+          button(type='button') BUY NOW
+      a.itemcon(href='')
+        .pitem item
+        .over
+          button(type='button') BUY NOW
+      a.itemcon(href='')
+        .pitem item
+        .over
+          button(type='button') BUY NOW
+      a.itemcon(href='')
+        .pitem item
+        .over
+          button(type='button') BUY NOW
+      a.itemcon(href='')
+        .pitem item
+        .over
+          button(type='button') BUY NOW
+      a.itemcon(href='')
+        .pitem item
+        .over
+          button(type='button') BUY NOW
+      a.itemcon(href='')
+        .pitem item
+        .over
+          button(type='button') BUY NOW
+      a.itemcon(href='')
+        .pitem item
+        .over
+          button(type='button') BUY NOW
+      a.itemcon(href='')
+        .pitem item
+        .over
+          button(type='button') BUY NOW
+      a.itemcon(href='')
+        .pitem item
+        .over
+          button(type='button') BUY NOW
+    .pagination
+      a(href= '') &laquo;
+      a(href='#') 1
+      a(href='#') 2
+      a(href='#') 3
+      a(href='#') 4
+      a(href='#') 5
+      a(href='#') 6
+      a(href='#') &raquo;
+  footer
+    | Yes this was made by RISHABHh Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, necessitatibus
+    | officiis voluptatum qui veritatis totam. Labore laborum recusandae ducimus magnam consequatur, error vel iure
+    | dolore aliquid ex eum dicta! Accusamus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est aliquid
+    | similique, ratione, obcaecati nostrum nesciunt repellat odio cupiditate nam, minus ab dolore ea nemo. Vero eum
+    | perferendis consectetur odio expedita?

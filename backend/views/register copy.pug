@@ -1,0 +1,63 @@
+extends base.pug
+
+block style
+    style
+        include ../static/login.css
+block scripts
+    script(src="../static/tablefilter.js")
+    script(src='https://code.jquery.com/jquery-3.4.1.slim.min.js' integrity='sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n' crossorigin='anonymous')
+    script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js' integrity='sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo' crossorigin='anonymous')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js' integrity='sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6' crossorigin='anonymous')
+    script(type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js")
+    script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js")
+    script(src="../static/mask.js")
+block content
+    .container2
+        .col-12.col-md-6.col-lg-5.p-5.customborder(style='margin: 0 auto;')
+            h3.text-center.p-3 Register Yourself
+            if(typeof err != 'undefined')
+                .alert
+                    button.close(type='button' data-dismiss='alert') &times;
+                    strong #{err}
+            if(typeof email!='undefined')
+                -var value2 = "";
+            else
+                -var value2 = '';
+            if(typeof username!='undefined')
+                -var value3 = username;
+            else
+                -var value3 = '';
+            form(action='/register' method='POST')
+                .form-group
+                    label(for='email')
+                    input#email.form-control(type='email' name='email' autocomplete='off' placeholder='Email' value=`${value2}`)
+                .form-group
+                    label(for='username')
+                    input#username.form-control(type='text' name='username' autocomplete='off' placeholder='Username' value=`${value3}`)
+                .form-group
+                    label(for='password')
+                    input#password.form-control(type='password' name='password' autocomplete='off' placeholder='Password')
+                .form-group
+                    label(for='confirmpassword')
+                    input#confirmpassword.form-control(type='password' name='confirmpassword' autocomplete='off' placeholder='Confirm Password')
+                
+                .form-group
+                    label(for='Address')
+                    input#Address.form-control(type='text' name='Address' autocomplete='off' placeholder='Address')
+                .form-group
+                    label(for='State')
+                    input#State.form-control(type='text' name='State' autocomplete='off' placeholder='State')
+                    label(for='City')
+                    input#City.form-control(type='text' name='City' autocomplete='off' placeholder='City')
+                .form-group
+                    label(for='PIN') 
+                    input#PIN.form-control(type='text' name='pincode' autocomplete='off' placeholder="PinCode")
+                .form-group
+                    label(for='phone') 
+                    input#phone.form-control(type='text' name='phone' autocomplete='off' placeholder="phone Number")
+                .form-group
+                    button.btn.btn-block.btn-outline-primary(type='submit' value='Register')
+                        | submit
+                p
+                    | Already Registered ? 
+                    a.card-link(href='/login') LOGIN HERE

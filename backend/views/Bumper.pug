@@ -1,0 +1,26 @@
+extends base.pug
+
+block style
+    style
+        include ../static/productUpload.css
+block scripts
+    script(src="../static/categorienav.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js")
+    script(src="/static/postrequest.js")
+    //- script(src="../static/productid.js")
+    
+
+block content
+    p.heading
+        | Upload BUMPER
+        .UploadPage
+            .Uploadinfo
+                p#PID BUM BUM BAJEGA
+            form.uploadform(id=`BumperUpload` method="POST")
+                input.catsclass(type="file" name="images" id="input-images" required)
+                input.catsclass(type="text",name="Link",placeholder="paste Link here" required)
+                input.catsclass(type="submit" value="submit" id="submit")
+                |   #{Change}
+            #confirmMsg
+                

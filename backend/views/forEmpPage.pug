@@ -1,0 +1,13 @@
+extends base.pug
+
+block style
+    style
+        include ../static/table.css
+block scripts
+    script(src="../static/tablefilter.js")
+block content
+    .bodyTable
+        .tableMage
+            form(action="/EMP_ID_PAGE", method="PUT")
+                input(type="password" id="myID" name="myID" placeholder="EnterID")
+                input(type="submit")

@@ -1,0 +1,182 @@
+extends Dashboard.pug
+
+
+
+block append style
+    style
+        include ../../static/table.css
+        
+block append scripts
+    script(src="../../static/tablefilter.js")
+    script.
+        $(document).ready(() => {
+                $('.up_btn').click(function() {
+                    confirmation = confirm("Confirm?");
+                    if(confirmation){
+            var value = $(this).attr("value");
+            var url_link = $(this).attr("data-url");
+            //- var formData = {
+            //- 'PID': $(".up_btn").attr('value')
+            //- };
+            //- console.log(formData); 
+            $.ajax({
+                    type: 'post',
+                    url: url_link,
+                    timeout: 2000,
+                    //- data: formData,
+                    //- dataType: 'json',
+                    // cache: false
+
+                    // encode: true
+                    success: (newOBJ)=>{
+                        //- console.log(data)
+                      window.location.reload();
+                    }
+                })
+                .done(function(newOBJ) {
+                    return newOBJ;
+                })
+                    }
+            });
+            });
+             
+
+        //- autocomplete(document.getElementById("myInput"), newOBJ.name );
+block Dash
+
+    if(procced_type!="OnWay")
+        -var boolean = true
+    else
+        -var boolean = false
+
+    if(procced_type!="Pending")
+        -var boolean = true
+    else
+        -var boolean = false
+    .bodyTable
+        H3(style=`margin-top:0px;text-align:center; font-size:30px;`) ORDER REQUEST
+        .search_field.ui-widget
+            input(type="text" id="myInput" placeholder="Search .." data-url=`/searchbar?key=${procced_type}`)
+            button.fa.fa-search(id="Search_btn")
+        .tableMage.card-body.p-0
+            table.table.table-responsive
+                tr.bg-light.border-0
+                    th.border-0 Image
+                    th.border-0  OrderID
+                    th.border-0  NAME
+                    th.border-0 ProductID
+                    th.border-0 Status
+                    th.border-0 PromoCode
+                    th.border-0 email
+                    th.border-0 Phone
+                    th.border-0 Mark.Price
+                    th.border-0 Our Price
+                    th.border-0 Dis_price
+                    th.border-0 Discount
+                    th.border-0 Address
+                    th.border-0 Quantities
+                    th.border-0 TotalPrice
+                    th.border-0 Date
+                    th.border-0(hidden=boolean) Proceed
+                each n,i in newOBJ
+                    tr
+                        td.m-r-10
+                            a.tableLink(href="/p/"+n.P_ID)
+                                img(src=`../../static/hookah/thumbnail_table_icon/thumbnail_table_icon-${n.P_ID}.jpg`)
+                        td(style="color:red;") #{n.OID}
+                        td #{n.name}
+                        td #{n.P_ID}
+                        td(style="color:green;") #{n.Status}
+                        td #{n.PromoCode}
+                        td #{n.email}
+                        td #{n.phone}
+                        td #{n.Mprice}
+                        td #{n.Oprice}
+                        td #{n.Dis_price}
+                        td #{n.Discount}
+                        td.wraptext(style="color:red;") #{n.Address}
+                        td #{n.quantity}
+                        td #{n.price_quantity}
+                        td.wraptext #{n.date_od}
+                        td.wraptext(hidden=boolean)
+                            a.tableLink.up_btn(data-url=`/dashboard/OrderRequest?Proceed=Update&PID=${n.OID}`)
+                                i.fa.fa-check-circle
+                            a.tableLink.up_btn(data-url=`/dashboard/OrderRequest?Proceed=Cancel&PID=${n.OID}`)
+                                i.fa.fa-ban
+                            a.tableLink.up_btn(data-url=`/dashboard/OrderRequest?Proceed=OnWay&PID=${n.OID}`)
+                                i.fa.fa-truck
+        .pagination_rounded(style="margin-top:50px;")
+            ul
+                li
+                    a.prev(href=`/Dashboard/OrderRequest?page=${back}`)
+                        i.fa.fa-angle-left(aria-hidden='true')
+                        |  Prev
+                |         
+                li
+                    a(href=`/Dashboard/OrderRequest/?page=1`) 1
+                |         
+                li.hidden-xs
+                    a(href=`/Dashboard/OrderRequest/?page=2`) 2
+                |         
+                li.hidden-xs
+                    a(href=`/Dashboard/OrderRequest/?page=3`) 3
+                |         
+                li.hidden-xs
+                    a(href=`/Dashboard/OrderRequest/?page=4`) 4
+                |         
+                li.hidden-xs
+                    a(href=`/Dashboard/OrderRequest/?page=5`) 5
+                |            
+                li
+                    a(href=`/Dashboard/OrderRequest/?page=6`) 6
+                |         
+                li
+                    a.next(href=`/Dashboard/OrderRequest?page=${next}`)
+                        | Next 
+                        i.fa.fa-angle-right(aria-hidden='true')
+    script.
+        $(function(){
+                searchfield_width = $(".search_field").width()
+                var url_link = $("#myInput").attr("data-url");
+                console.log(url_link)
+                $('#myInput').autocomplete({
+                    appendTo: ".search_field",
+                    autoFocus: true,
+                source: function(req,res){
+                $.ajax({
+                    url:url_link,
+                    dataType:"jsonp",
+                    type:"GET",
+                    data:req,
+                    success: function(data){
+                    res(data)
+                    },
+                    error: function(err){
+                    console.log(err.status);
+                    }
+                });
+                },
+                 classes: {
+                        "ui-autocomplete": "highlight"
+                    },
+                    autofocus:true,
+                minLength:1,
+                select: function(event,ui){
+                if(ui.item){
+                    $('#myInput').val(ui.item.label);
+                }
+                },
+                open: function(){
+                    $('.ui-autocomplete').css('left', '0px'); // HERE
+                    $('.ui-autocomplete').css('position', 'absolute'); // HERE
+                    $('.ui-autocomplete').css('background-color', 'white'); // HERE
+                    $('.ui-autocomplete').css('list-style', 'none'); // HERE
+                    $(".search_field").children(".ui-autocomplete").css('width',`${searchfield_width}px`);
+
+
+                }
+                
+                });
+                });
+
+

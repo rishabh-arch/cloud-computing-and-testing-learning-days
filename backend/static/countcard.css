@@ -1,0 +1,81 @@
+/*widget css*/
+.color1{
+    background: #c23d3d;
+}
+.color2{
+    background: #03A9F3;
+}
+.color3{
+    background: #1f7e07;
+}
+.color4{
+    background: #d4a6dd;
+}
+.color5{
+    background: #d4e285;
+}
+.color6{
+    background: #FB7146;
+}
+.card-body{
+    position: relative;
+    display: inline-block;
+    font-family: "Roboto", sans-serif;
+    margin: 10px;
+    padding: 20px;
+    width: 250px;
+    height: 150px;
+    color: rgb(12, 2, 34);
+    /* border-radius: 5px; */
+    /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); */
+    box-shadow: inset 49px 13px 90px rgb;
+    /* border: 1px solid black; */
+
+}
+.float-left{
+    /* float: left; */
+}
+.float-right{
+    /* float: right; */
+}
+.card-body h3{
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+.currency, .count{
+    font-size: 30px;
+    font-weight: 500;
+}
+.card-body p{
+    font-size: 16px;
+    margin-top: 15px;
+}
+.card-body i{
+    position: absolute;
+    top: 24px;
+    right: 8px;
+    font-size: 95px;
+    opacity: 0.5;
+}                              
+
+@media screen and (max-width: 715px){
+    .card-body{
+        width: 134px;
+        height: 120px;
+    padding: 14px;
+
+    }
+    .card-body i{
+        top: 24px;
+    right: 8px;
+        font-size: 45px;
+    }     
+    .currency, .count {
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .card-body p {
+        font-size: 12px;
+        /* margin-top: 0; */
+    }
+}

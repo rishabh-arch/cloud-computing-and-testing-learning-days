@@ -1,0 +1,301 @@
+* {
+    box-sizing: border-box;
+    /* scrollbar-color: red yellow; */
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0%;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    zoom: 0.9;
+    scrollbar-color: rebeccapurple green;
+    background-color: rgb(241 241 241);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    line-height: 1.5;
+}
+
+
+svg {
+    overflow: hidden;
+    vertical-align: middle
+}
+input {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit
+}
+
+
+
+.changed::after {
+    content: "";
+    position: fixed;
+    z-index: 3;
+    background-color: #000000d0;
+    /* opacity: 0.4; */
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    /* min-height: 100%; */
+    height: 100%;
+    /* overflow: auto; */
+    /* background-size: 1111px, 4444px; */
+}
+
+::-webkit-scrollbar {
+    width: 11px;
+}
+
+::-webkit-scrollbar-thumb {
+    /* border-radius: 10px; */
+    background-color: #7d8385;
+    /* box-shadow: inset 0 0 6px rgba(0,0,0,.5); */
+}
+
+::-webkit-scrollbar-track {
+    /* border-radius: 10px; */
+    background-color: #05021f;
+    /* box-shadow: inset 0 0 6px rgba(0,0,0,.4); */
+    background: none;
+}
+
+.HEADBAR {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    top: 0%;
+    /* border: 2px solid black; */
+    background-color: rgb(9, 9, 24);
+    /* background-color: rgb(11, 10, 54); */
+    /* display: none; */
+}
+
+header {
+    /* box-sizing: border-box; */
+    /* background-color: rgb(9, 9, 24); */
+    /* background-color: rgb(255, 255, 255); */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.TOP,
+.TOP .coninfo>a,
+.social a {
+    -webkit-tap-highlight-color: transparent;
+    color: #e2e1df;
+}
+
+.TOP2 {
+    /* background-color: rgb(24, 24, 65); */
+    background-color: #232f3e;
+    /* position: sticky; */
+    width: 100%;
+    top: 0;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 1px;
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    /* justify-content: space-evenly; */
+    padding: 5px;
+}
+
+.TOP2 a {
+    text-decoration: none;
+    color: azure;
+}
+
+.productrow {
+    margin-top: 120px;
+    height: 100%;
+    width: 100%;
+}
+
+.row {
+    /* border: 2px solid black; */
+    /* margin-top: 10px; */
+    display: flex;
+    flex-wrap: wrap;
+    /* align-items: center; */
+    justify-content: center;
+    padding: 0 4px;
+    /* width: 1000px; */
+    /* margin-left: 20px; */
+}
+
+
+/* Create four equal columns that sits next to each other */
+
+.column {
+    margin: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* max-height: 70%; */
+    /* height: 200px; */
+    flex: 25%;
+    max-width: 20%;
+    /* padding: 0 4px; */
+}
+
+
+/* .imagecol{
+display: inline-block;
+margin: 20px;
+} */
+
+
+/* 
+.imagecol img {
+  vertical-align: middle;
+  width: 200px;
+  height: 200px;
+} */
+
+.BUMPER {
+    /* margin-top: 20px; */
+    position: relative;
+    border: none;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    /* width: 50px; */
+    height: 120px;
+    overflow: hidden;
+}
+
+.bumperLink {
+    width: 100px;
+    /* position: relative; */
+}
+
+.bumperMage img {
+    position: absolute;
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+}
+
+#dropbtn {
+    background: none;
+    border: none;
+    display: none;
+    outline: none;
+}
+
+.dropdown-content2 {
+    width: 120px;
+    border: 2px solid black;
+    display: block;
+    /* flex-direction: column; */
+    position: absolute;
+    z-index: 1;
+    display: none;
+    background-color: rgb(3, 3, 39);
+    animation: growDown 200ms ease-in-out forwards;
+    transform-origin: top center;
+}
+
+@keyframes growDown {
+    0% {
+        transform: scaleY(0);
+    }
+    80% {
+        transform: scaleY(1.1);
+    }
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+.dropdown-content2 a {
+    color: aliceblue;
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.dropdown-content2 a:hover {
+    color: rgb(9, 9, 43);
+    background-color: aliceblue;
+}
+
+.dropdown2:hover .dropdown-content2 {
+    display: block;
+    transform: scaleX(-1);
+}
+
+
+/* .searchbar{
+
+  border: 2px solid red;
+ }
+
+#search{
+
+  border: none;
+  font-size: 20px;
+}
+ */
+
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+
+@media screen and (max-width: 800px) {
+    .column {
+        flex: 40%;
+        max-width: 50%;
+    }
+}
+
+@media only screen and (max-width: 950px) and (min-width: 800px) {
+    .itemcon {
+        flex: 10%;
+        max-width: 50%;
+        margin: 2000px;
+        /* padding: 1000px; */
+    }
+    .column {
+        flex: 50%;
+        max-width: 30%;
+    }
+}
+
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+
+@media screen and (max-width: 600px) {
+    body {
+        zoom: 1;
+    }
+    .column {
+        flex: 120%;
+        max-width: 100%;
+        /* flex: 25%;
+    max-width: 20%;
+    padding: 0 4px; */
+    }
+}
+
+@media screen and (max-width: 715px) {
+    .HEADBAR {
+        background-color: white;
+        padding-top: 2%;
+        Box-shadow: 1px -3px 18px;
+        border-radius: 7px;
+    }
+    .TOP2 {
+        display: none;
+    }
+    #aboutus {
+        display: none;
+    }
+}

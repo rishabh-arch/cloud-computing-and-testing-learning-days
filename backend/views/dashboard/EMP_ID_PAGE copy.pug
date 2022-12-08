@@ -1,0 +1,122 @@
+extends Dashboard.pug
+
+block append style
+    style
+        include ../../static/EMP_ID_PAGE.css
+block append scripts
+    script.
+        $(document).ready(() => {
+                $('.del').click(function() {
+                    confirmation = confirm("Confirm?");
+                    if(confirmation){
+            var value = $(this).attr("value");
+            var url_link = $(this).attr("data-url");
+            $.ajax({
+                    type: 'post',
+                    url: url_link,
+                    timeout: 2000,
+                    success: (newOBJ)=>{
+                        window.location.reload();
+                    }
+                })
+                .done(function(newOBJ) {
+                    return newOBJ;
+                })
+                }
+            });
+            });
+    //- script(src="../../static/tablefilter.js"
+block Dash
+    .bodyTable
+        H3(style=`margin-top:0px;text-align:center; font-size:30px;`) YOUR PRODUCTS
+        .tableMage
+            form.search_field(action="" method="post")
+                input(type="text" id="myInput" onkeyup="orderid()" placeholder="Search Anything.." autocomplete="off" data-url=`/searchbar?key=EMP_ID_PAGE`)
+                button.fa.fa-search(id="Search_btn" )
+            table#myTable
+                tr
+                    th Product
+                    th ProductID
+                    th ProductName
+                    th Brand
+                    th InStock
+                    th Market Price
+                    th Our Price
+                    th colour
+                    th Quantities
+                    th TotalOrders
+                    th Category
+                    th upload Date
+                each n,i in newObj
+                    tr
+                        td
+                            a.tableLink(href="/Dashboard/EditProduct?pid="+n.PID)
+                                img(src=`../../static/hookah/thumbnail_table_icon/thumbnail_table_icon-${n.PID}.jpg`)
+                        td(style="color:red;") #{n.PID}
+                        td #{n.name}
+                        td #{n.brand}
+                        td #{n.InStock}
+                        td #{n.Mprice}
+                        td #{n.Oprice}
+                        td #{n.colour}
+                        td #{n.Quantities}
+                        td #{n.TotalOrders}
+                        td #{n.Category}
+                        td #{n.date_up}
+                        
+                        td
+                            a.tableLink2(href="/Dashboard/EditProduct?pid="+n.PID)
+                                i.fa.fa-edit
+                            a.tableLink2#deletePID.del( data-url=`/dashboard/EMP_ID_PAGE?Proceed=delete&pid=${n.PID}`)
+                                i.fa.fa-trash
+
+        .pagination
+            a.Npage(href=`/Dashboard/EMP_ID_PAGE?page=${back}`) PREVIOUS&raquo;
+            a.Npage(href=`/Dashboard/EMP_ID_PAGE?page=${next}`) NEXT&raquo; 
+
+    script.
+        $(function(){
+            searchfield_width = $(".search_field").width()
+            var url_link = $("#myInput").attr("data-url");
+            console.log(url_link)
+            $('#myInput').autocomplete({
+                appendTo: ".search_field",
+                autoFocus: true,
+            source: function(req,res){
+            $.ajax({
+                url:url_link,
+                dataType:"jsonp",
+                type:"GET",
+                data:req,
+                success: function(data){
+                res(data)
+                },
+                error: function(err){
+                console.log(err.status);
+                }
+            });
+            },
+                classes: {
+                    "ui-autocomplete": "highlight"
+                },
+                autofocus:true,
+            minLength:1,
+            select: function(event,ui){
+            if(ui.item){
+                $('#myInput').val(ui.item.label);
+            }
+            },
+            open: function(){
+                $('.ui-autocomplete').css('left', '10px'); // HERE
+                $('.ui-autocomplete').css('position', 'absolute'); // HERE
+                $('.ui-autocomplete').css('background-color', 'white'); // HERE
+                $('.ui-autocomplete').css('list-style', 'none'); // HERE
+                $(".search_field").children(".ui-autocomplete").css('width',`${searchfield_width}px`);
+
+
+            }
+            
+            });
+            });
+
+
