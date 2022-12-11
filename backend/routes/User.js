@@ -20,8 +20,8 @@ const { verify } = require('crypto');
 
 const storage = multer.diskStorage({ 
     destination: function (req, file, cb) { 
-        fsAccess('frontend/build/uploads/');
-        cb(null, "frontend/build/uploads/") ;
+        fsAccess('pictures/');
+        cb(null, "pictures/") ;
     }, 
     filename: function (req, file, cb) { 
       cb(null, file.fieldname + "-" + Date.now()+".jpg") 
@@ -293,8 +293,8 @@ userRouter.post('/DeleteuserNewsData', passport_auth, async (req, res) => {
                         const NewsData = await db.getDB().collection("newsPost").find({ email: body_email }).toArray();
                         Result.forEach((image, i) => {
                                 try{
-                            fs.unlink(`frontend/build/uploads/${image.news_image}`);
-                            fs.unlink(`frontend/build/uploads/thumbnail/${image.news_image}`);
+                            fs.unlink(`pictures/${image.news_image}`);
+                            fs.unlink(`pictures/thumbnail/${image.news_image}`);
                                 }catch(err){
                                     res.status(401).json({ error: err });
                                 }
@@ -396,11 +396,11 @@ userRouter.post('/admin_Control', passport_auth, async (req, res) => {
                        const deleteResult = await db.getDB().collection("newsPost").deleteOne({ news_ID: reference });
                         if (Result.length > 0) {
                             Result.forEach((image, i) => {
-                                fs.unlink(`frontend/build/uploads/${image.news_image}`, err => {
+                                fs.unlink(`pictures/${image.news_image}`, err => {
 
                                     if (err) throw err;
                                 });
-                                fs.unlink(`frontend/build/uploads/thumbnail/${image.news_image}`, err => {
+                                fs.unlink(`pictures/thumbnail/${image.news_image}`, err => {
 
                                     if (err) throw err;
                                 });
@@ -415,10 +415,10 @@ userRouter.post('/admin_Control', passport_auth, async (req, res) => {
                         await db.getDB().collection("newsPost").deleteMany({ email: reference })
                         if (Result.length > 0) {
                             Result.forEach((image, i) => {
-                                fs.unlink(`frontend/build/uploads/${image.news_image}`, err => {
+                                fs.unlink(`pictures/${image.news_image}`, err => {
                                     if (err) throw err;
                                 });
-                                fs.unlink(`frontend/build/uploads/thumbnail/${image.news_image}`, err => {
+                                fs.unlink(`pictures/thumbnail/${image.news_image}`, err => {
 
                                     if (err) throw err;
                                 });
