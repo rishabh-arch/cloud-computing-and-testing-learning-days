@@ -139,7 +139,7 @@ volumes:
 git clone --single-branch --branch First-docker-container https://github.com/rishabh-arch/cloud-computing-and-testing-learning-days.git
 ```
 
-- create these 3 folders inside backend folder `frontend/build/uploads`
+- create these 3 folders inside backend folder `frontend/build/uploads` ignore if already exists
 
 - Download docker and run on your system
 
